@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "way2lab-c6a78"
+  },
+  "targets": {
+    "way2lab-c6a78": {
+      "hosting": {
+        "way2lab-user": [
+          "web.app"
+        ]
+      }
+    }
+  }
+}

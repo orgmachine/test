@@ -1,0 +1,104 @@
+<app-header></app-header>
+<ion-content class="login">
+<div class="container">
+
+
+
+ <!-- The content half --> 
+ 
+ <div class="col-md-12 col-lg-12 col-xl-12  pb-2">
+
+ <div class="main-signup-header"> 
+ <h2>We are working with India's top corporates as their wellness partner.<br>
+ If you’re Interested? Let's get talking!
+</h2> 
+ <h5 class="font-weight-semibold mb-4">Fill in the details below and one of our team members will get in touch with you.</h5> 
+</div>
+<div class="col-md-12 col-lg-10 col-xl-10" style="margin:0 auto;">
+<form [formGroup]="contactForm">
+    <ion-list class="list">
+      <div class="emailTag">Name</div>
+      <ion-item>
+        <ion-input [(ngModel)]="name" type="text" spellcheck="false" autocapitalize="off" formControlName="name" placeholder="Please Enter Your Full Name">
+        </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( contactForm.get('name').hasError('minlength') || contactForm.get('name').hasError('maxlength') ||contactForm.get('name').hasError('pattern') ||contactForm.get('name').hasError('required') ) && contactForm.get('name').touched">
+        <div class="error" *ngIf="contactForm.get('name').hasError('required') && contactForm.get('name').touched">
+         Name Is Required
+        </div>
+      </div>
+
+      <div class="emailTag">Mobile Number</div>
+      <ion-item>
+        <ion-input id="phoneNumber" [(ngModel)]="phone" type="tel" formControlName="phone" placeholder="Please Enter Mobile Number" [disabled]="isVerified">
+        </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( contactForm.get('phone').hasError('minlength') || contactForm.get('phone').hasError('maxlength') ||contactForm.get('phone').hasError('pattern') ||contactForm.get('phone').hasError('required') ) && contactForm.get('phone').touched">
+        <div class="error" *ngIf="contactForm.get('phone').hasError('required') && contactForm.get('phone').touched">
+         Mobile Number Is Required
+        </div>
+        <div class="error" *ngIf="contactForm.get('phone').hasError('minlength')">
+          Please Enter Valid Mobile Number
+        </div>
+        <div class="error" *ngIf="contactForm.get('phone').hasError('maxlength')">
+          Please Enter Valid Mobile Number
+        </div>
+      </div>
+      <div *ngIf="isVerified" class="verified">
+        Number is verified successfully
+      </div>
+      <ion-button (click)="sendOtp()" *ngIf="!isVerified && contactForm.get('phone').valid" [disabled]="contactForm.get('phone').invalid">
+        Send OTP
+      </ion-button>
+
+      <div class="emailTag">Email</div>
+      <ion-item>
+       <ion-input [(ngModel)]="email" type="email" spellcheck="false" autocapitalize="off" formControlName="email" placeholder="Please Enter Your Email-Id">
+       </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( contactForm.get('email').hasError('minlength') || contactForm.get('email').hasError('maxlength') ||contactForm.get('email').hasError('pattern') ||contactForm.get('email').hasError('required') ) && contactForm.get('email').touched">
+        <div class="error" *ngIf="contactForm.get('email').hasError('required') && contactForm.get('email').touched">
+         Email-Id Is Required
+        </div>
+        <div class="error" *ngIf="contactForm.get('email').hasError('pattern')">
+          Please Enter Valid Email-Id
+        </div>
+      </div>
+
+<div class="emailTag">Company Name</div>
+      <ion-item>
+        <ion-input [(ngModel)]="cname" type="text" spellcheck="false" autocapitalize="off" formControlName="cname" placeholder="Please Enter Your Company Name">
+        </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( contactForm.get('cname').hasError('minlength') || contactForm.get('cname').hasError('maxlength') ||contactForm.get('cname').hasError('pattern') ||contactForm.get('cname').hasError('required') ) && contactForm.get('cname').touched">
+        <div class="error" *ngIf="contactForm.get('cname').hasError('required') && contactForm.get('cname').touched">
+         Company Name Is Required
+        </div>
+      </div>
+
+<div class="emailTag">Designation</div>
+      <ion-item>
+        <ion-input [(ngModel)]="designation" type="text" spellcheck="false" autocapitalize="off" formControlName="designation" placeholder="Please Enter Your Company Name">
+        </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( contactForm.get('designation').hasError('minlength') || contactForm.get('designation').hasError('maxlength') ||contactForm.get('designation').hasError('pattern') ||contactForm.get('designation').hasError('required') ) && contactForm.get('designation').touched">
+        <div class="error" *ngIf="contactForm.get('designation').hasError('required') && contactForm.get('designation').touched">
+         Designation Is Required
+        </div>
+      </div>
+
+      <div class="emailTag">Enquiry</div>
+      <ion-textarea class="textarea" rows="6" cols="20" placeholder="Write your Enquiry here" auto-grow="true" [(ngModel)]="message" formControlName="message">
+      </ion-textarea>
+      <br>
+      <ion-button (click)="submit()" [disabled]="contactForm.get('email').invalid || contactForm.get('name').invalid || contactForm.get('phone').invalid || contactForm.get('cname').invalid || contactForm.get('designation').invalid || !isVerified">
+        Submit
+    </ion-button>
+  </ion-list>
+</form> 
+ 
+ </div><!-- End --> 
+ </div> <!-- End --> 
+ </div>
+ <app-footer></app-footer>
+</ion-content>

@@ -1,0 +1,50 @@
+ion-item {
+    border-bottom: 1px solid #8c8d8a;
+    --border-color: transparent;
+    animation: popIn 0.2s calc(var(--animation-order) * 70ms) both ease-in;
+    --padding-left: 0px;
+    --inner-padding-end: 0px;
+    border-bottom-style: dotted;
+    padding: 6px;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+p {
+  font-size:12px;
+}
+.question {
+    font-size: 12px;
+    font-weight: bold;
+}
+.price {
+    font-size: 12px;
+}
+h3 {
+  font-weight: bold;
+}
+ion-icon {
+  font-size: xx-large; 
+}
+small {
+  color:var(--ion-color-primary);
+  font-weight:bold;
+}
+span {
+  color:var(--ion-color-primary);
+  font-weight:bold;
+}
+.header-text{
+    padding: 6px 16px;
+    font-weight: bold;
+    color: #11998e;
+}

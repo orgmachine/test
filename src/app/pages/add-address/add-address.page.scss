@@ -1,0 +1,44 @@
+.header{
+    ion-icon{
+            float: right;
+    margin: 5px;
+    font-size: x-large;
+    }
+}
+.label{
+    font-weight: bold;
+    padding: 16px 0px 0px 16px;
+}
+ion-list{
+    ion-item{
+        border: 1px solid #e6e6e6;
+        height: 30px;
+        --min-height: 10%;
+        border-radius: 5px;
+        margin: 10px 0px;
+    }
+    .sc-ion-input-md-h {
+      --padding-top: 0px;
+      --padding-bottom: 22px;
+    }
+}
+ion-row{
+    ion-item{
+        --border-color: transparent;
+        margin: 0px;
+        ion-radio {
+            margin-inline-end: 6px;
+        }
+    }
+}
+
+ion-list {
+    padding: 0px 16px;
+}
+.error {
+    color: rgb(255, 0, 0);
+    font-size: 10px;
+    padding-left: 2px;
+}
+.item .sc-ion-label-md-h{text-overflow: unset;
+font-size: 12px;}

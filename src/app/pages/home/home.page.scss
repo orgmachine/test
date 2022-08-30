@@ -1,0 +1,430 @@
+.main_content_div{
+    .back_image{
+        height: 144px;
+        width: 100%;
+        border-radius: 15px;
+        background-position: center;
+        background-size: cover;
+        margin: 10px 0px 0px 10px;
+    }
+}
+.search-tag{
+    background: var(--ion-color-primary);
+    padding: 16px;
+    p{
+        color: white;
+        margin-bottom: 0px;
+    }
+    ion-icon{
+        position: relative;
+    top: 3px;
+    }
+}
+.tags {padding-left: 14px;
+margin: 8px 0 1px;
+display: inline-block;
+}
+.socserch{
+   
+}
+.tags span {
+    font-size: 12px;
+    background: #fff;
+    margin: 0px 2px;
+    padding: 4px 6px;
+    border-radius: 20px;
+    color: #000;border: 1px solid #ea5b24;
+    ion-icon{position: relative;
+top: 2px;
+color: #fff;
+background: #ea5b24;
+border-radius: 50px;
+padding: 2px;
+font-size: 10px;
+    top: 2px;
+    }
+}
+
+.test-search-item{
+    width: 98%;
+    margin: auto;
+    ion-thumbnail{
+        width: 30px;
+        height: 20px;
+    }
+    ion-item{
+        --padding-start: 0px;
+    }
+    ion-list{
+        border-radius: 15px;
+        padding: 0px;
+    }
+    p{
+        margin: 0px;
+        padding-left: 16px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    span{
+        float: right;
+    }
+}
+.pincode-search-item{
+    width: 98%;
+    margin: auto;
+    ion-item{
+        --padding-start: 0px;
+    }
+    ion-list{
+        border-radius: 15px;
+        padding: 0px;
+    }
+    p{
+        margin: 0px;
+        padding-left: 16px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+}
+ion-slides {
+  height: 35%;
+}
+ion-label {
+    margin-left: 14px;
+}
+.addtomore{
+    border-top: 1px solid #ddd;
+    padding: 10px 0px;
+    
+}
+.booknow{
+    margin: 10px 0px;
+    /*--background:  var(--ion-color-primary);*/
+    --border-radius: 50px;
+}
+.category_name {font-size: 14px;width: 245px;
+height: 56px;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 0;
+    margin: 0;
+    text-transform: uppercase;
+}
+.category_price{
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;padding:  0;margin: 0;
+}
+.category_des {
+    font-size: 14px;
+    margin: 0 10px 10px 10px;
+}
+.price{color: #ea5b24;font-size: 17px;
+font-weight: bold;
+padding-top: 5px;
+padding-right: 10px;}
+.category_img {}
+.categories-section{background-image: url("https://demo.casethemes.net/organio/wp-content/uploads/2021/03/bg-section7.jpg");
+background-position: top center;
+background-repeat: no-repeat;
+background-size: cover;text-align: center;padding-bottom: 50px;}
+
+.product_review{text-align: center;padding:  0;margin: 0;display: block ruby;}
+.colprodfre{}
+
+
+.colprod.ml-2{margin-left: 10px  !important;margin-bottom: 10px;background: #fff;border-radius: 10px;
+box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;}
+
+.whychooseus {
+    padding: 50px 0;
+}
+
+.ShopByProducts{padding-bottom: 50px;}
+.addtocart{background: transparent;
+color: #ea5b24;
+padding: 7px 10px;
+font-size: 13px;
+border-radius: 20px;
+margin: 4px auto;
+text-align: center;
+display: block;
+border: 1px solid;
+text-transform: uppercase;}
+
+.frequentlytopProducts{
+    background-image:url('../../../assets/pop_contbg.png');
+    background-position: top center;
+    background-repeat: no-repeat;background-color: transparent;
+    background-size:cover;
+    text-align: center;
+}
+
+.multiplecats{}
+/*.grid-item-inner {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 8px 10px;
+}*/
+.popimg {width: 108px;
+    border-radius:10px 10px 0px 0px;
+}
+        
+.elementor-widget-ct_fancy_box {
+    cursor: pointer;
+}
+.pop_pk {
+    display: inline-flex;
+}
+.topRatedProducts {
+    text-align: center;
+}
+.mid .discount{
+     border-bottom: 1px solid #ddd;
+     h5 {
+        padding: 10px 0px ;
+        text-transform: uppercase;
+        margin: 0px;
+        font-family: 'Poppins-Medium';
+        background:#3c4252;
+font-size: 14px;border-top-left-radius: 20px;
+border-bottom-right-radius: 0px;color: #fff;
+    }
+}
+.mid.second .discount{
+     border-bottom: 1px solid #ddd;
+     h5 {
+        padding: 10px 0px ;
+        text-transform: uppercase;
+        margin: 0px;
+        font-family: 'Poppins-Medium';
+        background:#3c4252;
+font-size: 14px;border-top-left-radius:0px ;
+    border-bottom-right-radius:0px;
+    border-top-right-radius:20px ;
+    border-bottom-left-radius:0px;color: #fff;
+    }
+}
+.topRatedProducts .grid-item-inner{text-align: center;border:1px solid #ddd;border-radius: 10px 10px 0 0;
+margin-bottom: 1px;}
+.uptopmp{padding: 0 10px; }
+.uptopmp img{margin:5px 0px;}
+.mpopimg{border-radius: 50px;
+border: 1px solid #ddd;
+position: absolute;
+top:0px;
+left: 40%;
+padding: 10px;
+background: #fff;}
+.category_namemp{
+    font-family: Poppins-Medium;
+    font-size: 20px;
+    padding-top: 60px;line-height: 26px;
+height: 104px;
+}
+.parameter{
+    text-align: left;
+}
+
+.desmp.uptopmp ul{text-align: center;height: 55px;}
+.desmp li{background-image:url('../../../assets/bul_chk.png');
+background-position: 2px;
+background-repeat: no-repeat;list-style: none;font-size: 14px;
+text-align: left;
+padding-left: 25px;}
+.mrpricemp {
+    font-size: 15px;
+    text-decoration: line-through;
+    color: #fa8152;
+    font-weight: bold;
+}
+.pricemp {
+    font-size: 15px;
+    color: #fa8152;
+    font-weight: bold;
+}
+.butkmore {
+    border-top: 1px solid #ddd;
+}
+.know_more {
+    margin: 15px;
+    color: #007c9d;
+    background: #fff;
+    border-radius: 50px;
+    border: 1px solid #007c9d;
+    padding: 10px;
+    font-size: 15px;
+}
+.ShopByProducts {background: #f5f7fc;}
+.grid-item-innerha {text-align: center;}
+.desha {
+    margin:7px 0;
+}
+.category_nameha{font-size: 20px;color: #007c9d;
+    font-family: Poppins-Medium;
+/*font-weight: bold;
+text-transform: uppercase;*/
+padding-top:15px;
+line-height:20px;margin: 0;}
+
+.viewall{background: white;
+color: #ea5b24;
+padding: 8px 20px;
+font-size: 14px;
+border-radius: 20px;
+margin: 30px auto;
+text-align: center;
+border: 1px solid;
+text-transform: uppercase;
+display: inline-block;}
+.topRatedProducts .viewall{color: #007c9d;}
+.radgridtest {font-size: 14px;
+  display: flex;
+  margin-bottom: 10px;
+  .pricelbl{
+    width: 50%;
+    font-family: 'Poppins-Medium';
+    span{
+        color: red;
+        font-weight: bold;
+        text-decoration: line-through;
+    }
+  }
+}
+.radgridtestbox {
+  text-align: center;
+  font-size: 14px;
+  margin: 0 0px;
+  cursor: pointer;
+  img {
+    max-width: 40%;
+  }
+}
+.majorcity {
+  background: #3f3f3f;
+}
+.mcity {line-height: 24px;
+  color: #fff;
+  font-size: 14px;
+}
+.majorcity{
+  background: #3f3f3f;
+  padding-bottom: 40px;
+}
+.mcityt{float:left;}
+
+.searchbar-input {
+    background: #FFF !important;
+    border-radius: 50px !important;
+    font-size: 13px !important;
+    padding-inline-end: 0px !important;
+    border: 1px solid #008f47 !important;
+    color: #008f47 !important;
+    font-weight: bold;
+}
+
+.ct-header-main{
+  margin: 10px 0;
+  padding-bottom: 10px;
+  box-shadow: none  !important;
+}
+
+.grid-item-inner-new {
+}
+.uptopmp{padding: 0 10px;}
+.category_namepo{
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top:20px;
+    line-height: 30px;
+}
+
+.desmp ul{
+    text-align: center;
+    height: auto;
+}
+.desmp li{
+    background-image:url('../../../assets/bul_chk.png');
+    background-position: 2px;
+    background-repeat: no-repeat;list-style: none;font-size: 14px;
+    text-align: left;
+    padding-left: 25px;
+}
+.butkmore {
+    text-align: center;
+    .know_more {
+    margin: 15px;
+    color: #007c9d;
+    background: #fff;
+    border-radius: 50px;
+    border: 1px solid #007c9d;
+    padding: 10px;
+    font-size: 15px;}
+}
+.mid{
+    background: #fff;
+    box-shadow: rgb(0 0 0 / 40%) 0px 8px 10px;
+    margin: 16px 8px 20%;
+    border-top-left-radius:20px ;
+    border-bottom-right-radius:20px;
+    
+}
+.mid.second{
+    border-top-left-radius:0px ;
+    border-bottom-right-radius:0px;
+    border-top-right-radius:20px ;
+    border-bottom-left-radius:20px;
+}
+.uptopmptop {
+  border-bottom: 1px solid #ddd;
+  padding: 7px 0;
+}
+.uptopmpprice{
+    display:flex;
+    color:red;
+}
+
+.butbook {
+    text-align: center;
+    .know_more {
+        margin: 15px;
+        color: #fff;
+        background: #007c9d;
+        border-radius: 50px;
+        border: 1px solid #007c9d;
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+.prosec{padding:20px 10px;}
+.discountd{background: #3c4252;
+color: #fff;
+margin: 0;
+padding: 0;}
+.discountd h5{margin: 0;
+padding:8px 0;
+font-size: 15px;text-transform: uppercase;font-family: "Poppins-Medium";
+font-size: 14px;}
+.pricelbl i{  font-family: arial ;
+  font-weight: bold;
+}
+.desha {
+  height:55px;
+  overflow: hidden;
+}
+.raditestcon {
+  padding: 20px 0 10px;
+}
+.tags div {
+  float: left;
+  margin-bottom: 8px;
+}
+
+.certxt{color: #fff;text-align: center;
+font-size: 22px;margin-bottom: 10px;}
+.certxt span{font-weight: bold;}
+
+.main_slider{ background-image:url('../../../assets/banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;background-size: cover;}

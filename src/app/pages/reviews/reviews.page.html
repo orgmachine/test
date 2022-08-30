@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Customer Reviews</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ratings">
+    <ion-item>
+      <ion-label>
+        <h2><b>Customer reviews</b></h2>
+        <div class="ratingDiv">
+          <ionic5-star-rating #rating
+            activeIcon = "star"
+            defaultIcon = "star-outline"
+            activeColor = "#439213"
+            halfIcon = "star-half"
+            halfStar = "true" 
+            defaultColor = "black"
+            readonly = "true"
+            [rating] = avg_rating
+            fontSize = "14px">
+          </ionic5-star-rating>
+          <p>  {{avg_rating}} out of 5</p>
+        </div>
+        <p>{{rating_count}} overall ratings</p>
+      </ion-label>
+    </ion-item>    
+  </div>
+  <div class="reviews">
+    <h5><b>Top customers reviews</b></h5>
+    <div *ngFor="let item of allReviews | slice:0:3" style="margin: 16px 0px">
+      <div class="profile">
+          <img [src] = "item.imagePath" *ngIf="item.imagePath != ''">
+          <img src="assets/noProfile.jpg" *ngIf="item.imagePath == ''">
+          <p>{{item.name}}</p>
+      </div>
+      <ion-item>
+        <ion-label>
+          <ionic5-star-rating #rating
+            activeIcon = "star"
+            defaultIcon = "star-outline"
+            activeColor = "#439213"
+            halfIcon = "star-half"
+            halfStar = "true" 
+            defaultColor = "black"
+            readonly = "true"
+            [rating] = item.rating
+            fontSize = "12px">
+          </ionic5-star-rating>
+          <p>Reviewed on {{item.createdAt | date}}</p>
+          <h3>{{item.title}}</h3>
+          <small>{{item.comment}}</small>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

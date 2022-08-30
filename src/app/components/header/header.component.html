@@ -1,0 +1,101 @@
+<div id="ct-header-top" class="ct-header-top1">
+	<div class="container">
+		<div class="row">
+			<div class="ct-topbar-wellcome">
+			    <img src="assets/cal.jpg" style="width: 23px;padding-right: 5px;">  
+			    <a href="tel:+919311213388" style="color: white;">{{settings?.contact_phone}}</a> 
+			</div>
+			 <div class=" mobileview">
+ <ion-buttons slot="start" class="menumob">
+  <ion-menu-button></ion-menu-button>
+</ion-buttons></div>
+		    <div class="ct-topbar-city" >
+		        <ion-select  interface="popover" *ngIf="cities && cities.length" [(ngModel)]="city"  class="sel" (ngModelChange)="selectCity(city)" mode="ios">
+		            <ion-select-option *ngFor="let item of cities" [value]="item.city">{{item.city}}</ion-select-option>
+		        </ion-select>
+		    </div>
+			<div class="ct-topbar-cart">
+				<div class="header-right-item h-btn-cart"> 
+					<!-- <a class=""  (click)="cart()" *ngIf="logedIn">My Cart &nbsp; | &nbsp;</a>  -->
+					<a class=""  (click)="profile()" *ngIf="logedIn">My Account</a> 
+					<a class=""  (click)="login()" *ngIf="!logedIn" >Login/SignUp</a> 
+					<!-- <a class=""  (click)="logout()" *ngIf="logedIn" >Logout</a>   -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="ct-header" class="ct-header-main">
+	<div class="container">
+		<div class="row">	
+
+			<div class="col-lg-2 col-xl-2 p-0 logo">
+				<div class=" ct-header-navigation-left" (click)="home()">
+					<img src="assets/way2lab.svg" class="logo_img">
+				</div>
+			</div>
+
+			<div class="col-sm-2 col-md-6 col-lg-7 col-xl-7 desktopview"  >
+				<div class="ct-header-navigation-right">
+					<div class="ct-main-navigation">
+						<div class="ct-main-navigation-inner">
+						<div class="navbar">
+  <span (click)="home()">Home</span>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Health Risks 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="col-sm-2 col-md-5 col-lg-5 col-xl-5 dropdown-content">
+      <div class="rowww">
+        <div class="column">
+          <a *ngFor="let item of risks" (click)="viewRisk(item)">{{item.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div class="dropdown">
+    <button class="dropbtn">Health Habits
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="col-sm-2 col-md-4 col-lg-4 col-xl-4 dropdown-content">
+      <div class="rowww">
+        <div class="column2">
+          <a *ngFor="let item of habbits" (click)="viewHabit(item)">{{item.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>  
+<a (click)="corporate()">Corporate</a>
+<a (click)="faq()">FAQ</a> 
+<!-- <a (click)="offers()">Offers</a> -->  
+</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-xl-3 p-0 uploadpres" style="text-align: right;"> 
+				<div class="uplopre" slot="end">
+				
+				
+
+			 		<a href="/cart" class="cart">
+				        <ion-icon name="cart-outline"></ion-icon>
+				    </a>
+				    <a href="/add-prescription" class="prescription">
+				        <img src="assets/upload_preButt.png" style="width: 20px;padding-right: 5px;">Upload Prescription
+				    </a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed" (click)="openQuery()" style="cursor: pointer;">
+        <img src="assets/call_but.png">
+    </ion-fab>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="cursor: pointer;">
+        <a href="https://api.whatsapp.com/send?phone=919311213388"  target="_blank"><img src="assets/watsapp.png" width=""></a>
+    </ion-fab>

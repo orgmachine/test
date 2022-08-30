@@ -1,0 +1,513 @@
+<div class="homehea"><app-header></app-header></div>
+<ion-content [scrollEvents]="true">
+<!--   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher> -->
+  <!-- <ion-progress-bar type="indeterminate" color="primary" *ngIf="!isLoaded"></ion-progress-bar> -->
+  <!-- <div *ngIf="isLoaded"> -->
+  <div>
+  <div class="main_slider">
+  
+ <!--  <div class="main_content_div">
+    <ion-slides>
+      <ion-slide *ngFor="let item of row_1_banner">
+        <img [src]="item.banner">
+      </ion-slide>
+    </ion-slides>
+  </div>-->
+  <div class="container">
+  <div  class="socserch">
+  <div class="certxt"><span style="font-size: 24px;margin-bottom: 5px;display: block;">Search Test : Compare Price : Book Appointments</span>
+  </div>
+  
+  <div class="tags" *ngIf="newBucketArray.length !==0">
+  	<div *ngFor="let item of newBucketArray;let i = index;">
+  		<span>{{item}} <ion-icon name="close-outline" (click)="remove(i)"></ion-icon></span>
+  	</div>
+  </div>
+    <div class="socserchin">
+    <ion-searchbar class="searchinp" placeholder="Find your Tests" [(ngModel)]="terms" animated="true" 
+    (ionInput)="onInput($event,'test')" (ionClear)="onCancel($event,'test')">
+    </ion-searchbar>
+		<ion-searchbar class="pininp" [ngClass]="pincode== ''?'pinmand1':''" placeholder="Pincode" [(ngModel)]="pincode" (ionInput)="onInput($event,'pincode')" (ionClear)="onCancel($event,'pincode')">
+		</ion-searchbar>
+	    <ion-button class="searchbut" (click)="searchLabs2()">Search</ion-button>
+	  </div>
+		<div class="test-search-item">
+		  <ion-list *ngIf="testLoad">
+	    	<ion-item *ngFor="let item of all_test | search: terms | slice:0:5" class="keywords" (click)="add(item)">
+	  	    <ion-thumbnail slot="end">
+		        <ion-icon name="add-outline"></ion-icon>
+		      </ion-thumbnail>
+		      <p>{{item.test_name}}</p>
+		    </ion-item>
+		  </ion-list>
+		</div>
+		<div class="pincode-search-item">
+		  <ion-list *ngIf="pincodeLoad">
+	    	<ion-item *ngFor="let item of deliveries_pincode | filter: pincode | slice:0:3" class="keywords" (click)="select(item)">
+		      <p>{{item.pincode}}</p>
+		    </ion-item>
+		  </ion-list>
+		</div>
+  </div>
+</div>
+  </div>
+
+
+
+<div class="frequentlytopProducts">
+	
+		<div class="container">
+<div class="row">
+<div style="margin:30px auto"><div class="ct-heading h-align-center item-st-default" style="text-align: center;"><div class="item--sub-title style-default"> Popular Tests</div>
+<img src="assets/blue_line.jpg">
+</div></div>
+</div></div>
+<div class="desktopview">
+<div class="container">
+	<ion-slides  [options]="slideOpts5">
+      <ion-slide *ngFor="let item of popular_tests | slice:0:16 let i = index">
+		<div class="grid-item-inner">
+				<div [ngClass]="(i % 2 == 0) ? 'mid' : 'mid second'">
+						<div class="discount">
+							<h5> Discounted Upto {{((item.mrp - item.price)/item.mrp) * 100 | number : '1.0-0'}} %</h5>
+						</div>
+						<div class="prosec">
+			 			<p class="category_name">{{item.test_name}}</p>
+			 			<div class="desmp uptopmp">
+				 			<ul>
+						  	<li *ngIf="item.parameter.length !== 0">Includes: {{item.parameter.length}} Parameters</li>
+						  	<li *ngIf="item.parameter.length === 0">Includes: 1 Parameters</li>
+						  	<li>Provided by: {{item.labs}} Labs</li>
+						  	<li>Available in: {{item.total_cities}} Cities</li>
+						  </ul> 
+						</div>
+					  <div class="addtomore">
+					  	<button ion-button class="addtocart" (click)="goToDetail(item)">Know more</button>
+					  </div>
+				  	<div class="radgridtest">
+							<div class="pricelbl">
+								MRP:
+								<br><span><i>₹</i> {{item.mrp}}</span>
+							</div>
+							<div class="pricelbl">
+								Offered Price: 
+								<br><i>₹</i> {{item.price}} Onwards
+							</div>
+						</div>
+						<div class="">
+					  	<ion-button class="booknow" (click)="book(item)">Book Now</ion-button>
+					  </div></div>
+				</div>			
+		</div>
+		</ion-slide>
+    </ion-slides>
+	</div></div>
+	
+<div class="mobileview">
+	
+	<ion-slides  [options]="slideOptsmob5">
+      <ion-slide *ngFor="let item of popular_tests | slice:0:16 let i = index">
+		<div class="grid-item-inner">
+				<div [ngClass]="(i % 2 == 0) ? 'mid' : 'mid second'">
+						<div class="discount">
+							<h5> Discounted Upto {{((item.mrp - item.price)/item.mrp) * 100 | number : '1.0-0'}}%</h5>
+						</div>
+			 			<p class="category_name" style="width: 304px;">{{item.test_name}}</p>
+			 			<div class="desmp uptopmp">
+				 			<ul>
+						  	<li *ngIf="item.parameter.length !== 0">Includes: {{item.parameter.length}} Parameters</li>
+						  	<li *ngIf="item.parameter.length === 0">Includes: 1 Parameters</li>
+						  	<li>Provided by: {{item.labs}} Labs</li>
+						  	<li>Available in: {{item.total_cities}} Cities</li>
+						  </ul> 
+						</div>
+					  <div class="addtomore">
+					  	<button ion-button class="addtocart" (click)="goToDetail(item)">Know more</button>
+					  </div>
+				  	<div class="radgridtest">
+							<div class="pricelbl">
+								MRP:
+								<br><span><i>₹</i> {{item.mrp}}</span>
+							</div>
+							<div class="pricelbl">
+								Offered Price: 
+								<br><i>₹</i> {{item.price}} Onwards
+							</div>
+						</div>
+						<div class="">
+					  	<ion-button class="booknow" (click)="book(item)">Book Now</ion-button>
+					  </div>
+				</div>			
+		</div>
+		</ion-slide>
+    </ion-slides>
+	
+</div>
+<div class="viewall" (click)="showAllTests()"> View All</div>
+
+</div>
+
+
+<div class="topRatedProducts">
+	
+		<div class="container">
+<div class="row">
+<div style="margin:30px auto"><div class="ct-heading h-align-center item-st-default" style="text-align: center;"><div class="item--sub-title style-default">Most Popular Packages</div><img src="assets/blue_line.jpg">
+</div></div>
+</div></div>
+
+<div class="desktopview">
+<div class="container">
+	<ion-slides  [options]="slideOpts4">
+      <ion-slide *ngFor="let item of popular_packages | slice:0:12">
+	  <img class="mpopimg" src="assets/mp1_11.png">
+	  
+		<div class="grid-item-inner">
+		
+				<div class="uptopmp">
+		 		<p class="category_namemp">{{item.test_name}}</p> 
+				  <div class="desmp">
+				  <!-- <ul>
+				  	<li *ngIf="item.parameter.length !== 0">Total no.of Tests - {{item.parameter.length}}</li>
+				  	<li>Quick Turn Around Time</li>
+				  	<li>Reporting as per NABL ISO guidelines</li>
+				  </ul> -->
+				  <ul>
+						  	<li *ngIf="item.parameter.length !== 0">Includes: {{item.parameter.length}} Parameters</li>
+						  	<li *ngIf="item.parameter.length === 0">Includes: 1 Parameters</li>
+						  	<li>Provided by: {{item.labs}} Labs</li>
+						  	<li>Available in: {{item.total_cities}} Cities</li>
+						  </ul> 
+				  </div>
+				</div>
+				<div class="radgridtest">
+							<div class="pricelbl">
+								MRP:
+								<br><span><i>₹</i> {{item.mrp}}</span>
+							</div>
+							<div class="pricelbl">
+								Offered Price: 
+								<br><i>₹</i> {{item.price}} Onwards
+							</div>
+						</div>
+						<div class="butkmore">
+						<div class="discountd">
+							<h5> Discounted Upto {{((item.mrp - item.price)/item.mrp) * 100 | number : '1.0-0'}}%</h5>
+						</div>
+				
+					<button ion-button  class="know_more" (click)="goToDetail(item)">Know More</button>
+					<button ion-button  class="know_more" (click)="book(item)">Book Now</button>
+				</div>
+			</div>
+		
+		</ion-slide>
+    </ion-slides>
+	</div>
+</div>
+<div class="mobileview">
+	<ion-slides  [options]="slideOptsmob4">
+      <ion-slide *ngFor="let item of popular_packages | slice:0:12">
+		<div class="grid-item-inner">
+				<div class="uptopmp">
+		 			<img class="mpopimg" src="assets/mp1_11.png">
+		 			<p class="category_namemp">{{item.test_name}}</p> 
+				  <div class="desmp">
+				 <!--  <ul>
+				  	<li *ngIf="item.parameter.length !== 0">Total no.of Tests - {{item.parameter.length}}</li>
+				  	<li>Quick Turn Around Time</li>
+				  	<li>Reporting as per NABL ISO guidelines</li>
+				  </ul> -->
+				    <ul>
+					  	<li *ngIf="item.parameter.length !== 0">Includes: {{item.parameter.length}} Parameters</li>
+					  	<li *ngIf="item.parameter.length === 0">Includes: 1 Parameters</li>
+					  	<li>Provided by: {{item.labs}} Labs</li>
+					  	<li>Available in: {{item.total_cities}} Cities</li>
+					  </ul> 
+				  </div>
+				</div>
+					<div class="radgridtest">
+							<div class="pricelbl">
+								MRP:
+								<br><span><i>₹</i> {{item.mrp}}</span>
+							</div>
+							<div class="pricelbl">
+								Offered Price: 
+								<br><i>₹</i> {{item.price}} Onwards
+							</div>
+						</div>
+						<div class="butkmore">
+						<div class="discountd">
+							<h5> Discounted Upto {{((item.mrp - item.price)/item.mrp) * 100 | number : '1.0-0'}}%</h5>
+						</div>
+				
+					<button ion-button  class="know_more" (click)="goToDetail(item)">Know More</button>
+					<button ion-button  class="know_more" (click)="book(item)">Book Now</button>
+				</div>
+			</div>
+		
+		</ion-slide>
+    </ion-slides>
+	</div>
+
+<div class="viewall" (click)="showAllPackages()">View All Package</div>
+</div>
+
+
+  
+  
+<div class="ShopByProducts">
+	
+		<div class="container" >
+<div class="row">
+<div style="margin:30px auto"><div class="ct-heading h-align-center item-st-default" style="text-align: center;"><div class="item--sub-title style-default">Health Risks</div>
+<img src="assets/org_line.png">
+</div></div>
+</div>
+
+
+
+<div class="desktopview">
+<ion-slides  [options]="slideOpts2">
+      <ion-slide *ngFor="let item of risks | slice:0:12" (click)="add(item)">
+       <div class="grid-item-innerha">
+	    <img class="popimg" [src]="item.image">
+	    <p class="category_nameha">{{item.name}}</p> 
+			<div class="desha" [innerHtml]="item.description | slice:0:160">...</div>
+			<button ion-button  class="addtocart" (click)="viewRisk(item)">View Test</button>
+	  </div>
+      </ion-slide>
+    </ion-slides>
+</div>
+<div class="mobileview">
+<ion-slides  [options]="slideOptsmob2">
+      <ion-slide *ngFor="let item of risks | slice:0:12" (click)="add(item)">
+       <div class="grid-item-innerha">
+	    <img class="popimg" [src]="item.image">
+	    <p class="category_nameha">{{item.name}}</p> 
+			<div class="desha" [innerHtml]="item.description | slice:0:160">...</div>
+			<button ion-button  class="addtocart" (click)="viewRisk(item)">View Test</button>
+	  </div>
+      </ion-slide>
+    </ion-slides>
+</div>
+</div>
+</div>
+
+
+
+<div class="raditestcon">
+<div class="container">
+<div class="row">
+
+<div class="col-md-12 col-lg-6 col-xl-6">
+<img src="assets/radtest.png"/>
+
+</div>
+
+<div class="col-md-12 col-lg-6 col-xl-6">
+	<h2>Radiology Test</h2>
+	<p class="text-justify" style=" line-height: 30px;">Radiology, also called diagnostic imaging, is a series of different tests that take pictures or images of various parts of the body.  Many of these tests are unique in that they allow doctors to see inside the body.  A number of different imaging exams can be used to provide this view, including X-ray, MRI, ultrasound, CT scan and PET scan.<br><i>“Radiology is essential to the diagnosis of many diseases, particularly cancer.  Early diagnosis saves live.  Without diagnosis there can be no treatment, there can be no cure.” </i></p>
+	<div class="radgridtest">
+		<div class="radgridtestbox" (click)="goToRadiology()">
+			<img src="assets/rt1.png">
+			<br>X-Ray / Mammography
+		</div>
+		<div class="radgridtestbox" (click)="goToRadiology()">
+			<img src="assets/rt2.png">
+			<br>Ultrasound
+		</div>
+		<div class="radgridtestbox" (click)="goToRadiology()">
+			<img src="assets/rt3.png">
+			<br>CT Scan / MRI
+		</div>
+	</div>
+</div>
+</div>
+</div></div>
+
+
+<div class="raditestcon cardio">
+<div class="container">
+<div class="row">
+
+
+<div class="col-md-12 col-lg-6 col-xl-6">
+<h2>Cardiology Test</h2>
+<p class="text-justify" style=" line-height: 30px;">Cardiology is the study and treatment of disorders of the heart and the blood vessels. A person with heart disease or cardiovascular disease may be referred to a cardiologist. Heart disease relates specifically to the heart, while cardiovascular disease affects the heart, the blood vessels, or both. <br><i> There are different heart health tests, but it’s important to remember that these tests have little to no risk involved and are highly beneficial for allowing your doctor to understand how your heart is working.</i></p>
+<div class="radgridtest">
+	<div class="radgridtestbox" (click)="goToCardiology()">
+		<img src="assets/ct1.png">
+		<br>ECG / Holter
+	</div>
+	<div class="radgridtestbox" (click)="goToCardiology()">
+		<img src="assets/ct2.png">
+		<br>ECHO / TMT
+	</div>
+	<div class="radgridtestbox" (click)="goToCardiology()">
+		<img src="assets/ct3.png">
+		<br>Colour Doppler
+	</div>
+<!-- <div class="radgridtestbox"><img src="assets/r1_02.png"><br>Heart & Diabetic 
+Risk test</div>
+<div class="radgridtestbox"><img src="assets/r1_03.png"><br>Heart & Diabetic 
+Risk test</div> -->
+</div>
+</div>
+
+<div class="col-md-12 col-lg-6 col-xl-6">
+<img src="assets/cardio.png"/>
+
+</div>
+
+</div>
+</div></div>
+
+<div class="ShopByProducts heathhab">
+<div class="container" >
+<div class="row">
+<div style="margin:30px auto"><div class="ct-heading h-align-center item-st-default" style="text-align: center;"><div class="item--sub-title style-default">Health Habits</div>
+<img src="assets/org_line.png">
+</div></div>
+</div>
+<div class="desktopview">
+	<ion-slides  [options]="slideOpts3">
+      <ion-slide *ngFor="let item of habbits | slice:0:8" (click)="add(item)">
+			<div class="grid-item-innerha">
+			  <img class="popimg" [src]="item.image">
+			  <p class="category_nameha">{{item.name}}</p> 
+				<div class="desha" [innerHtml]="item.description | slice:0:160">...</div>
+				<button ion-button  class="addtocart" (click)="viewHabit(item)" >View Test</button>
+			</div>
+		</ion-slide>
+    </ion-slides>
+	</div>
+	<div class="mobileview">
+	<ion-slides  [options]="slideOptsmob3">
+      <ion-slide *ngFor="let item of habbits | slice:0:8" (click)="add(item)">
+			<div class="grid-item-innerha">
+			  <img class="popimg" [src]="item.image">
+			  <p class="category_nameha">{{item.name}}</p> 
+				<div class="desha" [innerHtml]="item.description | slice:0:160">...</div>
+				<button ion-button  class="addtocart" (click)="viewHabit(item)" >View Test</button>
+			</div>
+		</ion-slide>
+    </ion-slides>
+	</div>
+	</div>
+</div>
+
+	<div class="row">
+		<img [src]="row_2_banner" style="object-fit: cover;width: 100%;">
+	</div>
+
+<div class="numcount container-fluid">
+<div class="row">
+<div class="col-xl-3 col-md-3 col-sm-12">
+<div class="ct-counter ct-counter-layout1 style1 ">
+<div class="ct-counter-inner">
+<div class="ct-counter-icon">
+<img src="assets/hp.png"></div>
+<div class="ct-counter-meta">
+<div class="ct-counter-number">
+<span class="ct-counter-number-value">{{100000+bookings.length}}</span>
+ <span class="ct-counter-number-suffix">+</span></div>
+ <div class="ct-counter-title">Happy Patients</div></div></div></div>
+</div>
+<div class="col-xl-3 col-md-3 col-sm-12">
+<div class="ct-counter ct-counter-layout1 style1 ">
+<div class="ct-counter-inner">
+<div class="ct-counter-icon">
+<img src="assets/lt.png"></div>
+<div class="ct-counter-meta">
+<div class="ct-counter-number">
+<span class="ct-counter-number-value">{{all_tests.length}}</span>
+ <span class="ct-counter-number-suffix">+</span></div>
+ <div class="ct-counter-title">Tests Available</div></div></div></div>
+</div>
+<div class="col-xl-3 col-md-3 col-sm-12">
+<div class="ct-counter ct-counter-layout1 style1 ">
+<div class="ct-counter-inner">
+<div class="ct-counter-icon">
+<img src="assets/pl.png"></div>
+<div class="ct-counter-meta">
+<div class="ct-counter-number">
+<span class="ct-counter-number-value">{{total_lab.length}}</span>
+ <span class="ct-counter-number-suffix">+</span></div>
+ <div class="ct-counter-title">Partner Lab</div></div></div></div>
+</div>
+<div class="col-xl-3 col-md-3 col-sm-12">
+<div class="ct-counter ct-counter-layout1 style1 ">
+<div class="ct-counter-inner">
+<div class="ct-counter-icon">
+<img src="assets/ps.png"></div>
+<div class="ct-counter-meta">
+<div class="ct-counter-number">
+<span class="ct-counter-number-value">{{all_pincodes.length}}</span>
+ <span class="ct-counter-number-suffix">+</span></div>
+ <div class="ct-counter-title">PIN codes Serving</div></div></div></div>
+</div>
+
+</div></div>
+
+<div class="clinsec">
+	<div class="container">
+		<div class="row">
+			<div style="margin:30px auto">
+				<div class="ct-heading h-align-center item-st-default" style="text-align: center;"><div class="item--sub-title style-default">Our Network Partners</div><img src="assets/blue_line.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-12 col-xl-12 p-0">
+				<div class="grid-item-innerc">				  
+				  <ion-slides [options]="slideOpts">
+      			<ion-slide *ngFor="let item of primary_lab">
+        			<img [src]="item.logo">
+			      </ion-slide>
+			    </ion-slides>
+				</div>
+	    </div>
+	  </div>
+	</div>
+</div>
+<br>
+<div class="majorcity">
+	<div class="container">
+<div class="row">
+<div style="margin:10px auto"><div class="ct-heading h-align-center item-st-default" style="text-align: center;">
+	<div class="item--sub-title style-default" style="color: #fff;">Major Cities</div><img src="assets/white_line.jpg">
+</div></div>
+</div></div>
+	
+	<div class="container">
+<div class="row">
+<div class="col-md-12 col-lg-12 col-xl-12 p-0">  
+<div class="mcity">
+<div class="mcityt" *ngFor="let item of cities | sort:'city'">
+{{item.city}}&nbsp;|&nbsp;
+</div> 
+</div>
+	
+	</div></div></div>
+	
+</div>
+
+
+
+</div><!-- isLoaded div END  -->
+
+
+<app-footer></app-footer>
+<!-- 	<ion-fab vertical="bottom" horizontal="start" slot="fixed" (click)="openQuery()">
+    <img src="assets/call_but.png" width="">
+  </ion-fab>
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+		<a href="https://api.whatsapp.com/send?phone=+919311213388"  target="_blank"><img src="assets/watsapp.png" width=""></a>
+  </ion-fab> -->
+</ion-content>

@@ -1,0 +1,95 @@
+<app-header></app-header>
+<ion-content>
+<div class="container">
+  <div class="row">
+  	<div class="col-md-12 col-lg-12 col-xl-12">
+  		<h3 style="margin: 20px 0 0 0;display: inline-block;border-bottom: 2px solid #ea5b24;">Tickets Raised</h3>
+  	</div>	
+  </div>	
+	<div class="row">
+	 <div class="col-md-12 col-lg-8 col-xl-8" style="margin: 0 auto;">
+  <form [formGroup]="supportForm">
+    <ion-list class="list">
+	
+  	 <p class="emailTag inspace">Email</p>
+      <ion-item>
+       <ion-input [(ngModel)]="user_email" type="email" spellcheck="false" autocapitalize="off" formControlName="email" placeholder="Please Enter Email-Id">
+       </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( supportForm.get('email').hasError('minlength') || supportForm.get('email').hasError('maxlength') ||supportForm.get('email').hasError('pattern') ||supportForm.get('email').hasError('required') ) && supportForm.get('email').touched">
+      <div class="error" *ngIf="supportForm.get('email').hasError('required') && supportForm.get('email').touched">
+       Email-Id Is Required
+      </div>
+      <div class="error" *ngIf="supportForm.get('email').hasError('pattern')">
+      Please Enter Valid Email-Id
+      </div>
+      </div>
+
+      <p class="mblTag inspace">Issue</p>
+      <ion-item>
+	    <ion-select [interfaceOptions]="customAlertOptions" interface="action-sheet" placeholder="Please Select An Issue" class="sel" [(ngModel)]="reason" (ionChange)="checkId(reason)" formControlName="select">
+	      <ion-select-option *ngFor="let item of issues" [value]=item.title>{{item.title}}</ion-select-option>
+	    </ion-select>
+	    </ion-item>
+      <div no-lines *ngIf="( supportForm.get('select').hasError('minlength') || supportForm.get('select').hasError('maxlength') ||supportForm.get('select').hasError('pattern') ||supportForm.get('select').hasError('required') ) && supportForm.get('select').touched">
+      <div class="error" *ngIf="supportForm.get('select').hasError('required') && supportForm.get('select').touched">
+       Please Select Issue
+      </div>
+      </div>
+
+      <div *ngIf=showInput>
+        <p class="mblTag inspace">Bookings/Payment Id</p>
+        <ion-item>
+        <ion-input [(ngModel)]="reference_id" type="text" spellcheck="false" placeholder="Please Enter Reference-Id" [ngModelOptions]="{standalone: true}">
+         </ion-input>
+        </ion-item>
+        <div no-lines *ngIf="( supportForm.get('reference').hasError('minlength') || supportForm.get('reference').hasError('maxlength') ||supportForm.get('reference').hasError('pattern') ||supportForm.get('reference').hasError('required') ) && supportForm.get('reference').touched">
+        <div class="error" *ngIf="supportForm.get('reference').hasError('required') && supportForm.get('reference').touched">
+         Reference-Id Is Required
+        </div>
+        </div>
+      </div>
+
+      <p class="mblTag inspace">Describe in detail</p>
+	  	  <ion-textarea class="textarea" rows="6" cols="20" placeholder="Describe In Detail" auto-grow="true" [(ngModel)]="remark" formControlName="remark">
+	  	  </ion-textarea>
+      <div no-lines *ngIf="( supportForm.get('remark').hasError('minlength') || supportForm.get('remark').hasError('maxlength') ||supportForm.get('remark').hasError('pattern') ||supportForm.get('remark').hasError('required') ) && supportForm.get('remark').touched">
+        <div class="error" *ngIf="supportForm.get('remark').hasError('required') && supportForm.get('remark').touched">
+        Description Is Required
+        </div>
+      </div>
+
+	  <!-- <div class="thumnamilCont" *ngIf="isAttach">
+  		<div class="row equalHMRWrap eqWrap">
+  		  <div class="posRel equalHMR eq">
+  		    <img src="{{Attachments}}" alt="" height="100" width="95">
+  		  </div>
+  		</div>
+	  </div>
+	  <div class="btn-div">
+	    <button class="btn" (click)="openCamera()">{{"Add Attachment"|translate}}</button>
+	     <div class="helpTip">{{"File size cannot be larger then 5 MB"|translate}}</div>
+	  </div> -->
+
+    <div class="fil">
+      <label for="test">
+        <div>Upload</div>
+        <input type="file" id="header" (change)="handleFileSelect($event)" >
+      </label>
+    </div>      
+    <div class="thumnamilCont" *ngIf="isAttach == true">
+      <div class="equalHMRWrap eqWrap">
+         <div class="posRel equalHMR eq">
+            <img src="{{Attachments}}" alt="" class="thumnamilContimg">
+         </div>
+      </div>
+    </div>
+  </ion-list>
+</form>
+    <ion-button (click)="report()" [disabled]="supportForm.get('email').invalid || supportForm.get('select').invalid || supportForm.get('remark').invalid">
+        Submit report
+    </ion-button><br><br>
+	</div></div>
+</div>
+<app-footer></app-footer>
+</ion-content>

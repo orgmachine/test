@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="font-size: 15px;padding-left: 10px;" *ngIf="redirectRoute == 'add'"> Add a new member</ion-title>
+    <ion-title style="font-size: 15px;padding-left: 10px;" *ngIf="redirectRoute == 'edit'"> Edit Member</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+       <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div>
+  <!-- <br>
+   <ion-label>
+    Add a new member
+   </ion-label> -->
+   <form [formGroup]="memberForm">
+    <ion-list class="list">
+     <p class="emailTag">Name</p>
+      <ion-item>
+       <ion-input [(ngModel)]="name" type="text" spellcheck="false" autocapitalize="off" formControlName="name" placeholder="Please Enter Your Name" value="{{profile?.name}}">
+       </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( memberForm.get('name').hasError('minlength') || memberForm.get('name').hasError('maxlength') ||memberForm.get('name').hasError('pattern') ||memberForm.get('name').hasError('required') ) && memberForm.get('name').touched">
+      <div class="error" *ngIf="memberForm.get('name').hasError('required') && memberForm.get('name').touched">
+       Name Is Required
+      </div>
+      </div>
+    <ion-row>
+      <ion-col>
+        <p class="mblTag">Date of Birth</p>
+        <ion-item lines="none">
+          <ion-input type="date"  [(ngModel)]="dob" placeholder="Select DOB" formControlName="dob" (ionChange)="datePickerStart($event)" value="{{profile?.dob}}" [max]="maxDate"></ion-input>
+        </ion-item>
+        <div no-lines *ngIf="( memberForm.get('dob').hasError('minlength') || memberForm.get('dob').hasError('maxlength') ||memberForm.get('dob').hasError('pattern') ||memberForm.get('dob').hasError('required') ) && memberForm.get('dob').touched">
+          <div class="error" *ngIf="memberForm.get('dob').hasError('required') && memberForm.get('dob').touched">
+          Date Of Birth Is Required
+          </div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <p class="mblTag">Gender</p>
+        <ion-item lines="none">
+          <ion-select [interfaceOptions]="customAlertOptions" placeholder="Select Gender" [(ngModel)]="gender" formControlName="gender" class="sel" value="{{profile?.gender}}">
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Other">Other</ion-select-option>
+        </ion-select>
+        </ion-item>
+        <div no-lines *ngIf="( memberForm.get('gender').hasError('minlength') || memberForm.get('gender').hasError('maxlength') ||memberForm.get('gender').hasError('pattern') ||memberForm.get('gender').hasError('required') ) && memberForm.get('gender').touched">
+          <div class="error" *ngIf="memberForm.get('gender').hasError('required') && memberForm.get('gender').touched">
+         Gender Is Required
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</form>
+ </div>
+  <ion-button (click)="add()" *ngIf="redirectRoute == 'add'" expand="block" icon-only class="btn_class" [disabled]="memberForm.get('name').invalid || memberForm.get('dob').invalid || memberForm.get('gender').invalid">
+    Add
+  </ion-button>
+  <ion-button (click)="update()" *ngIf="redirectRoute == 'edit'" expand="block" icon-only class="btn_class" [disabled]="memberForm.get('name').invalid || memberForm.get('dob').invalid || memberForm.get('gender').invalid">
+    Update
+  </ion-button>

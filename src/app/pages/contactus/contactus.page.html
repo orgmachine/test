@@ -1,0 +1,89 @@
+<app-header></app-header>
+<ion-content class="login">
+<div class="container">
+
+	  <div class="row">
+  	<div class="col-md-12 col-lg-12 col-xl-12">
+  		<h3 style="margin: 20px 0 0 0;display: inline-block;border-bottom: 2px solid #ea5b24;">Contact Information</h3>
+  	</div>	
+  </div>
+
+
+ <!-- The content half --> 
+ 
+ <div class="col-md-12 col-lg-12 col-xl-12  pb-2">
+
+ <div class="main-signup-header"> 
+ <h2>GET IN TOUCH</h2> 
+ <h5 class="font-weight-semibold mb-4">Fill up the form and our Team will get back to you within 24 hours.</h5> 
+ </div>
+<div class="col-md-12 col-lg-10 col-xl-10" style="margin:0 auto;">
+<form [formGroup]="contactForm">
+    <ion-list class="list">
+      <div class="emailTag">Name</div>
+      <ion-item>
+        <ion-input [(ngModel)]="name" type="text" spellcheck="false" autocapitalize="off" formControlName="name" placeholder="Please Enter Your Full Name">
+        </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( contactForm.get('name').hasError('minlength') || contactForm.get('name').hasError('maxlength') ||contactForm.get('name').hasError('pattern') ||contactForm.get('name').hasError('required') ) && contactForm.get('name').touched">
+        <div class="error" *ngIf="contactForm.get('name').hasError('required') && contactForm.get('name').touched">
+         Email-Id Is Required
+        </div>
+      </div>
+
+      <div class="emailTag">Mobile Number</div>
+      <ion-item>
+        <ion-input id="phoneNumber" [(ngModel)]="phone" type="tel" formControlName="phone" placeholder="Please Enter Mobile Number" [disabled]="isVerified">
+        </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( contactForm.get('phone').hasError('minlength') || contactForm.get('phone').hasError('maxlength') ||contactForm.get('phone').hasError('pattern') ||contactForm.get('phone').hasError('required') ) && contactForm.get('phone').touched">
+        <div class="error" *ngIf="contactForm.get('phone').hasError('required') && contactForm.get('phone').touched">
+         Mobile Number Is Required
+        </div>
+        <div class="error" *ngIf="contactForm.get('phone').hasError('minlength')">
+          Please Enter Valid Mobile Number
+        </div>
+        <div class="error" *ngIf="contactForm.get('phone').hasError('maxlength')">
+          Please Enter Valid Mobile Number
+        </div>
+      </div>
+      <div *ngIf="isVerified" class="verified">
+        Number is verified successfully
+      </div>
+      <ion-button (click)="sendOtp()" *ngIf="!isVerified && contactForm.get('phone').valid" [disabled]="contactForm.get('phone').invalid">
+        Send OTP
+      </ion-button>
+
+      <div class="emailTag">Email</div>
+      <ion-item>
+       <ion-input [(ngModel)]="email" type="email" spellcheck="false" autocapitalize="off" formControlName="email" placeholder="Please Enter Your Email-Id">
+       </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( contactForm.get('email').hasError('minlength') || contactForm.get('email').hasError('maxlength') ||contactForm.get('email').hasError('pattern') ||contactForm.get('email').hasError('required') ) && contactForm.get('email').touched">
+        <div class="error" *ngIf="contactForm.get('email').hasError('required') && contactForm.get('email').touched">
+         Email-Id Is Required
+        </div>
+        <div class="error" *ngIf="contactForm.get('email').hasError('pattern')">
+          Please Enter Valid Email-Id
+        </div>
+      </div>
+
+      <div class="emailTag">Message</div>
+      <ion-textarea class="textarea" rows="6" cols="20" placeholder="Write your message here" auto-grow="true" [(ngModel)]="message" formControlName="message">
+      </ion-textarea>
+      <div no-lines *ngIf="( contactForm.get('message').hasError('minlength') || contactForm.get('message').hasError('maxlength') ||contactForm.get('message').hasError('pattern') ||contactForm.get('message').hasError('required') ) && contactForm.get('message').touched">
+      <div class="error" *ngIf="contactForm.get('message').hasError('required') && contactForm.get('message').touched">
+        Message Is Required
+      </div>
+      </div><br>
+      <ion-button (click)="submit()" [disabled]="contactForm.get('email').invalid || contactForm.get('name').invalid || contactForm.get('phone').invalid || !isVerified">
+        Submit report
+    </ion-button>
+  </ion-list>
+</form>
+ </div>
+ </div><!-- End --> 
+ </div> <!-- End --> 
+
+ <app-footer></app-footer>
+</ion-content>

@@ -1,0 +1,75 @@
+<app-header></app-header>
+<ion-content>
+<div class="container">
+
+  <div class="row">
+  	<div class="col-md-12 col-lg-12 col-xl-12">
+  		<h3 style="margin: 20px 0 0 0;display: inline-block;border-bottom: 2px solid #ea5b24;">Recent Lab Test</h3>
+  	</div>	
+  </div>
+	
+	<div style="margin:2% 0 2% 0%;">
+    <div class="starend" >
+        <ion-label>Show Orders between :</ion-label>
+      <div class="strtdat">
+        <input type="date" [(ngModel)]="start_date"  [placeholder]="('Start Date' | translate )"> 
+      </div>
+        <ion-label>To :</ion-label>
+      <div class="enddat" >
+        <input type="date" [(ngModel)]="end_date" [placeholder]="('End Date' | translate )">
+      </div> 
+      <ion-button (click)="submit()"  >
+         Submit
+      </ion-button>
+    </div>          
+  </div>
+
+  <div *ngIf="myBookings.length == 0" class="noData">
+    <img src="assets/no_data_found.png" >
+  </div>
+
+  <div *ngIf="myBookings.length !== 0" class="table-responsive orderList">
+  
+    <table class="table">
+  <thead>
+    <tr >
+      <th scope="col">Booking ID</th> 
+      <th scope="col">Lab Name</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Status</th>
+	    <th scope="col">Booking Date and Time</th>
+	    <th scope="col">Action</th>
+	  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of myBookings;let i=index;" >
+      <td><p>{{item.id}}</p></td>
+	  <td>
+      <p>{{item.lab?.name}}</p>
+	  </td>   
+    <td>₹ {{item.grand_total | number : '1.2-2'}} </td>
+    <td> 
+  		<span [className]="getClass(item.status)" *ngIf="item.status==0">To Be Confirmed</span>
+      <span [className]="getClass(item.status)" *ngIf="item.status==1">Confirmed</span>
+      <span [className]="getClass(item.status)" *ngIf="item.status==2">Sample Collected/Test Done</span>
+      <span [className]="getClass(item.status)" *ngIf="item.status==3">Partial Report Released</span>
+      <span [className]="getClass(item.status)" *ngIf="item.status==4">Refund Initiated</span>
+      <span [className]="getClass(item.status)" *ngIf="item.status==5">Refund Cancelled</span>
+      <span [className]="getClass(item.status)" *ngIf="item.status==6">Completed</span>
+      <span [className]="getClass(item.status)" *ngIf="item.status==7">Cancelled</span>
+    </td> 
+	  <!-- <td> {{item.payment_type}}</td> -->
+	  <td><p>{{item.booking_date | date}}&nbsp;{{item.booking_time}} </p></td>
+	  <td>
+      <ion-button (click)="view(item.id)" expand="" *ngIf="item.status == 6">View Reports</ion-button>&nbsp;&nbsp;
+       <ion-button (click)="view(item.id)" expand="" *ngIf="item.status !=6">View Details</ion-button>&nbsp;&nbsp;
+	   <!--  <ion-button (click)="downloadInvoice(item)" expand="" *ngIf="item.status==6" >Invoice</ion-button> -->
+      <ion-button (click)="download(item.invoice_url)" expand="" *ngIf="item.status==6" >Invoice</ion-button>
+	    </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

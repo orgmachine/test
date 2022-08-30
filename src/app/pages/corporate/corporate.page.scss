@@ -1,0 +1,120 @@
+.background-class{
+   /*--background: linear-gradient(to right, #ef6e69, #febb2b);*/
+    /*--background: #FAFAD2  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+ion-slides {
+      height: 64%;
+     /*background: #09dc73; */
+    }
+ion-header{
+    --box-shadow:none;
+}
+ion-footer{
+    --box-shadow:none;
+}
+ion-toolbar{
+    border-color: none !important;
+    ion-title {
+        --color: white;
+    }
+}
+    .login-logo {
+        text-align: center;
+        margin: auto;
+        right: 0px;
+        left: 0px;
+        margin: 5% 0%;
+        .logo_icon{
+            width: 50% !important;
+        }
+    }
+    .mblTag{
+        /*margin-bottom: 0px;*/
+        color: var(--ion-color-primary);
+        font-size: 16px;
+    }
+    .frgTag{
+        text-align: right;
+        color:#000;
+        font-size: 14px;
+    }
+    .btn_class{
+        color: white ;
+        text-transform: none;
+        --border-radius: 35px;
+        margin-top: 15px;
+    }
+    .list {
+        margin-bottom: 0;
+    }
+    ion-list {
+      --ion-background-color:transparent;
+      margin: 0px;
+      padding: 0px 26px;
+    }
+    ion-item {
+      --ion-background-color: #fff;
+      border: 1px solid #e3e3e3;
+      height: 37px;
+      --padding-start: 5px !important;margin-bottom: 14px;
+    }
+    .textarea {
+      border: 1px solid #e6e6e6;
+      border-radius: 5px !important;
+      font-size: 14px;
+      margin-top: 0px;
+      color:#000;
+    }
+    .signUP {
+        text-align: center;
+        color: #8c8d8a;
+        padding: 20px 0px 20px 0px;
+        font-size: 10px;
+    }
+    .lstrow {
+        padding: 0px;
+    }
+    .sc-ion-input-md-h {
+        --padding-top: 4px;
+        --padding-left: 6px !important;
+        --padding-bottom: 20px;    
+    }
+    .createAcc{
+        text-align: center;
+        font-size: 14px; 
+       .registerTag{
+            color: #000;     
+            font-weight: bold;
+       }
+    } 
+
+    .input-icon{
+        margin: 0px 10px 0px 0px;
+        border-right: 1px solid #e3e3e3;
+        padding:10px 5px 17px 0px;
+    }
+
+    ion-icon {
+        color: #7d7d7d;;
+    }
+    .verified {
+        font-size: 12px;
+        margin: 0px;
+        color: var(--ion-color-primary);
+    }
+    .signUP {
+        text-align: center;
+        color: #000;
+        padding: 20px 0px 20px 0px;
+        font-size: 10px;
+    }
+
+    .error {
+      margin: 0px;
+     color: rgb(255, 0, 0);
+    font-size: 10px;}
+  .emailTag{font-weight: bold;}
+  
+.main-signup-header {
+  text-align: center;
+}

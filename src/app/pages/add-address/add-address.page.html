@@ -1,0 +1,110 @@
+<ion-content class="background-class">
+  <div (click)="closeModal()" class="header">
+    <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+  </div>
+
+  <form [formGroup]="addressForm">
+    <div class="label" *ngIf="new">
+      Add a new address
+    </div>
+     <div class="label" *ngIf="!new">
+     Update address
+    </div>
+    <ion-radio-group [(ngModel)]="label" formControlName="label" >
+      <ion-row>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label>Home</ion-label>
+            <ion-radio class="radioclass" slot="start" value="home"  mode="ios"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label>Office</ion-label>
+            <ion-radio class="radioclass" slot="start" value="office"  mode="ios"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label>Other</ion-label>
+            <ion-radio class="radioclass" slot="start" value="other"  mode="ios"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+    <ion-list lines="none">
+      <ion-item lines="none">
+        <ion-input [(ngModel)]="mobile" type="tel" formControlName="phone" placeholder="Enter Your Mobile Number">
+        </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( addressForm.get('phone').hasError('minlength') || addressForm.get('phone').hasError('maxlength') ||addressForm.get('phone').hasError('pattern') ||addressForm.get('phone').hasError('required') ) && addressForm.get('phone').touched">
+      <div class="error" *ngIf="addressForm.get('phone').hasError('required') && addressForm.get('phone').touched">
+        Mobile Number Is Required
+      </div>
+      <div class="error" *ngIf="addressForm.get('phone').hasError('minlength')">
+        Please Enter Valid Mobile Number
+      </div>
+      <div class="error" *ngIf="addressForm.get('phone').hasError('maxlength')">
+        Please Enter Valid Mobile Number
+      </div>
+     </div>
+    <ion-item lines="none">
+      <ion-input [(ngModel)]="street" type="text" [placeholder]="('Flat Number, House Number, Street etc..*' | translate) || '&nbsp;'" name="street" spellcheck="false" autocapitalize="on" formControlName="street">
+      </ion-input>
+    </ion-item>
+    <div no-lines *ngIf="( addressForm.get('street').hasError('minlength') || addressForm.get('street').hasError('maxlength') ||addressForm.get('street').hasError('pattern') ||addressForm.get('street').hasError('required') ) && addressForm.get('street').touched">
+      <div class="error" *ngIf="addressForm.get('street').hasError('required') && addressForm.get('street').touched">
+      Flat Number, House Number, Street etc. Is Required
+      </div>
+     </div>
+    <ion-item lines="none">
+      <ion-input [(ngModel)]="pincode" type="tel" [placeholder]="('Pincode' | translate) || '&nbsp;'" name="pincode" spellcheck="false" autocapitalize="on" formControlName="pincode" [disabled]="routeFrom == 'add'">
+      </ion-input>
+    </ion-item>
+    <div no-lines *ngIf="( addressForm.get('pincode').hasError('minlength') || addressForm.get('pincode').hasError('maxlength') ||addressForm.get('pincode').hasError('pattern') ||addressForm.get('pincode').hasError('required') ) && addressForm.get('pincode').touched">
+      <div class="error" *ngIf="addressForm.get('pincode').hasError('required') && addressForm.get('pincode').touched">
+       Pincode Is Required
+      </div>
+     </div>
+    <ion-item lines="none">
+      <ion-input [(ngModel)]="locality" type="text" [placeholder]="('Locality*' | translate) || '&nbsp;'" name="locality" spellcheck="false" autocapitalize="on" formControlName="locality">
+      </ion-input>
+    </ion-item>
+    <div no-lines *ngIf="( addressForm.get('locality').hasError('minlength') || addressForm.get('locality').hasError('maxlength') ||addressForm.get('locality').hasError('pattern') ||addressForm.get('locality').hasError('required') ) && addressForm.get('locality').touched">
+      <div class="error" *ngIf="addressForm.get('locality').hasError('required') && addressForm.get('locality').touched">
+       Locality Is Required
+      </div>
+     </div>
+    <ion-item lines="none">
+      <ion-input [(ngModel)]="landmark" type="text" [placeholder]="('Landmark' | translate) || '&nbsp;'" name="landmark" spellcheck="false" autocapitalize="on" [ngModelOptions]="{standalone: true}">
+      </ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input [(ngModel)]="city" type="tel" [placeholder]="('City*' | translate) || '&nbsp;'" name="city" spellcheck="false" autocapitalize="on" formControlName="city" [disabled]="routeFrom == 'add'">
+      </ion-input>
+    </ion-item>
+    <div no-lines *ngIf="( addressForm.get('city').hasError('minlength') || addressForm.get('city').hasError('maxlength') ||addressForm.get('city').hasError('pattern') ||addressForm.get('city').hasError('required') ) && addressForm.get('city').touched">
+      <div class="error" *ngIf="addressForm.get('city').hasError('required') && addressForm.get('city').touched">
+       City Is Required
+      </div>
+     </div>
+     <ion-item lines="none">
+      <ion-input [(ngModel)]="state" type="tel" [placeholder]="('State' | translate) || '&nbsp;'" name="state" spellcheck="false" autocapitalize="on" formControlName="state" [disabled]="routeFrom == 'add'">
+      </ion-input>
+    </ion-item>
+    <div no-lines *ngIf="( addressForm.get('state').hasError('minlength') || addressForm.get('state').hasError('maxlength') ||addressForm.get('state').hasError('pattern') ||addressForm.get('state').hasError('required') ) && addressForm.get('state').touched">
+      <div class="error" *ngIf="addressForm.get('state').hasError('required') && addressForm.get('state').touched">
+       State Is Required
+      </div>
+     </div>
+   </ion-list>
+  </form>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-button *ngIf="new" (click)="add()" expand="block" [disabled]="addressForm.get('phone').invalid || addressForm.get('locality').invalid || addressForm.get('street').invalid || addressForm.get('city').invalid || addressForm.get('pincode').invalid || addressForm.get('state').invalid">
+      ADD ADDRESS
+  </ion-button>
+  <ion-button *ngIf="!new" (click)="update()" expand="block" [disabled]="addressForm.get('phone').invalid || addressForm.get('locality').invalid || addressForm.get('street').invalid || addressForm.get('city').invalid || addressForm.get('pincode').invalid || addressForm.get('state').invalid">
+      UPDATE ADDRESS
+  </ion-button>
+</ion-footer>

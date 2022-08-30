@@ -1,0 +1,298 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "~animate.css/animate.min.css";
+@font-face {
+  font-family: Poppins-Black;
+  src: url(assets/fonts/Poppins-Black.ttf);
+}
+@font-face {
+  font-family: Poppins-BlackItalic;
+  src: url(assets/fonts/Poppins-BlackItalic.ttf);
+}
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(assets/fonts/Poppins-Bold.ttf);
+}
+@font-face {
+  font-family: Poppins-BoldItalic;
+  src: url(assets/fonts/Poppins-BoldItalic.ttf);
+}
+@font-face {
+  font-family: Poppins-ExtraBold;
+  src: url(assets/fonts/Poppins-ExtraBold.ttf);
+}
+@font-face {
+  font-family: Poppins-BoldItalic;
+  src: url(assets/fonts/Poppins-BoldItalic.ttf);
+}
+@font-face {
+  font-family: Poppins-ExtraLight;
+  src: url(assets/fonts/Poppins-ExtraLight.ttf);
+}
+@font-face {
+  font-family: Poppins-ExtraLightItalic;
+  src: url(assets/fonts/Poppins-ExtraLightItalic.ttf);
+}
+@font-face {
+  font-family: Poppins-Light;
+  src: url(assets/fonts/Poppins-Light.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: Poppins-Italic;
+  src: url(assets/fonts/Poppins-Italic.ttf);
+}
+@font-face {
+  font-family: Poppins-LightItalic;
+  src: url(assets/fonts/Poppins-LightItalic.ttf);
+}
+@font-face {
+  font-family: Poppins-Medium;
+  src: url(assets/fonts/Poppins-Medium.ttf);
+}
+@font-face {
+  font-family: Poppins-MediumItalic;
+  src: url(assets/fonts/Poppins-MediumItalic.ttf);
+}
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(assets/fonts/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url(assets/fonts/Poppins-SemiBold.ttf);
+}
+@font-face {
+  font-family: Poppins-SemiBoldItalic;
+  src: url(assets/fonts/Poppins-SemiBoldItalic.ttf);
+}
+@font-face {
+  font-family: Poppins-Thin;
+  src: url(assets/fonts/Poppins-Thin.ttf);
+}
+@font-face {
+  font-family: Poppins-ThinItalic;
+  src: url(assets/fonts/Poppins-ThinItalic.ttf);
+}
+
+*{
+     font-family: 'Poppins-Regular';
+}
+.item .sc-ion-label-md-h{
+    font-family: 'Poppins-Medium';
+	text-overflow: unset;
+}
+ion-input {
+  ::placeholder {
+    --placeholder-opacity: 0.7 !important;
+    --font-weight: normal !important;
+    font-size: 12px;
+  }
+}
+ion-button {
+  --background: var(--ion-color-secondary); 
+  margin: 0;
+}
+.swiper-pagination {
+    color: grey !important;
+}
+:root {
+    .popover-content {
+        /*left: 0 !important;*/
+        /*width: 100%;*/
+        ion-item {
+            --border-color: transparent;
+            font-size: 14px;
+            --min-height: 10px;
+            ion-label{
+                margin: 0px;
+            }
+        }
+    }
+}
+
+
+ion-modal.modalContact {
+    .modal-wrapper{
+        width: 90% !important;
+        border-radius: 5px;
+    }
+    &.bottom {
+        align-items: flex-end;
+    }
+    --height: auto;
+    .ion-page {
+        position: relative;
+        display: block;
+        contain: content;
+        .inner-content {
+            max-height: 80vh;
+            overflow: auto;
+            // padding: 10px;
+            // border-radius: 10px;
+        }
+    }
+}
+
+ion-modal.custom_modal2 {
+  .modal-wrapper{
+    width: 100% !important;
+    // border-top-left-radius: 25px;
+    // border-top-right-radius: 25px;
+  }
+  &.bottom {
+    align-items: flex-end !important;
+  }
+  --height: 70vh;
+  align-items: flex-end;
+}
+.skip-modal-css .modal-wrapper {
+   height: 30%;
+   top: 30%;
+   bottom: 70%;
+   width: 80%;
+   position: absolute; 
+   display: block;  
+}
+.qty-modal-css .modal-wrapper {
+   height: 25%;
+   top: 30%;
+   bottom: 70%;
+   width: 80%;
+   position: absolute; 
+   display: block;  
+}
+.ins-modal-css .modal-wrapper {
+   height: 40%;
+   /*top: 30%;*/
+   bottom: 0%;
+   /*width: 80%;*/
+   border-top-right-radius: 50px;
+   border-top-left-radius: 50px;
+   position: absolute; 
+   display: block;  
+}
+.update-modal-css .modal-wrapper {
+   height: 60%;
+   bottom: 20%;
+   position: absolute; 
+   display: block;  
+}
+
+ion-select{
+     --placeholder-color: #fff !important;
+     --placeholder-font-weight:bold !important;--opacity: 1 !important;
+}
+ion-title {
+  padding-inline-start: 0px;
+  font-size: 18px;
+}
+ion-viewer-modal {
+    ion-button {
+    color: #000;
+    }
+}
+.loginAlert {
+  .alert-title {
+    font-weight: bold;}
+  .alert-wrapper {
+    max-width: 400px;
+    border-radius: 0px 50px;}
+  .alert-message {
+    font-size: 14px;}
+  button.alert-button.signup{
+    background:var(--ion-color-primary);
+    font-weight: bold;
+    color: white;
+    font-size: 12px;
+    border-radius: 35px;
+    padding: 8px 16px;
+    opacity: 0.8;}       
+  button.alert-button.signin{
+    background:var(--ion-color-primary);
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+    border-radius: 35px;
+    padding: 8px 16px;}
+    .alert-button-group {
+        padding-bottom: 10px;
+    }
+}
+
+.actionClass{
+    .action-sheet-title{
+        font-weight: bold;
+        color: black;
+        height: 50px;
+        font-size: 16px;
+    }
+    .action-sheet-sub-title{
+        color: black;
+        font-weight: normal;
+    }
+    .textCss{
+        color: black;
+        padding-bottom: 8px;
+        height: 100px;
+    }
+    .imageCss{
+        background: linear-gradient(to right, #439213, #89c32f);
+        color: white;
+        font-weight: bold;
+        width: 95%;
+        margin: auto;
+        margin-bottom: 10px;
+        height: 40px;
+        .action-sheet-button-inner{
+           justify-content: center;
+        }
+    }       
+}
+.owl-carousel{margin: auto;}
+.searchbar-search-icon.sc-ion-searchbar-md {
+  left: 13px;
+  top: 9px;
+  width: 20px;
+  height: 20px;color: #ea5b24;
+}
+ion-select::part(icon) {
+  opacity: 1;
+  margin-left: 1em;
+  color: transparent;
+  background: url('assets/dwonarrowt.png') no-repeat center;
+}
+
+div, p, h1, h2, h3, h4, h5{
+-webkit-touch-callout: none; 
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;  
+}

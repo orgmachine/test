@@ -1,0 +1,20 @@
+<ion-content class="ion-padding">
+  	<div class="cntent">
+  		<!-- <ion-item> -->
+	  		<ion-label>
+	  			Available Balance
+	  		</ion-label>
+	  		<ion-thumbnail slot="end">
+	  			<img src="assets/rs.jpg">
+	  		</ion-thumbnail>
+	  	<!-- </ion-item> -->
+  		<p>{{currency_}} {{wallet_balance}}</p>
+  		<small>
+  			Note: <br>
+  			Your wallet have insufficient balance for this subscription, please recharge your wallet immediately.
+  		</small>
+  		<ion-button (click)="makePay()" expand="block">
+		      Add {{currency_}} {{required_amount}}
+		</ion-button>
+  	</div>
+</ion-content>

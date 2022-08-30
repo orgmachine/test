@@ -1,0 +1,42 @@
+  <div>
+    <ion-icon (click)="close()" slot="icon-only" name="close-outline" class="header"></ion-icon>
+  </div>
+  <div>
+    <form [formGroup]="supportForm">
+      <div class="input-div">
+        <ion-input [(ngModel)]="phone" type="tel" id="phoneNumber" placeholder="Enter Your Mobile No.*" formControlName="phone"></ion-input>
+      </div>
+      <div no-lines *ngIf="( supportForm.get('phone').hasError('minlength') || supportForm.get('phone').hasError('maxlength') ||supportForm.get('phone').hasError('pattern') ||supportForm.get('phone').hasError('required') ) && supportForm.get('phone').touched">
+        <div class="error" *ngIf="supportForm.get('phone').hasError('required') && supportForm.get('phone').touched">
+         Mobile Number Is Required
+        </div>
+        <div class="error" *ngIf="supportForm.get('phone').hasError('minlength')">
+          Please Enter Valid Mobile Number
+        </div>
+        <div class="error" *ngIf="supportForm.get('phone').hasError('maxlength')">
+          Please Enter Valid Mobile Number
+        </div>
+      </div>
+      <div class="info" *ngIf="supportForm.get('phone').valid">
+        We will send an OTP on this mobile number.
+      </div>
+      <div class="input-div">
+        <ion-input [(ngModel)]="name" type="text" placeholder="Enter Your Full Name*" formControlName="name"></ion-input>
+      </div>
+      <div no-lines *ngIf="( supportForm.get('name').hasError('minlength') || supportForm.get('name').hasError('maxlength') ||supportForm.get('name').hasError('pattern') ||supportForm.get('name').hasError('required') ) && supportForm.get('name').touched">
+        <div class="error" *ngIf="supportForm.get('name').hasError('required') && supportForm.get('name').touched">
+         Name Is Required
+        </div>
+      </div>
+      <div class="input-div">
+        
+		 <ion-input [(ngModel)]="city" type="text"  placeholder="Enter Your City.*" formControlName="city"></ion-input>
+      </div>
+      <div no-lines *ngIf="( supportForm.get('city').hasError('minlength') || supportForm.get('city').hasError('maxlength') ||supportForm.get('city').hasError('pattern') ||supportForm.get('city').hasError('required') ) && supportForm.get('city').touched">
+        <div class="error" *ngIf="supportForm.get('city').hasError('required') && supportForm.get('city').touched">
+         City Is Required
+        </div>
+      </div>
+    </form>
+  </div>
+  <ion-button (click)="sendOTP()"  [disabled]="supportForm.get('name').invalid || supportForm.get('phone').invalid || supportForm.get('city').invalid">GET A FREE CALL NOW</ion-button>

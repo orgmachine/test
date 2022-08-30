@@ -1,0 +1,25 @@
+<app-header></app-header>
+<ion-content class="ion-padding">
+  <div class="ShopByProducts">
+  
+    <div class="container" >
+<div class="row">
+<div style="margin:30px auto"><div class="ct-heading h-align-center item-st-default" style="text-align: center;"><div class="item--sub-title style-default">Health Habits</div>
+<img src="assets/org_line.png">
+</div></div>
+</div></div>
+
+
+<div class="row col-md-12 col-lg-12 col-xl-12 ">
+  <div class="col-md-12 col-lg-4 col-xl-4" *ngFor="let item of habits">
+    <div class="grid-item-innerha">
+      <img class="popimg" [src]="item.image">
+      <p class="category_nameha">{{item.name}}</p> 
+      <div class="desha" [innerHtml]="item.description | slice:0:80"></div>
+      <button ion-button  class="addtocart" (click)="viewHabit(item)">View Test</button>
+    </div>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>
+</ion-content>

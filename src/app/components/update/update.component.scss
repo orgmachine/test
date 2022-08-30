@@ -1,0 +1,54 @@
+div {
+	ion-label{
+		padding: 16px;
+		font-weight: bold;
+		margin-top: 3%;
+	}
+	ion-item{
+	  --ion-background-color:#fff;
+	  border: 1px solid #e6e6e6;
+	  border-radius: 5px !important;
+	  margin-bottom: 3%;
+	  --padding-start: 5px !important;
+	}
+	.mblTag{
+	  margin-bottom: 0px;
+	  font-size: 12px;
+	}  
+	.emailTag{
+	  margin-top: 0px;
+	  margin-bottom: 0px;
+	  font-size: 12px;
+	}      
+	/*.sc-ion-input-md-h {
+	  --padding-top: 4px;
+	  --padding-bottom: 20px;
+	}*/
+	.sel {
+	  max-width: 100%;
+	  width: 100%;
+	  font-size:14px !important;
+	  --padding-top: 5px;
+	  --padding-start: 0px;
+	}
+
+	.error {
+	    color: rgb(255, 0, 0);
+	    font-size: 10px;
+	    padding-left: 2px;
+	}
+	.list {
+	  padding: 16px;
+	}
+
+}
+	ion-button {
+		margin: 15px auto;
+		width: 50%;
+	}
+	ion-select::part(icon) {
+	    color: #000 !important;
+	}
+	ion-select::part(text) {
+	    color: #000 !important;
+	}

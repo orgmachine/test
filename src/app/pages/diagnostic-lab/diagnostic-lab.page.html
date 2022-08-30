@@ -1,0 +1,254 @@
+<app-header></app-header>
+
+<ion-content>
+<div class="container">  
+  <div class="row">
+    <div class="col-xl-12 col-md-12 col-sm-10 mx-auto">
+        <!-- Profile widget -->
+        <div class="bg-white shadow rounded overflow-hidden">
+          <div class="">
+      <img [src]="lab_detail?.cover">
+                <div class="media align-items-end profile-header ml-4">
+                    <div class="profile mr-3"><img [src]="lab_detail?.primary.logo" alt="..." width="150" class="mb-2 img-thumbnail"></div>
+                    <div class="media-body mb-2">
+                        <h4 class="mt-0 mb-0">{{lab_detail?.name}}</h4>
+                        <!-- <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>{{lab_detail?.restid.about}}</p> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-4">
+                <!--div class="row">
+                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://bootstrapious.com/i/snippets/sn-profile/img-3.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://bootstrapious.com/i/snippets/sn-profile/img-4.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://bootstrapious.com/i/snippets/sn-profile/img-5.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 pl-lg-1"><img src="https://bootstrapious.com/i/snippets/sn-profile/img-6.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
+                </div-->
+                <div class="">                  
+                    <div class="p-4 bg-light rounded shadow-sm">
+                        <p class="text-justify mb-0" [innerHtml]="lab_detail?.about"></p>                      
+                    </div>
+                </div>
+            </div>
+        </div><!-- End profile widget -->
+    </div>
+</div>
+<div class="foursec"> 
+<div class="row">
+    <div class="col-xl-3 col-md-3 col-sm-12">
+  <div class="ct-fancy-box ct-fancy-box-layout1 wow fadeInUp" data-wow-delay="ms" style="visibility: visible; animation-name: fadeInUp;">
+  <div class="item--inner bg-image">
+  <div class="item--icon icon-psb"> 
+  <ion-icon name="map" style="font-size: 24px;color: #007c9d;"></ion-icon>
+  </div>
+  <h4 class="item--title"> Address</h4>
+  <div class="item--description">{{lab_detail?.address}}</div></div></div>
+  </div>
+  <div class="col-xl-3 col-md-3 col-sm-12">
+  <div class="ct-fancy-box ct-fancy-box-layout1 wow fadeInUp" data-wow-delay="ms" style="visibility: visible; animation-name: fadeInUp;">
+  <div class="item--inner bg-image">
+  <div class="item--icon icon-psb"> 
+  <ion-icon name="trophy" style="font-size: 24px;color: #007c9d;"></ion-icon>
+  </div>
+  <h4 class="item--title"> Award</h4>
+  <div class="item--description">{{lab_detail?.award_and_recognition}},<br>
+Accreditations:<br><span *ngFor="let item of lab_detail?.accreditation; let i = index;">{{item.item_text}},&nbsp;&nbsp;</span></div></div></div>
+
+  </div>
+  <div class="col-xl-3 col-md-3 col-sm-12">
+  <div class="ct-fancy-box ct-fancy-box-layout1 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+  <div class="item--inner bg-image">
+  <div class="item--icon icon-psb"> 
+  <ion-icon name="star" style="font-size: 24px;color: #007c9d;"></ion-icon>
+  </div>
+  <h4 class="item--title"> Special Features</h4>
+  <div class="item--description">
+  <ul>
+  <li *ngFor="let item of facility">{{item}}</li>
+  </ul>
+  </div></div></div>
+  </div>
+  
+  <div class="col-xl-3 col-md-3 col-sm-12">
+  <div class="ct-fancy-box ct-fancy-box-layout1 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+  <div class="item--inner bg-image">
+  <div class="item--icon icon-psb"> 
+  <ion-icon name="time" style="font-size: 24px;color: #007c9d;"></ion-icon>
+  </div>
+  <h4 class="item--title">Lab timings</h4>
+  <div class="item--description">
+  <ul>
+  <li *ngFor="let item of operational_timing"><span style="width: 60px;display: inline-block;">{{item.day_name}}:</span> {{item.opening_time}} – {{item.closing_time}}</li>
+  </ul>
+  </div></div></div>
+  </div>
+  
+  </div></div>
+  
+  
+    <div class="col-sm-12" *ngIf ="reviews.length !==0">
+    <div class="row p-4  m-1 bg-light rounded shadow-sm ">
+    <div class="col-xl-6 col-md-6 col-sm-12">
+        <p class="font-italic mb-0"><b style="font-size: 17px;">Over All Rating</b><br>
+        <ionic5-star-rating
+          #rating
+          activeIcon="star"
+          defaultIcon="star-outline"
+          activeColor="#439213"
+          halfIcon="star-half"
+          halfStar="true"
+          defaultColor="black"
+          readonly="true"
+          [rating]="avgrate"
+          fontSize="12px"
+        >
+        </ionic5-star-rating>
+        <br> {{avgrate}} out of 5<br>
+            {{total_review_count}} total ratings
+        </p>
+            </div>
+            <div class="col-xl-6 col-md-6 col-sm-12">
+            <div class="starcat">
+            <div class="starcatf"><span class="font-weight-bold">Price</span>   
+                <span>     
+                    <ionic5-star-rating
+                          #rating
+                          activeIcon="star"
+                          defaultIcon="star-outline"
+                          activeColor="#439213"
+                          halfIcon="star-half"
+                          halfStar="true"
+                          defaultColor="black"
+                          readonly="true"
+                          [rating]="price"
+                          fontSize="12px"
+                        >
+                    </ionic5-star-rating>
+                </span>
+				 <span>     
+                    
+                    ({{price}})
+                </span>
+            </div>
+            <div class="starcatf"><span class="font-weight-bold">Lab Timing Slots</span>  
+                <span>                        
+                    <ionic5-star-rating
+                          #rating
+                          activeIcon="star"
+                          defaultIcon="star-outline"
+                          activeColor="#439213"
+                          halfIcon="star-half"
+                          halfStar="true"
+                          defaultColor="black"
+                          readonly="true"
+                          [rating]="slot_timing"
+                          fontSize="12px"
+                        >
+                    </ionic5-star-rating>
+					</span>
+				 <span> 
+                    ({{slot_timing}})
+                </span>
+            </div>
+            <div class="starcatf"><span class="font-weight-bold">Sample Collection Process</span>  
+                <span>
+                    <ionic5-star-rating
+                      #rating
+                      activeIcon="star"
+                      defaultIcon="star-outline"
+                      activeColor="#439213"
+                      halfIcon="star-half"
+                      halfStar="true"
+                      defaultColor="black"
+                      readonly="true"
+                      [rating]="collection_process"
+                      fontSize="12px"
+                    >
+                    </ionic5-star-rating> 
+</span>
+				 <span> 					
+                    ({{collection_process}}) 
+                </span>
+            </div>
+            <div class="starcatf"><span class="font-weight-bold">Report Result Quality</span>  
+                <span>  
+                    <ionic5-star-rating
+                      #rating
+                      activeIcon="star"
+                      defaultIcon="star-outline"
+                      activeColor="#439213"
+                      halfIcon="star-half"
+                      halfStar="true"
+                      defaultColor="black"
+                      readonly="true"
+                      [rating]="result_quality"
+                      fontSize="12px"
+                    >
+                    </ionic5-star-rating> 
+					</span>
+				 <span> 
+                    ({{result_quality}})  
+                </span>
+            </div>
+            <div class="starcatf"><span class="font-weight-bold">Over all Booking Experience</span>  
+                <span>    
+                    <ionic5-star-rating
+                      #rating
+                      activeIcon="star"
+                      defaultIcon="star-outline"
+                      activeColor="#439213"
+                      halfIcon="star-half"
+                      halfStar="true"
+                      defaultColor="black"
+                      readonly="true"
+                      [rating]="booking_exp"
+                      fontSize="12px"
+                    >
+                    </ionic5-star-rating> 
+					</span>
+				 <span> 
+                    ({{booking_exp}})
+                </span>
+            </div>
+
+            </div></div>
+           
+        </div>
+        <div class="m-3 p-4 bg-light rounded shadow-sm" *ngFor="let item of reviews">
+            <p class="font-italic mb-0">
+            <img src="assets/noProfile.jpg" style="width: 40px;"> 
+            <span *ngIf="item.user !=''">{{item.user.name}}</span> 
+            <span *ngIf="item.user ==''">{{item.user_name}}</span>
+            <br>
+            <span style="display: flex;float: left;">   
+                <ionic5-star-rating
+                  #rating
+                  activeIcon="star"
+                  defaultIcon="star-outline"
+                  activeColor="#439213"
+                  halfIcon="star-half"
+                  halfStar="true"
+                  defaultColor="black"
+                  readonly="true"
+                  [rating]="item.booking_exp"
+                  fontSize="12px"
+                >
+                </ionic5-star-rating>
+				</span>
+				 <span style="display: flex;"> 
+                ({{item.booking_exp}})
+            </span>
+            <b>Reviewed on {{item.createdAt | date}}</b><br></p>
+            <div [innerHTML]="item.comment"></div>
+            
+           
+        </div>
+    </div>
+    <div class="col-sm-12" *ngIf ="reviews.length ==0">
+        <h3>Lab Reviews</h3>
+        <p>No reviews</p>
+    </div>
+	
+	 </div>
+   <app-footer></app-footer>
+</ion-content>

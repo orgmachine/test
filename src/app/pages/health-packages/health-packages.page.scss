@@ -1,0 +1,59 @@
+ion-content {
+    .grid-item-inner{
+     text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px 10px 0 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 8px 10px;
+  margin-bottom: 40px;
+}
+    .ShopByProducts{background: #ededed;}
+.uptopmp{padding: 0 10px;}
+.uptopmp img{
+    margin:5px 0px;}
+.mpopimg{
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: -25px;
+    left: 40%;
+    padding: 10px;
+    background: #fff;
+}
+.category_namemp{
+    font-size: 20px;
+font-weight: bold;
+text-transform: uppercase;
+padding-top: 60px;
+line-height: 30px;}
+.desmp ul{text-align: center;}
+.desmp li{background-image:url('../../../assets/bul_chk.png');
+background-position: 2px;
+background-repeat: no-repeat;list-style: none;font-size: 14px;
+text-align: left;
+padding-left: 25px;}
+.mrpricemp {
+    font-size: 15px;
+    text-decoration: line-through;
+    color: #fa8152;
+    font-weight: bold;
+}
+.pricemp {
+    font-size: 15px;
+    color: #fa8152;
+    font-weight: bold;
+}
+.butkmore {
+    border-top: 1px solid #ddd;
+}
+.butkmore .know_more {
+    margin: 15px;
+    color: #007c9d;
+    background: #fff;
+    border-radius: 50px;
+    border: 1px solid #007c9d;
+    padding: 10px;
+    font-size: 15px;
+}
+}

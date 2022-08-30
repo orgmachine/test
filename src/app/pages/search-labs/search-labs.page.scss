@@ -1,0 +1,273 @@
+.parent-section {
+  margin: 0 auto 15%;
+  /*width:80%;*/
+  .no_result{
+    background-image: url('../../../assets/pop_contbg.png');
+    margin: 0px 0px 20px;
+    padding: 18px;
+    text-align: center;
+  }
+}
+.new-lab-list {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  margin-top: 15px;
+  color: Gray;
+  min-height: 175px;
+  display: inline-block;
+  -webkit-box-shadow: 0 1px 4px rgba(41,51,57,.5);
+  -moz-box-shadow: 0 1px 4px rgba(41,51,57,.5);
+  box-shadow: 0 1px 4px rgba(41,51,57,.5);
+  border-radius: 2px;
+  padding: 0;
+}
+.lab-bot{text-align: center;
+  margin: 0;padding:3px;color: #fff;
+  background-color: #007c9d;font-size: 13px;
+}
+.new-lab-list h3{
+  margin: 0;padding: 2px;
+  background-color: #007c9d;
+}
+ .new-lab-list h3 a {
+    padding-left: 5px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 11pt;cursor:pointer;
+  text-decoration: none;
+}
+.new-lab-list .lab-detail {
+  padding: 0;
+  width: auto;
+  display: inline-block;
+  width: 100%;
+}
+.new-lab-list .lab-detail .left-section {
+  width: 22%;
+  padding-top: 12px;
+  float: left;
+  text-align: center;padding-left: 10px;
+}
+.lab-logo {
+  border: 1px #eee solid;
+  background-color: #fff;
+}
+.new-lab-list .lab-detail .right-section {
+  width: 78%;
+  float: left;
+}
+.rating-section {
+  padding: 4px;
+  color: #fff;
+  font-size:10pt;float: right;
+}
+.star-icon {
+  color: #fff;
+  font-size:15px;
+  position: relative;
+}
+.service-price {
+  display: inline-block;
+  width: 100%;
+}
+.service {
+  width: 67%;
+  float: left;
+  padding-top: 15px;
+}
+.service ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.service ul li {
+  color: #1d7f88;
+  width: 25%;
+  height: 65px;
+  list-style: none;
+  float: left;
+  text-align: center;
+}
+.service-icon-div {
+  display: inline-block;
+}
+.new-lab-service {
+  margin: 0 auto;
+    margin-top: 0px;
+  width:70px;
+  margin-top: 2px;
+  font-size: 7.5pt;
+  line-height: 14px;
+  color: #484c4c;
+}
+.price {
+  width: 32%;
+  float: left;
+  text-align: center;
+  border-left: 1px #eee solid;
+  min-height: 60px;
+  padding-top: 11px;
+}
+.new-lab-price-section-cost {
+  width: 100%;
+  font-size: 14pt;
+  margin: 0;
+  padding-top: 10px;
+}
+.cost-strike {
+  text-decoration: line-through;
+}
+.new-lab-price-section-payable {
+  width: 100%;
+  font-size: 16pt;
+  color: #da272f;
+  margin: 0;
+  padding-top: 5px;
+  font-weight: 700;
+}
+.new-lab-price-section-cashback {
+  margin-bottom: 0;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 7pt;
+  font-weight: 300;
+  color: #000;
+  display: block;
+}
+.desktop-services {
+  display: block;
+}
+.service-bottom {
+  width: 67%;
+  float: left;
+  padding-top: 0;
+  margin-top: 10px;
+  p{
+    margin-bottom: 10px;
+    font-size: 14px;color:#000;
+  }
+  .included{
+    span{
+      color: #909090;
+    }
+  }
+    .excluded{
+      span{
+        color: red;
+      }
+  }
+}
+.get-deal-parent {
+  display: inline-block;
+  width: 99%;
+  text-align: center;
+  color: #da272f;
+  padding-top: 10px;
+}
+.customer-saving {
+  color: #000;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 9pt;
+  margin: 0;
+  padding: 0;text-align: left;
+}
+.price-bottom {
+  width: 32%;
+  float: left;
+  text-align: center;
+  border-left: 1px #eee solid;
+  padding-top: 0;
+}
+.btn-section {
+  padding-left: 5px;
+  padding-top: 2px;
+}
+.lab-drop {margin: 0;padding: 10px;
+  background:#eaeaea;
+  border-radius: 2px;
+  box-shadow: 0px 2px 6px rgba(128, 128, 128, 0.61);
+}
+.location-span {
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;word-wrap: normal;
+}
+.sc-ion-input-md-h {
+  border: 1px solid #ddd !important;
+  --padding-top: 0;
+--padding-bottom: 0;
+height: 40px;
+background: #fff;
+}
+.tags {padding-left: 0px;
+margin-bottom: 5px;
+padding-top: 20px;
+}
+.tags span {
+    font-size: 12px;
+    background: var(--ion-color-secondary);
+    padding: 4px 6px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;display: block;
+    ion-icon{
+        position: relative;
+    top: 2px;
+    }
+}
+.tags div {
+  display: inline-block;
+  margin: 5px;
+}
+.test-search-item{
+    width: 100%;border: 1px solid #dedede;
+    margin: auto;z-index: 11;
+	
+    ion-thumbnail{
+        width: 30px;
+        height: 20px;
+    }
+    ion-item{
+        --padding-start: 0px;
+    }
+    ion-list{border-radius: 0;
+			padding: 0px;
+			margin-top: 1px;
+    }
+    p{
+        margin: 0px;
+        padding-left: 16px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    span{
+        float: right;
+    }
+}
+.sc-ion-searchbar-md-h {
+  background: transparent;
+  padding: 0;
+  margin-top:6px;}
+.searchbar-input {
+  background: #FFF !important;
+  border-radius: 0px !important;
+  font-size: 13px !important;
+  -webkit-padding-end: 0px !important;
+  padding-inline-end: 0px !important;
+  border: 0px solid #008f47 !important;
+  color: #008f47 !important;}
+  .locinpl {
+  height: 46px !important;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12) !important;
+}
+.area-pin-mobile {
+  margin-top: 14px;
+}
+.cost-strike i {
+  font-family: arial;
+  padding-right: 4px;
+}
+.new-lab-price-section-cost i,.new-lab-price-section-payable i{ font-family: arial ;
+  font-weight: bold;}

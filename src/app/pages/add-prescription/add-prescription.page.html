@@ -1,0 +1,78 @@
+<app-header></app-header>
+<ion-content>
+  <form [formGroup]="prescriptionForm">
+  <div class="container">	
+	<div class="row">
+    <div class="col-md-12 col-lg-6 col-xl-6">
+	<div class="sttxt">Step 1.</div>
+	 <div style="box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);border: 1px solid #f2f2f2;padding:10px;height: 228px;">
+  	 <p class="emailTag">Name</p>
+      <ion-item>
+       <ion-input [(ngModel)]="user_name" type="text" spellcheck="false" autocapitalize="off" formControlName="name" placeholder="Please Enter Your Name">
+       </ion-input>
+      </ion-item>
+      <div no-lines *ngIf="( prescriptionForm.get('name').hasError('minlength') || prescriptionForm.get('name').hasError('maxlength') ||prescriptionForm.get('name').hasError('pattern') ||prescriptionForm.get('name').hasError('required') ) && prescriptionForm.get('name').touched">
+      <div class="error" *ngIf="prescriptionForm.get('name').hasError('required') && prescriptionForm.get('name').touched">
+       Name Is Required
+      </div>
+      </div>
+
+      <p class="mblTag">Mobile Number</p>
+      <ion-item lines="none">
+        <ion-input [(ngModel)]="user_mobile" type="number" id="phoneNumber" type="tel" formControlName="phone" placeholder="Please Enter Your Mobile Number" [disabled]="isVerified"></ion-input>
+     </ion-item>
+      <div no-lines *ngIf="( prescriptionForm.get('phone').hasError('minlength') || prescriptionForm.get('phone').hasError('maxlength') ||prescriptionForm.get('phone').hasError('pattern') ||prescriptionForm.get('phone').hasError('required') ) && prescriptionForm.get('phone').touched">
+      <div class="error" *ngIf="prescriptionForm.get('phone').hasError('required') && prescriptionForm.get('phone').touched">
+       Mobile Number Is Required
+      </div>
+      <div class="error" *ngIf="prescriptionForm.get('phone').hasError('minlength')">
+        Please Enter Valid Mobile Number
+      </div>
+      <div class="error" *ngIf="prescriptionForm.get('phone').hasError('maxlength')">
+        Please Enter Valid Mobile Number
+      </div>
+	  </div>
+	  <div *ngIf="isVerified" class="verified">
+        Number is verified successfully
+      </div>
+     
+     
+	  <ion-button (click)="sendOtp()" *ngIf="!isVerified && prescriptionForm.get('phone').valid" [disabled]="prescriptionForm.get('phone').invalid">
+        Send OTP
+      </ion-button>
+	 </div></div>
+<div class="col-md-12 col-lg-6 col-xl-6"><div class="sttxt">Step 2.</div>
+	 <div class="step2box" style="">
+	  <div class="btn-div">
+      <div class="fil">
+        <label for="test">
+          <div>Upload</div>
+          <input type="file" id="header" (change)="handleFileSelect($event)" >
+        </label>
+      </div>             
+    </div>
+    <div class="thumnamilCont">
+      <div class="equalHMRWrap eqWrap">
+         <div class="posRel equalHMR eq" *ngFor=" let image of attachments;  let i = index">
+            <img src="{{image}}" alt="" class="thumnamilContimg">
+            <span><img src="assets/crossbtn.svg" alt="" class="crossBtn" (click)="removeImageAtIndex(i)"></span>
+         </div>
+      </div>
+    </div>
+   <div class="uptxt"><p>Image size should not exceed 2MB.</p><p>Maximum 3 Prescrition can be uploaded.</p></div>
+  </div>
+</div>
+
+</div>
+</div>
+</form>
+<div class="container">	
+	<div class="row">
+    <div class="col-md-12 col-lg-12 col-xl-12 mt-2 mb-2">
+    <ion-button (click)="addPrescription()" [disabled]="prescriptionForm.get('name').invalid || prescriptionForm.get('phone').invalid || !isAttach || !isVerified">
+      Upload Prescrition
+    </ion-button>
+</div>
+</div>	</div>	
+<app-footer></app-footer>
+</ion-content>

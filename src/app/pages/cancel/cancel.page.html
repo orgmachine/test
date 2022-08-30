@@ -1,0 +1,25 @@
+<app-header></app-header>
+<ion-content>
+  <div class="cnt">
+    <p><b>Why are you cancelling this?</b></p>
+    <ion-card>
+      <div *ngFor="let item of reasons;let i=index;">
+        <ion-card-content style="padding: 0px;">
+          <ion-radio-group [(ngModel)]="reason" [ngModelOptions]="{standalone: true}" (ionChange)="select(reason,item.reason)">
+          <ion-item>
+            <ion-label>{{item.reason}}</ion-label>
+            <ion-radio slot="start" value={{item.id}}></ion-radio>
+          </ion-item>
+          </ion-radio-group>
+        </ion-card-content>
+      </div>
+    </ion-card>
+    <p><b>Comments (optional)</b></p>
+    <ion-textarea class="textarea" rows="6" cols="20" placeholder="Describe what's wrong with the order" auto-grow="true" [(ngModel)]="comment">
+    </ion-textarea>
+      <ion-button (click)="submit()" expand="block" [disabled]="!isEnabled">
+        Submit
+    </ion-button>
+  </div>
+   <app-footer></app-footer>
+</ion-content>

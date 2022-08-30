@@ -1,0 +1,59 @@
+ion-content {
+    .ShopByProducts{padding: 30px 50px 50px;background: #ededed;}
+    
+    .pop_pk {
+        display: inline-flex;
+    }
+    .category_name {color: #007e9f;
+font-size: 15px;
+font-weight: normal;
+text-align: center;
+padding: 8px 0;
+margin: 0;
+    }
+    .category_des {
+        font-size: 14px;
+        margin: 0 10px 10px 10px;
+    }
+    .addtocart{
+        background: transparent;
+        color: #ea5b24;
+        padding: 7px 10px;
+        font-size: 13px;
+        border-radius: 20px;
+        margin: 4px auto;
+        text-align: center;
+        display: block;
+        border: 1px solid;
+        text-transform: uppercase;
+    }
+}
+.grid-item-inner {  text-align: center;
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 5px;
+  border: 1px solid #007e9f;cursor: pointer;
+}
+.grid-item-inner:hover { 
+  background: #007e9f;
+  border: 1px solid #007e9f;
+}
+.grid-item-inner:hover .category_name {color: #fff;    }
+
+.category_name {
+  color: #007e9f;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px 0;
+  margin: 0;
+}
+.filter li {padding: 2px;
+margin: 5px;
+min-width: 35px;cursor: pointer;
+}
+ul {list-style-type: none;}
+.agesel select{font-size: 13px;padding: 4px 10px;
+height: 30px;
+width: 200px;}

@@ -1,0 +1,89 @@
+.background-class{
+    padding: 16px;
+}
+.noData{
+    text-align: center;
+    margin-top: 30%;
+    font-weight:bold;
+}
+ion-item {
+    border : 1px solid #e6e6e6;
+    --border-color: transparent;
+    animation: popIn 0.2s calc(var(--animation-order) * 70ms) both ease-in;
+    --padding-left: 0px;
+    --inner-padding-end: 0px;
+    /*border-radius : 10px;*/
+    --padding-start:0px;
+    --padding:10px;
+    margin:10px;
+    --background: #e2d67a;
+    --border-style: unset;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.vl {
+  border-left: 2px solid #e6e6e6;
+  height: 85px;
+  border-left-style: dotted;
+}
+.name {
+    font-weight: bold;
+    font-size: 12px !important;
+    margin-bottom: 4px !important;
+}
+.question {
+    font-size: 12px;
+}
+.date {
+    width: 70px;
+    margin: 0px;
+    line-height: 1.9rem;
+    padding: 10px 0px 10px 10px;
+    margin-right: 6px;
+    color: #fff;
+}
+.ticketId {
+    float: right;
+    margin-right: 5px;
+    color: #000;
+    font-weight: bold;
+}
+.pending{
+    float: right;
+    margin-right: 5px;
+    color: #1FA690;
+    font-weight: normal;
+}
+.resolved{
+    float: right;
+    margin-right: 5px;
+    color: #FAB210;
+    font-weight: normal;
+}
+.sc-ion-label-md-h {
+    background: #fff;
+    padding: 10px 0px 10px 10px;
+    margin: 0px;
+}
+.noData{
+        text-align: center;
+        margin-top: 30%;
+}
+.name{
+    font-size: 14px;
+}
+.sidetxt {
+    p {
+    font-size: 12px;
+    }
+}

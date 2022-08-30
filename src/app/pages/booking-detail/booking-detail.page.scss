@@ -1,0 +1,112 @@
+ion-content {
+    --background: #fff;
+    .topCnt{
+       
+        .info{
+            padding: 16px;
+            img{
+                width: 35px;
+            }
+        }
+        h3{
+            font-weight: normal;
+margin: 16px 0px;
+font-size: 12px;
+        }
+        .header{
+            font-weight: bold;
+            background: #e7e7e7;
+        }
+        p{  font-weight: bold;
+            margin-bottom: 0px;
+            /*font-weight: bold;*/
+        }
+        span{
+            
+        }
+        .midCnt{
+            border: 1px solid #d8d0bc;
+            .header{
+                span {
+                   
+                }
+            }
+        }
+        
+        ion-col{
+            padding: 0px;
+        }
+        .detail {
+            padding:0px 0px 20px;
+        }
+        ion-row{
+            padding: 0px 0px 20px;
+        }
+    }
+    
+        .active {
+            
+            --border-color:  transparent;} 
+
+        .not-active {
+            margin-top: 5px;
+min-width: 100%;
+--border-color: transparent;
+--background: #e3e3e3;}
+.reports{
+        .heading {
+            font-size: 13px; 
+margin: 5px 0;
+font-weight: normal;			
+        }
+        .arrow-icon {
+            height: 25px;
+            width: 25px;
+        }
+        span{
+            float: right;
+            color: red;
+            font-weight: bold;
+        }
+    }
+
+    .confirmed{
+        color:  var(--ion-color-primary) !important;
+    }
+    .to_be_confirmed{
+        color:  var(--ion-color-secondary) !important;
+    }
+    .sample_collected{
+        color:  var(--ion-color-success)  !important;
+    }
+    .partial_report_release{
+        color:  var(--ion-color-success)  !important;
+    }
+    .refund_initiated{
+        color:  var(--ion-color-success) !important;
+    }
+    .refund_cancelled{
+        color:  var(--ion-color-danger) !important;
+    }
+    .completed{
+        color:  var(--ion-color-success) !important;
+    }
+    .cancelled{
+        color:  black !important;
+    }
+}
+
+.dolod {
+  display: flex;
+  font-size: 13px;
+  background: #007c9d;
+  color: #fff;
+  padding: 5px;
+ cursor: pointer;}
+ 
+ .header {
+  display: flex;
+  justify-content: space-between;} 
+ .dwdtri {
+  display: flex;
+  justify-content: space-between;}

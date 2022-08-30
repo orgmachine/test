@@ -1,0 +1,209 @@
+<app-header></app-header>
+<ion-content>
+   <div class="container"> 
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-xl-12">
+      <h3 style="margin: 20px 0 20px 0;display: inline-block;border-bottom: 2px solid #ea5b24;">Search Lab Test</h3>
+      </div>   
+   </div>
+   <div class="parent-section">
+   <div *ngIf="labs.length == 0" class="no_result">
+      <span>Type Location PIN code and search, if the lab test which you have searched was not found. Kindly modify your lab test or PIN code below.</span>
+   </div>
+   <div class="row lab-drop location-container" *ngIf="labs.length == 0">
+      <div class="col-sm-3 col-lg-3 location-span">
+         <span class="">Location Pin</span>
+      </div>
+      <div class="col-sm-12 col-lg-12">
+         <input type="text" [(ngModel)]="address" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" class="form-control locinpl"
+         [placeholder]="('Please type your location pincode'| translate) || '&nbsp;'">
+      </div>
+      <div class="col-sm-12 col-lg-12">
+         <div class="tags" *ngIf="newBucketArray.length !==0">
+            <div *ngFor="let item of newBucketArray;let i = index;">
+               <span>{{item}} <ion-icon name="close-outline" (click)="remove(i)"></ion-icon></span>
+            </div>
+         </div>
+         <ion-searchbar class="searchinpl" placeholder="Find your Tests" [(ngModel)]="terms" animated="true" (ionInput)="onInput($event)" (ionClear)="onCancel($event)"></ion-searchbar>
+         <div class="test-search-item">
+           <ion-list *ngIf="testLoad">
+            <ion-item *ngFor="let item of all_test | search: terms | slice: 0:7" class="keywords" (click)="add(item)">
+             <ion-thumbnail slot="end">
+                 <ion-icon name="add-outline"></ion-icon>
+               </ion-thumbnail>
+               <p>{{item.test_name}}</p>
+             </ion-item>
+           </ion-list>
+         </div>
+      </div>
+      <div class="area-pin-mobile">
+         <div class="col-sm-3 col-lg-3">
+            <ion-button (click)="searchLabs2()">Find Labs</ion-button>
+         </div>
+      </div>
+   </div>
+   <div *ngIf="labs.length == 0">
+      <div></div>
+   </div>
+
+<div class="col-md-12">
+<div class="desktopview">
+<div class="row">
+ <div class="col-md-12 col-lg-6 col-xl-6" *ngFor="let item of labs; let i =index">
+   <div class="new-lab-list">
+      <h3>
+         <a (click)="lab(item)">{{item.name}}</a>
+        <div class="rating-section">
+               <span class="star-icon full">★</span> 
+               &nbsp;&nbsp;{{item.average_rating}} Based on {{item.total_reviews}}
+               <!--a href="#" class="read-review">(Read reviews)</a-->
+            </div> 
+      </h3>
+      <div class="lab-detail">
+         <div class="left-section">
+           <div class="lab-logo">
+              <img [src]="item.primarylogo" width="150" height="150">
+           </div>
+         <br>
+          <p class="customer-saving">{{item.address}}</p>
+         </div>
+         <div class="right-section">
+           
+            <div class="service-price">
+            <div class="service">
+               <ul class="iconList new-lab-services-ul">
+                 <li>
+                     <div class="service-icon-div">
+                        <img src="assets/distance.png">
+                     </div> 
+                        <div class="new-lab-service">{{item.distance | number : '1.2-2'}} Km</div>
+                  </li>
+               </ul>
+               <ul class="iconList new-lab-services-ul">
+                 <li *ngFor="let data of item.facilities | slice:0:3 ;">
+                     <div class="service-icon-div">
+                        <img src="{{data.image}}">
+                     </div> 
+                        <div class="new-lab-service">{{data.name}}</div>
+                  </li>
+               </ul>
+            </div>
+            <div class="price">
+               <p class="new-lab-price-section-cost">
+                  <span class="cost-strike"><i>₹</i>&nbsp;{{item.price}}</span>
+               </p>
+               <p class="new-lab-price-section-payable"> 
+                  <span class="" content="1050"><i>₹</i>&nbsp;{{item.selling_price}}</span>
+               </p> 
+               <div class="new-lab-price-section-cashback" title="Get additional Rs. 50 cashback for online booking &amp; payment">
+               </div>
+            </div>
+                       
+            <div class="service-bottom desktop-services" *ngIf="item.available_test.length !==0;">
+               <div class="included">
+                  <p>Included Test:<span *ngFor="let t of item.available_test"> {{t}},</span></p>
+               </div>
+               <div class="excluded" *ngIf="item.not_available_test.length !==0;">
+                  <p>Not Included Test: <span *ngFor="let n of item.not_available_test"> {{n}},</span></p>
+               </div>
+               <div class="get-deal-parent">
+                 
+                 <!-- <p class="customer-saving">Get additional <b><i>₹</i> 100</b> discount for online booking &amp; payment</p> -->
+               </div>
+            </div>
+            <div class="price-bottom">
+               <div class="btn-section">
+                  <ion-button (click)="book(item)">Book Now</ion-button><br><br>
+                  <ion-button (click)="modify()">Modify Test</ion-button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+  <div class="lab-bot">Special Notes: <span [innerHtml]="item.test_data[0].itid.preparation"></span></div>
+
+  </div></div>
+</div>
+ </div>
+<div class="mobileview">
+<div class="col-md-12 col-lg-6 col-xl-6" *ngFor="let item of labs; let i =index">
+   <div class="new-lab-list">
+      <h3>
+         <a (click)="lab(item)">{{item.name}}</a>
+        <div class="rating-section">
+               <span class="star-icon full">★</span> 
+               &nbsp;&nbsp;{{item.average_rating}} Based on {{item.total_reviews}}
+               <!--a href="#" class="read-review">(Read reviews)</a-->
+            </div> 
+      </h3>
+      <div class="lab-detail">
+         <div class="left-section">
+           <div class="lab-logo">
+              <img [src]="item.primarylogo" width="150" height="150">
+           </div>
+         <br>
+          <p class="customer-saving">{{item.address}}</p>
+         </div>
+         <div class="right-sectionm">
+           
+            <div class="service-price">
+            <div class="service">
+               <ul class="iconList new-lab-services-ul">
+                 <li>
+                     <div class="service-icon-div">
+                        <img src="assets/distance.png" width="38" height="33">
+                     </div> 
+                        <div class="new-lab-service">{{item.distance | number : '1.2-2'}} Km</div>
+                  </li>
+               </ul>
+               <ul class="iconList new-lab-services-ul">
+                 <li *ngFor="let data of item.facilities ;">
+                     <div class="service-icon-div">
+                        <img src="{{data.image}}" width="32" height="30">
+                     </div> 
+                        <div class="new-lab-service">{{data.name}}</div>
+                  </li>
+               </ul>
+            </div>
+            <div class="price">
+               <p class="new-lab-price-section-cost">
+                  <span class="cost-strike"><i>₹</i>{{item.price}}</span>
+               </p>
+               <p class="new-lab-price-section-payable"> 
+                  <span class="" content="1050"><i>₹</i>{{item.selling_price}}</span>
+               </p> 
+               <div class="new-lab-price-section-cashback" title="Get additional Rs. 50 cashback for online booking &amp; payment">
+               </div>
+            </div>
+                       
+            <div class="service-bottom desktop-services" *ngIf="item.available_test.length !==0;">
+               <div class="included">
+                  <p>Included Test:<span *ngFor="let t of item.available_test"> {{t}},</span></p>
+               </div>
+               <div class="excluded" *ngIf="item.not_available_test.length !==0;">
+                  <p>Not Included Test: <span *ngFor="let n of item.not_available_test"> {{n}},</span></p>
+               </div>
+               <div class="get-deal-parent">
+                 
+                 <!-- <p class="customer-saving">Get additional <b><i>₹</i> 100</b> discount for online booking &amp; payment</p> -->
+               </div>
+            </div>
+            <div class="price-bottom">
+               <div class="btn-section">
+                  <ion-button (click)="book(item)" style="margin-right: 10px;">Book Now</ion-button>
+                  <ion-button (click)="modify()">Modify Test</ion-button><br><br>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+  <div class="lab-bot">Special Notes: <span [innerHtml]="item.test_data[0].itid.preparation"></span></div>
+
+  </div></div>
+
+</div>
+  </div>         
+</div>                     
+</div>
+   <app-footer></app-footer>
+</ion-content>

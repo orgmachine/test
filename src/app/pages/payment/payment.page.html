@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<ion-content [scrollEvents]="true">
+<div class="container">
+  	<div class="row">
+	 <div class="col-md-12 col-lg-12 col-xl-12">
+		<h3>Payment Details</h3>
+		</div>	
+	</div>
+	 <div class="col-md-12 col-lg-6 col-xl-6" style="margin: 0 auto;">
+		<p class="header">Payment Receipt <span><ion-icon *ngIf= "status == 'success'" name="checkmark-circle" color="primary" class="icon"></ion-icon><ion-icon *ngIf= "status == 'failed'" name="close-circle" color="danger" class="icon"></ion-icon></span></p>
+	  <div class="seperate"></div>
+	  <ion-card-header>
+	    <ion-card-subtitle style="text-align: center;">Your Payment Details</ion-card-subtitle>
+	  </ion-card-header>
+
+	  <ion-card-content class="content">
+	    Transaction confirmation mail was sent to
+	    {{email}}
+	  </ion-card-content>
+	  <p class="subHeader"> Transaction Id. | {{payment_id}}</p>
+
+	  <div class="seperate"></div>
+	  <ion-card-header>
+	    <ion-card-subtitle style="text-align: center;">Transactional Details</ion-card-subtitle>
+	  </ion-card-header>
+	  <ion-card-content class="content">
+	    Customer Name | {{user_name}} <br>
+	    Date | {{createdAt}}<br>
+	    Amount Paid | {{amount}}<br>
+	    Transaction Status | {{status}}
+	  </ion-card-content>
+	</div></div>
+	<app-footer></app-footer>
+</ion-content>

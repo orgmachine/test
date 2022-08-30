@@ -1,0 +1,24 @@
+import { __decorate, __metadata } from "tslib";
+import { Injectable } from '@angular/core';
+let ValidationService = class ValidationService {
+    constructor() {
+        console.log('Hello ErrorHandlerProvider Provider');
+    }
+    // Validation for password and confirm password
+    static MatchPassword(AC) {
+        const newPassword = AC.get('password').value; // to get value in input tag
+        const confirmPassword = AC.get('confirmPassword').value; // to get value in input tag
+        if (newPassword != confirmPassword && newPassword != null && confirmPassword != null) {
+            AC.get('confirmPassword').setErrors({ MatchPassword: true });
+        }
+        else {
+            AC.get('confirmPassword').setErrors({ MatchPassword: false });
+        }
+    }
+};
+ValidationService = __decorate([
+    Injectable(),
+    __metadata("design:paramtypes", [])
+], ValidationService);
+export { ValidationService };
+//# sourceMappingURL=validation.js.map

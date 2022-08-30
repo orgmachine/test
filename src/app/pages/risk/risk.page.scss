@@ -1,0 +1,83 @@
+ion-content{
+    p{
+    font-family: 'Poppins-Light';text-align: justify;
+}
+    span{
+    font-family: 'Poppins-Light';
+}
+    .category_nameha{font-size: 20px;color: #007c9d;
+font-weight: bold;
+padding-top: 30px;
+line-height:20px;}
+.ShopByProducts{padding: 30px 50px 50px;background: #ededed;}
+.popimg {border-radius:10px 10px 0px 0px;}
+    .grid-item-innerha {
+        text-align: center;    
+        background: white;
+        padding: 16px;
+        border-top: 3px solid var(--ion-color-secondary);
+        margin-bottom: 30px;
+    }
+    .desha {
+        margin: 10px 0;
+    }
+    .addtocart{
+        background: #ea5b24;
+        color: white;
+        font-size: 13px;
+        margin: 4px auto;
+        text-align: center;
+        display: block;
+        width: 50%;
+        padding: 10px;
+    }
+
+.uptopmp{padding: 0 10px;}
+.uptopmp img{margin:5px 0px;}
+.mpopimg{border-radius: 50px;
+border: 1px solid #ddd;
+position: absolute;
+top: -25px;
+left: 40%;
+padding: 10px;
+background: #fff;}
+.category_namemp{font-size: 14px;
+font-weight: bold;
+text-transform: uppercase;
+padding-top:50px;height: 95px;text-align: center;}
+
+.desmp ul{
+    text-align: center;
+}
+.desmp li{
+    background-image:url('../../../assets/bul_chk.png');
+    background-position: 2px;
+    background-repeat: no-repeat;list-style: none;font-size: 14px;
+    text-align: left;
+    padding-left: 25px;
+}
+.butkmore {
+    text-align: center;
+    .know_more {
+    margin: 15px;
+    color: #007c9d;
+    background: #fff;
+    border-radius: 50px;
+    border: 1px solid #007c9d;
+    padding: 10px;
+    font-size: 15px;}
+}
+    .mid{
+        background: #fff;
+        box-shadow: rgb(0 0 0 / 40%) 0px 8px 10px;
+        margin: 16px 8px 20%;
+        border-top-left-radius:20px ;
+        border-bottom-right-radius:20px;
+    }
+    .mid.second{
+        border-top-left-radius:0px ;
+        border-bottom-right-radius:0px;
+        border-top-right-radius:20px ;
+        border-bottom-left-radius:20px;
+    }
+}

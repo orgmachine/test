@@ -1,0 +1,98 @@
+<app-header></app-header>
+<ion-content>
+  <div class="container">
+    <div class="cart-div deal_detail">
+     
+        <div class="test__heading">
+          <div>
+            <h3 _ngcontent-ovj-c5="">{{test?.test_name}}</h3>
+          </div>
+          <div>
+            <ion-button (click)="book()" style="margin-right: 20px"
+              >Book Here</ion-button
+            >
+            <ion-button (click)="openQuery()">Get a call back</ion-button>
+          </div>
+        </div>
+		 <div class="test">
+        <div class="test__navigation">
+          <button (click)="openTab('Description')" class="test__tab " [ngClass]="status==='Description'?'active':''">
+            Description
+          </button>
+          <button (click)="openTab('Parameter')" class="test__tab" [ngClass]="status==='Parameter'?'active':''">
+            Parameter Included
+          </button>
+          <button (click)="openTab('Preparations')" class="test__tab" [ngClass]="status==='Preparations'?'active':''">
+            Preparations
+          </button>
+          <button (click)="openTab('FAQ')" class="test__tab" [ngClass]="status==='FAQ'?'active':''">
+            FAQ's
+          </button>
+        </div>
+      
+
+      <div>
+        <p class="Description section" [innerHtml]="test?.description"></p>
+      </div>
+
+      <div class="gray-band">
+        <div class="Parameter invisible section">
+            <h3 class="heading">
+               Test Details (Parameters included : {{test?.parameter.length}})
+            </h3>
+          <ion-list style="padding: 0px" *ngFor="let data of test?.parameter">
+             <div
+               class="panel-body parameterlist"
+               style="padding-bottom: 0px"
+             >
+               <p style="margin-bottom: 0px">{{data.item_text}}</p>
+             </div>
+          </ion-list>
+        </div>
+        <!-- level one usp -->
+        <!-- level two usp -->
+        <div class="usplevel_two Preparations invisible section">
+         <p [innerHtml]="test?.preparation"></p>
+          <ul>
+            <li>
+              <p>
+                Test Recommended for:<strong
+                  ><span *ngFor="let g of gender_recomendation;let last = last;">{{g}}<span *ngIf="!last">, &nbsp;</span></span></strong
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                Recommended for age:<strong
+                  ><span *ngFor="let a of age_recomendation;let last = last;">{{a}}<span *ngIf="!last">, &nbsp;</span></span></strong
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                Home Collection<strong
+                  ><span *ngIf="test?.home_visit_possible == 0">No</span
+                  ><span *ngIf="test?.home_visit_possible == 1"
+                    >Yes</span
+                  ></strong
+                >
+              </p>
+            </li>
+          </ul>
+        </div>
+        <!-- level two usp -->
+
+         <div
+          class="panel-group accordionpanel FAQ invisible section"
+         >
+         <div *ngFor="let item of test?.faqs;let i =index;">
+            <h3 class="heading">Q{{i+1}}) {{item.question}}</h3>
+            <p>A{{i+1}}) {{item.answer}}</p>
+         </div>
+      </div>
+      <div class="clear"></div>
+      </div></div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

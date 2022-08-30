@@ -1,0 +1,46 @@
+<app-header></app-header>
+<ion-content>
+<div class="container">
+ <!--   <ion-item>
+    <ion-avatar slot="start">
+      <ion-icon name="headset-outline"></ion-icon>
+    </ion-avatar>
+   <ion-label text-wrap>
+   	<h3>Help and Support</h3>
+   	<p>Do check our <span (click)="faqs()">FAQs</span> section once.</p>
+   </ion-label>   
+  </ion-item> -->
+  <ion-item>
+    <ion-avatar slot="start">
+      <ion-icon name="mail-outline"></ion-icon>
+    </ion-avatar>
+   <ion-label text-wrap>
+   	<h3>Email</h3>
+   	<a href="mailto:{{settings?.contact_email}}">{{email}}</a>
+   	<p>You can email us at the above mentioned Email-Id, we will revert within 48 hours.</p>
+   </ion-label>   
+  </ion-item>
+  <ion-item>
+    <ion-avatar slot="start">
+      <ion-icon name="call-outline"></ion-icon>
+    </ion-avatar>
+   <ion-label text-wrap>
+   	<h3>Phone</h3>
+   	<a href="tel:+919311213388">{{mobile}}</a>
+   	<p>We are now available 24*7</p>
+   </ion-label>   
+  </ion-item>
+  <ion-item>
+    <ion-avatar slot="start">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-avatar>
+   <ion-label text-wrap>
+   	<h3>Feedback</h3>
+   	<p>If you have feedback regarding our website and service that you would like to share, we would love to hear from you!</p>
+   </ion-label>   
+  </ion-item><br>
+  <ion-button (click)="report()" expand="">
+      Report a issue
+  </ion-button><br><br></div>
+  <app-footer></app-footer>
+</ion-content>

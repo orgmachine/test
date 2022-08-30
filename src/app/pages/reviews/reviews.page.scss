@@ -1,0 +1,45 @@
+ion-item {
+    --border-color: transparent;
+    --padding-left: 0px;
+    --inner-padding-end: 5px;
+}
+.ratings {
+    ion-item {
+        border-top: 1px solid #f5f5f5;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    .ratingDiv {
+        display: flex;
+        margin: 10px 0px 5px;
+        p {
+            margin-top: 0px;
+            font-size: 14px;
+            margin-left: 5px
+        }
+    }
+}
+.reviews {
+    h5 {
+        padding-left:16px;
+    }
+    p {
+        font-size: 10px;
+    }
+    small {
+        white-space: normal;
+    }
+    .profile {
+            display: flex;
+            margin: 0px 16px;
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius:50px;
+        }
+        p {
+            font-size: 12px;
+            margin: 12px;
+            font-weight: 600;
+        }
+    }
+}

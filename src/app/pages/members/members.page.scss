@@ -1,0 +1,71 @@
+.noData{
+    text-align: center;
+    margin-top:5%;
+    font-weight:bold;
+}
+
+ion-item {
+    --border-color: transparent;
+    animation: popIn 0.2s calc(var(--animation-order) * 70ms) both ease-in;
+}
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.orderList {
+    .date{
+        font-size: 12px;
+        color: #929292;
+        text-align: center;
+        margin: 10px;
+    }
+    ion-icon {
+        font-size: x-large;
+        margin-right: 10px;
+    }
+    span {
+        float: right
+    }
+    p {
+        color: black;
+        margin-bottom: 8px;
+    }
+    h2 {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+}
+
+.starend {
+    display: flex;
+}
+.strtdat input  { 
+  border: 1px solid #d8d0bc;
+  font-size: 14px;
+  padding:  0 10px;
+  width: 100%;
+  color: black;height: 40px;
+}
+.enddat input {
+    border: 1px solid #d8d0bc;
+    font-size: 14px;
+    padding: 0 10px;
+    width: 100%;
+    color: black;height: 40px;
+}
+.starend ion-label {
+    background: #fff;
+    padding: 10px;
+    margin: 0px;
+}
+.enddat {
+    margin-right: 10px;
+}

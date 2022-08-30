@@ -1,0 +1,152 @@
+<app-header></app-header>
+<ion-content>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-xl-12">
+		<h3 style="margin: 20px 0 0 0;display: inline-block;border-bottom: 2px solid #ea5b24;">Booking Detail</h3>
+          <div class="topCnt">
+            <div class="midCnt">
+              <div class="header">
+                <div>Your Booking Details</div>
+				<div style="text-align: right;">
+                  <span [className]="getClass(detail?.status)" *ngIf="detail?.status==0">To Be Confirmed</span>
+                  <span [className]="getClass(detail?.status)" *ngIf="detail?.status==1">Confirmed</span>
+                  <span [className]="getClass(detail?.status)" *ngIf="detail?.status==2">Sample Collected/Test Done</span>
+                  <span [className]="getClass(detail?.status)" *ngIf="detail?.status==3">Partial Report Released</span>
+                  <span [className]="getClass(detail?.status)" *ngIf="detail?.status==4">Refund Initiated</span>
+                  <span [className]="getClass(detail?.status)" *ngIf="detail?.status==5">Refund Cancelled</span>
+                  <span [className]="getClass(detail?.status)" *ngIf="detail?.status==6">Completed</span>
+                  <span [className]="getClass(detail?.status)" *ngIf="detail?.status==7">Cancelled</span>
+              </div></div>
+              <div class="btmCnt">
+			  
+			   <div class="detail">
+                  <p>Patient Detail</p>
+                  <div *ngFor="let data of detail?.member_id;let i = index;" class=""   [ngClass]="{'active': (showContent(i)==true), 'not-active': (showContent(i)==false)}" >
+                    <ion-item  [ngClass]="{'active': (showContent(i)==true), 'not-active': (showContent(i)==false)}"  (click)="showMilestone(i)">
+					<div   slot="end" class="dolod">
+					<div>Download Reports</div>
+                      <ion-icon style="padding-top: 3px;" name="add-outline" *ngIf = "(showContent(i)==false)" slot="end"></ion-icon>
+                      <ion-icon style="padding-top: 3px;" name="remove-outline" *ngIf = "(showContent(i)==true)" slot="end"></ion-icon>
+					  </div>
+                      <h3 class="heading">{{data.name}} <br>
+                      {{data.age}}, {{data.gender}}</h3>
+                    </ion-item>
+                    <ion-list *ngIf = "showContent(i)" style="padding: 0px;">
+                      <div class="report-item" *ngFor="let r of data.reports;">
+                        <!-- <ion-thumbnail slot="end" *ngIf="r.file_type == 'image/jpeg'">
+                          <img src = "assets/report_img.webp">
+                        </ion-thumbnail> -->
+                        
+                        <!-- <ion-label *ngIf="r.file_type == 'image/jpeg'">{{r.report_title}} <span (click)="downloadImage(r)">Download</span></ion-label>
+                        <ion-label *ngIf="r.file_type !== 'image/jpeg' && r.file_type !== 'image/png'">{{r.report_title}} <span (click)="downloadPdf(r)">Download</span></ion-label>
+                        <ion-label *ngIf="r.file_type == 'image/png'">{{r.report_title}} <span (click)="downloadImage(r)">Download</span></ion-label> -->
+                        <div class="dwdtri" *ngIf="r.file_type == 'image/jpeg'"><div>{{r.test_name}} </div>
+                          <div><ion-thumbnail slot="end" (click)="download(r.report_file)" style="cursor:pointer;">
+                           <img src = "assets/report_img.webp">
+                        </ion-thumbnail></div>
+                        </div>
+                        <div class="dwdtri" *ngIf="r.file_type !== 'image/jpeg' && r.file_type !== 'image/png'"><div>{{r.test_name}} </div> 
+
+                        <div><ion-thumbnail slot="end" (click)="download(r.report_file)" style="cursor:pointer;">
+                          <img src = "assets/pdf.jpg">
+                        </ion-thumbnail></div>
+
+                         <!--  <span (click)="download(r.report_file)">Download</span> -->
+                        </div>
+                        <div class="dwdtri" *ngIf="r.file_type == 'image/png'"><div>{{r.test_name}} </div>
+                         <div> <ion-thumbnail slot="end" (click)="download(r.report_file)" style="cursor:pointer;">
+                          <img src = "assets/report_img.webp">
+                        </ion-thumbnail></div>
+                        </div>
+                      </div>
+                    </ion-list>
+                  </div>
+                </div> 
+			  
+               <ion-row >
+                  <ion-col>
+                    <p>Booking Id</p>
+                    <span>{{detail?.booking_id}}</span>
+                  </ion-col>              
+                  <ion-col>
+                    <p>Amount Paid</p>
+                    <span>{{detail?.grand_total}}</span>
+                  </ion-col>                 
+                   <ion-col>
+                    <p>Payment Mode</p>
+                    <span>{{detail?.payment_type}}</span>
+                  </ion-col>
+                </ion-row>
+              <ion-row *ngIf="detail?.coupon_code !==''">
+                  <ion-col>
+                    <p>Coupon Code Applied</p>
+                    <span>Yes</span>
+                  </ion-col>              
+                  <ion-col>
+                    <p>Coupon Code</p>
+                    <span>{{detail?.coupon_code}}</span>
+                  </ion-col>                 
+                   <ion-col>
+                    <p>Discount Amount</p>
+                    <span>{{detail?.discount_amount}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row style="padding-bottom: 0px !important;">
+                  <ion-col>
+                    <p>Booking Date</p>
+                    <span>{{detail?.booking_date | date}}</span>
+                  </ion-col>              
+                  <ion-col>
+                    <p>Booking Time</p>
+                    <span>{{detail?.booking_time}}</span>
+                  </ion-col>                 
+                   <ion-col>
+                    <p>Services Delivery</p>
+                    <span>{{detail?.collection_mode}}</span>
+                  </ion-col>
+                </ion-row>
+                <div class="detail">
+                  <p>Lab Name</p>
+                  <span>{{lab_detail?.name}}</span>
+                </div>
+                <div class="detail">
+                  <p>Test Name</p>
+                  <span *ngFor="let i of detail?.test_data">{{i.itid.test_name}}</span>
+                </div>            
+                <div class="detail">
+                  <p>Booking Address</p>
+                  <span>{{address_text}}</span>
+                </div>
+               
+                <div *ngIf="detail?.status == 7 ">
+                  <div class="detail">
+                    <p>Cancellation Reason</p>
+                    <span>{{cancellation_reason}}</span>
+                  </div>
+                  <div class="detail">
+                    <p>Comment</p>
+                    <span>{{cancellation_remark}}</span>
+                  </div>
+                </div>              
+                <div class="detail">
+                  <ion-button (click)="cancel(detail?.booking_id)" *ngIf="(detail?.status==0 || detail?.status==1 ) && cancel_status==true">
+                    Cancel Boking
+                  </ion-button>
+                  <ion-button (click)="feedback(detail?.booking_id)" *ngIf="detail?.status==6 && detail?.isRate == 0 ">
+                    Share your feedbaack
+                  </ion-button>
+                </div>
+             <!--    <div class="detail" *ngIf="detail?.status==6">
+                  <ion-button (click)="downloadInvoice(detail?.booking_id)">
+                    Download Invoice
+                  </ion-button>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+  </div>
+<app-footer></app-footer>
+</ion-content>

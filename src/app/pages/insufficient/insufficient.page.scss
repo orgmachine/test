@@ -1,0 +1,20 @@
+.cntent {
+    margin: 16px;
+    font-weight: bold;
+    p{
+        font-size: 18px;
+        color: var(--ion-color-primary);
+    }
+    small {
+        font-size: 10px;
+        font-weight: bold;
+    }
+    ion-thumbnail {
+        float: right;
+        width: 90px;
+        height: 65px;
+    }
+    ion-button {
+        margin: 16px;
+    }
+}

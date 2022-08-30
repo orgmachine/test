@@ -1,0 +1,67 @@
+<app-header></app-header>
+<ion-content>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-xl-12">
+          <div class="topCnt">
+            <h3>Booking Received</h3>
+            <div class="info">
+              <img src="assets/confirmation.png">
+              <span>We have received your request for the below mentioned test(s). We are checking time slot availability with our collection partner and will confirm your booking shortly.</span>
+            </div>
+            <div class="midCnt">
+              <div class="header">
+                Your Booking Details
+              </div>
+              <div class="btmCnt">
+               <ion-row >
+                  <ion-col>
+                    <p>Booking Id</p>
+                    <span>{{detail?.booking_id}}</span>
+                  </ion-col>              
+                  <ion-col>
+                    <p>Amount Paid</p>
+                    <span>{{detail?.grand_total}}</span>
+                  </ion-col>                 
+                   <ion-col>
+                    <p>Payment Mode</p>
+                    <span>{{detail?.payment_type}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row style="padding-bottom: 0px !important;">
+                  <ion-col>
+                    <p>Booking Date</p>
+                    <span>{{detail?.booking_date}}</span>
+                  </ion-col>              
+                  <ion-col>
+                    <p>Booking Time</p>
+                    <span>{{detail?.booking_time}}</span>
+                  </ion-col>                 
+                   <ion-col>
+                    <p>Services Delivery</p>
+                    <span>{{detail?.collection_mode}}</span>
+                  </ion-col>
+                </ion-row>
+                <div class="detail">
+                  <p>Lab Name</p>
+                  <span>{{lab_detail?.name}}</span>
+                </div>
+                <div class="detail">
+                  <p>Test Name</p>
+                  <span *ngFor="let i of detail?.test_data">{{i.itid.test_name}}</span>
+                </div>            
+                <div class="detail">
+                  <p>Booking Address</p>
+                  <span>{{address}}</span>
+                </div>
+                <ion-button (click)="bookings()">
+                  Go To My Bookings
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+  </div>
+<app-footer></app-footer>
+</ion-content>

@@ -1,0 +1,85 @@
+<div class="page">
+ <div class="container-fluid"> 
+ <div class="row no-gutter" style="background: #3199a1;">
+ <!-- The image half --> 
+<!-- <div class="col-md-12 col-lg-6 col-xl-7  d-md-flex ">
+  <div class="row "> 
+    <div class=" "> 
+      <img src="assets/bgl-p.jpg" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mx-auto">  
+    </div> 
+  </div> 
+</div>
+
+  The content half --> 
+ 
+ <div class="col-md-12 col-lg-12 col-xl-12" style="height: 100%;z-index: 9;display: inline-flex;background:#fff;max-height: 100%;vertical-align: top; padding:7% 0; ">
+ <div class=" " style="margin: 0 auto;"> 
+ <div class="login d-flex align-items-center py-2"> 
+ <div class="container p-0"> 
+ <div class="row"> 
+ <div class="col-md-12 col-lg-12 col-xl-12 mx-auto"> 
+ <div class="card-sigin"> 
+  <div class="mb-5 d-flex"> 
+    <img src="assets/logo.png" class="" alt="logo">
+  </div>
+ <div class="card-sigin"> 
+ <div class="main-signup-header"> 
+ 
+  <form [formGroup]="loginForm">
+    <div *ngIf="!stepOne">
+    <div class="left-head">
+      <h3>Input phone number</h3>
+      <p>Use phone number to sign in or sign up</p>
+    </div>
+     <ion-item lines="none">
+      <span item-right class="input-icon"><ion-icon name="phone-portrait-outline"></ion-icon></span>
+      <ion-input class="login-item" id="phoneNumber" type="tel" [placeholder]="('Enter Your Mobile Number' | translate) || '&nbsp;'" formControlName="phone"></ion-input>
+     </ion-item>
+      <div no-lines *ngIf="( loginForm.get('phone').hasError('minlength') || loginForm.get('phone').hasError('maxlength') ||loginForm.get('phone').hasError('pattern') ||loginForm.get('phone').hasError('required') ) && loginForm.get('phone').touched">
+      <div class="error" *ngIf="loginForm.get('phone').hasError('required') && loginForm.get('phone').touched">
+       Mobile Number Is Required
+      </div>
+      <div class="error" *ngIf="loginForm.get('phone').hasError('minlength')">
+        Please Enter Valid Mobile Number
+      </div>
+      <div class="error" *ngIf="loginForm.get('phone').hasError('maxlength')">
+        Please Enter Valid Mobile Number
+      </div>
+     </div>
+     <ion-button class="btn_class" (click)="sendOTP()" type="submit" expand="block" [disabled]="loginForm.get('phone').invalid">
+      SEND OTP
+     </ion-button>
+  </div>
+  <div *ngIf="stepOne" class="welcome">
+    <div class="number"> +91 | {{user_phone}}</div>
+      <p>We have send 4 digits OTP to</p>
+      <div class="otp-enter">
+        <code-input [isCodeHidden]="false"
+          [codeLength]="4"
+          [initialFocusField]="0"
+          (codeChanged)="onCodeChanged($event)"
+          (codeCompleted)="onCodeCompleted($event)">
+        </code-input>
+        <div class="footer ion-padding">
+          <ion-button  (click)="verifyOtp()" type="submit" expand="block">
+            VERIFY OTP
+          </ion-button>
+          <p>-OR-</p>
+          <p style="color: var(--ion-color-primary)"  (click)="skip()">Skip Login</p>
+        </div>
+      </div>
+      <div class="send"> 
+        <p>Waiting for OTP...{{timer}} sec <span><p (click)="resend()" type="submit" class="btn_class" *ngIf="timer == 0">Resend OTP</p></span>
+        </p>
+      </div>
+    </div>
+  </form>
+ </div>
+ </div> 
+ </div>
+ </div> </div>
+ </div><!-- End --> 
+ </div> </div><!-- End --> 
+ 
+ </div>
+ </div> </div> </div>

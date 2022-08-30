@@ -1,0 +1,104 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+$timing: 265ms;
+$iconColor: var(--ion-color-primary);
+$accent: var(--ion-color-primary-tint);
+$bluefade: var(--ion-color-secondary);
+$gradient: #00b5f5;
+
+@mixin transformScale($size: 1) {
+  transform: scale($size);
+  -ms-transform: scale($size);
+  -webkit-transform: scale($size);
+}
+
+.social-container {
+  width: 600px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.social-icons {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    margin: 0.25em;
+    position: relative;
+    font-size:15px;
+  }
+
+  i {
+    color: #fff;
+    position: absolute;
+    top:5px;
+    left:7px;
+    transition: all $timing ease-out;
+    padding:0px;
+  }
+
+  a {
+    display: inline-block;
+
+    &:before {
+      @include transformScale();
+      content: " ";
+      width:25px;
+      height:25px;
+      border-radius: 100%;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      display: block;
+      background: #007c9d;
+      transition: all $timing ease-out;
+    }
+
+   
+  }
+}
+
+ion-content {
+    p {
+        font-size: 13px;
+        color: var(--input-color);
+        margin-bottom: 23px;
+    }
+}
+
+.abttxt{background:#f3f3f3;}
+.abtmistxt{background:#e6e6e6;}
+.abtvistxt{background:#f3f3f3;}
+
+.imgmv{background:#fff;padding: 4%;
+margin: 5%;
+}
+.imgtm{width: 240px;
+height: 240px;border-radius: 50% ;border:1px solid #e1e1e1;}
+.u-text-4{color: #007c9d;font-size: 13px;}
+.u-text-5 {
+  height: 60px;font-style: italic;
+  overflow: hidden;margin: 4% 0 !important;
+}
+.u-text-1 {
+  color: #000;
+  text-align: center;margin: 2%;
+}
+.u-text-2{text-align: center;}
+.abtyteamtxt {
+  margin-bottom: 50px;
+}
+.teambox{box-shadow:rgba(149,157,165,.2) 0 8px 24px;  padding: 20px;
+margin: 0 10px;
+}
+.u-text-3 {
+  font-size: 18px;margin-bottom: 5px;
+}
+.socialfoot {
+  font-size: x-large;
+  margin: 0px 8px !important;
+}
+.socialfoot a{
+  font-size: 17px;
+  margin: 0px 4px !important;
+}

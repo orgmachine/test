@@ -1,0 +1,22 @@
+<app-header></app-header>
+<ion-content class="background-class">
+<div class="container">
+  <div *ngIf="list.length == 0" class="noData">
+    <img src="assets/no_data_found.png">
+    <p>Sorry! No coupons available</p>
+  </div>
+  <div *ngIf="list.length !==0">
+    <ion-row *ngFor="let item of list" class="coupons" (click)="claim(item)">
+      <ion-col size="12" class="info">
+      <p class="title">
+      <span class="code">{{'CODE' | translate }} : {{item.code}} <span class="claim">CLAIM</span></span><br>
+      <span class="desc">{{item.desc}}</span>
+        <br>
+        <span class="expire">Expires on: {{expire(item.expire)}}</span>
+       </p>
+      </ion-col>
+    </ion-row>
+  </div>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

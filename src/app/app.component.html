@@ -1,0 +1,66 @@
+<ion-app>
+ <ion-split-pane contentId="main-content">
+  <ion-menu contentId="main-content" type="overlay"  *ngIf="!isDesktop">
+   <ion-content>
+    <ion-menu-toggle auto-hide="false">
+      <ion-item class="col-item" (click)="home()">
+        <p class="col_name">Home</p> 
+        <ion-icon name="home-outline" slot="start"></ion-icon>
+      </ion-item>            
+      <!--<ion-item class="col-item">
+        <p class="col_name">My Account</p>
+        <ion-icon name="folder-outline" slot="start"></ion-icon>
+      </ion-item>-->
+	  </ion-menu-toggle>
+      <ion-item class="col-item" (click)="openHabits()">
+        <p class="col_name">Health Habits</p>
+        <ion-icon name="folder-outline" slot="start"></ion-icon>
+        <ion-icon  slot="end" name="caret-down-outline" *ngIf="isHabit"></ion-icon>
+        <ion-icon  slot="end" name="caret-forward-outline" *ngIf="!isHabit"></ion-icon>
+      </ion-item>
+      <ion-menu-toggle class="submenuitem" auto-hide="false" *ngIf="isHabit">
+        <p *ngFor="let item of risks" (click)="viewRisk(item)">{{item.name}}</p>
+      </ion-menu-toggle>  
+      <ion-item class="col-item" (click)="openRisk()">
+        <p class="col_name">Health Risks</p>
+        <ion-icon name="folder-outline" slot="start"></ion-icon>
+        <ion-icon  slot="end" name="caret-down-outline" *ngIf="isRisk"></ion-icon>
+        <ion-icon  slot="end" name="caret-forward-outline" *ngIf="!isRisk"></ion-icon>
+      </ion-item>
+      <ion-menu-toggle class="submenuitem" auto-hide="false" *ngIf="isRisk">
+        <p *ngFor="let item of habbits" (click)="viewHabit(item)">{{item.name}}</p>
+      </ion-menu-toggle> 
+      <ion-menu-toggle auto-hide="false">
+      <ion-item class="col-item" (click)="corporate()">
+        <p class="col_name">Corporate</p> 
+        <ion-icon name="cellular-outline" slot="start"></ion-icon>
+      </ion-item>            
+     
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="false">
+      <ion-item class="col-item" (click)="faq()">
+        <p class="col_name">FAQ</p> 
+        <ion-icon name="help-outline" slot="start"></ion-icon>
+      </ion-item>            
+      
+    </ion-menu-toggle> 
+   </ion-content>
+   <ion-footer>
+    <!--<ion-menu-toggle>
+      <ion-button (click)="login()" *ngIf="!logedIn" expand="block">
+         Log In
+      </ion-button>
+       <ion-button (click)="logout()" *ngIf="logedIn" expand="block">
+         Log Out
+      </ion-button>
+    </ion-menu-toggle>-->
+   </ion-footer>
+  </ion-menu>
+ <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-split-pane>
+</ion-app>
+<!-- <ion-app>
+ <ion-split-pane contentId="main-content">
+ <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-split-pane>
+</ion-app> -->

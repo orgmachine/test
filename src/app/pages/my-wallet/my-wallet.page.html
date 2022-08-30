@@ -1,0 +1,49 @@
+<app-header></app-header>
+<ion-content>
+<div class="container">
+	<div class="row">
+	 <div class="col-md-12 col-lg-12 col-xl-12">
+		<h3>Wallet Balance</h3>
+		<h1><span>{{currency_}}</span>  {{balance | number : '1.2-2'}}</h1>
+		<ion-button [routerLink]="['/wallet']" class="btn_class" >
+	      Recharge Wallet
+	    </ion-button>
+	</div>
+	<div class="col-md-6 col-lg-4 col-xl-4">	
+	</div>	
+	</div>	
+		<p style="font-weight: bold;margin-top: 10px;padding-top: 10px;">Recent Transactions</p>
+	<div *ngIf="transactions.length !=0">
+		<table class="table-responsive ">
+		  <thead>
+		    <tr>
+		      <th scope="col">Type</th>
+			   <th scope="col">Amount</th>
+		      <th scope="col">Payment Detail</th>
+			   <th scope="col">Date</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr *ngFor="let item of transactions">
+		      <td>
+		      	<p *ngIf="item.type == 'Debit'" class="heading">Debited</p>
+			  	<p *ngIf="item.type == 'Wallet' || item.type == 'Credit'" class="heading">Credited </p>
+			  	<p *ngIf="item.type == 'Cashback'" class="heading">Cashback </p>
+			  </td>
+			  <td><p>₹ {{item.amount | number : '1.2-2'}}</p></td>
+		      <td>
+		      	<p *ngIf="item.type == 'Debit'">Against Booking: <span style="color: var(--ion-color-secondary)" (click)="bookingInfo(item.booking_id)">#{{item.booking_id}}</span></p>
+		      	<p *ngIf="item.type == 'Cashback'">Against Booking: <span style="color: var(--ion-color-secondary)" (click)="bookingInfo(item.booking_id)">#{{item.booking_id}}</span></p>
+		      	<p *ngIf="item.type == 'Credit'">Cancel Booking: <span style="color: var(--ion-color-secondary)" (click)="bookingInfo(item.booking_id)">#{{item.booking_id}}</span></p>
+			  	<p *ngIf="item.type == 'Wallet'" >Payment Id: {{item.transactionid}}</p></td>
+			  <td><p>{{item.createdAt}}</p></td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div>
+	<div *ngIf="transactions.length ==0" class="recent">
+		No Recent Transactions
+	</div>
+	</div>
+	<app-footer></app-footer>
+</ion-content>

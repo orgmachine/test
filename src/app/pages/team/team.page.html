@@ -1,0 +1,91 @@
+<app-header></app-header>
+
+<ion-content>
+  <!--  -->
+  <!--  -->
+  <!--  -->
+  <!-- profile__image profile-header profile-->
+  <div class="container">
+    <div class="row">
+      <!-- Profile widget -->
+      <div class="team-member bg-white shadow rounded overflow-hidden">
+        <div class="row-card">
+          <div class="row-card__image-container">
+            <img
+              class="row-card__image"
+              [src]="team_member?.image"
+              alt="team_member?.name"
+            />
+          </div>
+          <h3 class="h3 my-2">{{team_member?.name}}</h3>
+
+          <span class="team-member__designation"
+            >{{team_member?.designation}}</span
+          >
+
+          <div class="socialfoot my-4">
+            <a [href]="team_member?.facebook" target="_blank"
+              ><ion-icon name="logo-facebook" color="primary"></ion-icon
+            ></a>
+            <a [href]="team_member?.twitter" target="_blank"
+              ><ion-icon name="logo-twitter" color="primary"></ion-icon
+            ></a>
+            <a [href]="team_member?.linkedin" target="_blank"
+              ><ion-icon name="logo-linkedin" color="primary"></ion-icon
+            ></a>
+            <a [href]="team_member?.instagram" target="_blank"
+              ><ion-icon name="logo-instagram" color="primary"></ion-icon
+            ></a>
+          </div>
+        </div>
+
+        <div class="py-2">
+          
+		  <div class="row">
+	 <div class="col-md-12 col-lg-12 col-xl-12">
+		<h3 style="margin:10px 0px 20px 0;display: inline-block;border-bottom: 2px solid #ea5b24;">About Us</h3>
+		</div>	
+	</div>
+		  
+		  
+          <div class="content-container p-4 bg-light rounded shadow-sm text-justify">
+            <p class="mb-0" [innerHtml]="team_member?.description"></p>
+          </div>
+        </div>
+
+        <!-- <div class="px-4 pt-0 pb-4">
+          <div class="">
+            <div class="">
+              <img alt="..."  class="" />
+            </div>
+            <div class="media-body mb-5">
+              <h4 style="font-size: 1.8rem" class="mt-0 mb-0"></h4>
+              
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="bg-light p-4 my-4 d-flex align-items-center text-center"> -->
+
+        <!-- <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <h5 class="font-weight-bold mb-0 d-block">241</h5>
+                <small class="text-muted">
+                  <i class="fa fa-picture-o mr-1"></i>Photos</small
+                >
+              </li>
+              <li class="list-inline-item">
+                <h5 class="font-weight-bold mb-0 d-block">84K</h5>
+                <small class="text-muted">
+                  <i class="fa fa-user-circle-o mr-1"></i>Followers</small
+                >
+              </li>
+            </ul> -->
+        <!-- </div> -->
+
+        <!-- End profile widget -->
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

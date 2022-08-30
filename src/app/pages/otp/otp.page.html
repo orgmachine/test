@@ -1,0 +1,35 @@
+<ion-content><div class="maincontent">
+	<div class="topCnt ion-padding-bottom">
+		<div class="backBtn">
+		    <ion-icon (click)="back()" name="arrow-back-outline"></ion-icon>
+		</div>
+		<div class="ion-padding-start ion-padding-end welcome">
+	        <h1> Sign In</h1>
+	        <p>Sign in to access your orders, subscription, special offers and much more!</p>
+
+	        <small>PHONE NUMBER</small>
+	        <div class="number"> +91 | {{phone}}</div>
+	        <p>We have send 4 digits OTP to</p>
+
+	        <code-input [isCodeHidden]="false"
+	          [codeLength]="4"
+	          [initialFocusField]="0"
+	          (codeChanged)="onCodeChanged($event)"
+	          (codeCompleted)="onCodeCompleted($event)">
+	  		</code-input>
+
+	  		<div class="send"> 
+		      <p>Waiting for OTP...{{timer}} sec <span><p  type="submit" class="btn_class">Resend OTP</p></span>
+		      </p>
+		    </div>
+	    </div>
+	</div>
+	<div class="footer" style="margin-top: 10px;">
+		<ion-button  (click)="verifyOtp()" type="submit" expand="block">
+	      VERIFY OTP
+	    </ion-button>
+	    <p>-OR-</p>
+	    <p style="color: var(--ion-color-primary)"  (click)="skip()">Skip Login</p>
+	</div>
+</div>
+</ion-content>

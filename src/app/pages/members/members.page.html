@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<ion-content>
+<div class="container">
+  <div class="row">
+	  <div class="col-md-12 col-lg-12 col-xl-12" style="display: flex;justify-content: space-between;">
+		  <h3>Members Listing 
+        </h3>
+		<span><ion-button class="btn_class" (click)="openModal()" type="submit" expand="block">
+      Add Patient</ion-button></span>
+		</div>	
+	</div>
+
+  <div *ngIf="members.length == 0" class="noData">
+    <img src="assets/no_data_found.png">
+    <p>No Patients Yet</p>
+  </div>
+  <div class="table-responsive" *ngIf="members.length !== 0">
+  <table class="table">
+  <thead>
+    <tr >
+      <th scope="col">Name</th>
+      <th scope="col">Member Id</th>
+      <th scope="col">Date of birth</th>
+	  <th scope="col">Gender</th>
+    <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of members;let i=index;" >
+      <td><p>{{item.name}}</p></td>
+      <td>{{item.id}}</td>
+	   <td>{{item.dob | date}}</td>
+	    <td>{{item.gender}}</td>
+      <td>
+        <ion-button (click)="edit(item.id)" expand="" style="margin-bottom: 5px;margin-right: 6px;">Edit</ion-button>
+        <ion-button (click)="delete(item.id)" expand="" style="--background: black;">Delete</ion-button> 
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div></div>
+<!-- </div> -->
+<app-footer></app-footer>
+</ion-content>

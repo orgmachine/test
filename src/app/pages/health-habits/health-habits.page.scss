@@ -1,0 +1,28 @@
+ion-content{
+    .category_nameha{font-size: 20px;color: #007c9d;
+font-weight: bold;
+padding-top: 30px;
+line-height:20px;}
+.ShopByProducts{padding: 30px 50px 50px;background: #ededed;}
+.popimg {border-radius:10px 10px 0px 0px;}
+    .grid-item-innerha {
+        text-align: center;    
+        background: white;
+        padding: 16px;
+        border-top: 3px solid var(--ion-color-secondary);
+        margin-bottom: 30px;
+    }
+    .desha {
+        margin: 10px 0;
+    }
+    .addtocart{
+        background: #ea5b24;
+        color: white;
+        font-size: 13px;
+        margin: 4px auto;
+        text-align: center;
+        display: block;
+        width: 50%;
+        padding: 10px;
+    }
+}

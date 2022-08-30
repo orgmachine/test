@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<ion-content>
+  <div class="ShopByProducts">
+   <div class="container" >
+      <div class="row">
+         <div style="margin:30px auto">
+            <div class="ct-heading h-align-center item-st-default" style="text-align: center;"><div class="item--sub-title style-default">All Health Packages</div>
+               <img src="assets/org_line.png">
+            </div>
+         </div>
+      </div>
+   </div>
+
+      <div class="col-md-12 col-lg-3 col-xl-3" *ngFor="let item of all_packages">
+         <div class="grid-item-inner">
+            <div class="uptopmp">
+               <img class="mpopimg" src="assets/mp1_11.png">
+               <p class="category_namemp">{{item.test_name}}</p> 
+              <div class="desmp">
+              <ul><li>Total no.of Tests - {{item.parameter.length}}</li>
+              <li>Quick Turn Around Time</li>
+              <li>Reporting as per NABL ISO guidelines</li></ul>
+              </div>
+              <div class="mrpricemp">MRP : ₹2997</div>
+              <img src="assets/ruppas.jpg">
+              <div class="pricemp">Price : ₹1999</div>
+            </div>
+            <div class="butkmore">
+               <button ion-button  class="know_more" >Know More</button>
+            </div>
+         </div>
+      </div>
+   </div>
+<!--    </div>
+</div> -->
+<app-footer></app-footer>
+</ion-content>

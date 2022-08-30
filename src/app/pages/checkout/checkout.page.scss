@@ -1,0 +1,218 @@
+ion-content{
+    ion-row {
+        ion-item {
+            --border-color: transparent;
+        }
+    }
+
+    .stepOne{
+        ion-list{
+            margin: 10px 0px;
+        }
+		h3{margin: 0px;
+		   font-size: 18px;
+		}
+        .atitle{
+            font-weight: bold;
+            color: black;
+            font-size: 1.0rem;
+            white-space: pre-wrap;
+            text-transform: capitalize;
+        }
+        .asubtitle{
+            color: #767676;
+            font-size: 0.8rem;
+        }
+        .news{
+            --border-color: transparent;
+            margin: 10px 0px;
+            img{
+                width: 30px;
+                height: 35px;
+                margin-right: 0px;
+            }
+        }
+        .second-news{
+            padding: 8px;
+            background: #ace3f9;
+            font-weight: bold;
+            p{
+                color: var(--ion-color-primary);
+            }
+        }
+        span{
+            float: right;
+            color: red;
+            font-weight: bold;
+        }
+        .memberList{
+            margin: 10px 0px;
+            --border-color: transparent;
+        }
+    }
+    --background:  #f5f5f5;
+    ion-button{
+        width: 25%;
+        float: right;
+        margin: 16px 16px 32px;
+    }
+    .active {
+        --padding-start: 24px;
+        --background: var(--ion-color-primary);
+        color: white;
+        --border-color: transparent;
+        box-shadow: 0 0 3px 0 var(--ion-color-medium);
+        ion-icon{
+            color: white;margin: 0;
+        }
+    } 
+
+    .not-active {
+        --padding-start: 0px;
+        --padding-start: 24px;
+        margin: 0px auto 20px;
+        --border-color: transparent;
+        color: var(--ion-color-primary);
+        box-shadow: 0 0 3px 0 var(--ion-color-medium);
+    }
+    .error {
+        color: rgb(255, 0, 0);
+        font-size: 10px;
+        padding-left: 16px;
+    }
+    p{
+        color: var(--ion-color-primary);
+        padding-left: 16px;
+        margin-bottom: 0px;
+        span{
+            float: right;
+            padding-right: 16px;
+            color: red;
+            font-weight: bold;
+        }
+    }
+    .info{
+        border-bottom: 1px solid #f5f5f5;
+        ion-item{
+            --border-color:  transparent;
+        }
+    }
+    .booking_date{
+        padding: 16px 0px;
+        background: white;
+        margin: 10px 0px;
+    }
+    .btn_class{
+        text-transform: capitalize;
+        font-weight: bold;
+        float: left;
+        --border-radius: 25px;
+        margin: 0px 0px 20px;
+    }
+    .input-div{
+        border: 1px solid #e6e6e6;
+        margin: 8px 16px;
+        height: 40px;
+        border-radius: 5px;
+        .sc-ion-input-md-h {
+            --padding-top: 0px;  
+        }
+    }
+    ion-list{
+        .timeGrid{
+            ion-icon{
+                color: var(--ion-color-primary);
+                font-size: x-large;
+            }
+            div {
+                padding: 10px 0px;
+                font-size: 12px;
+                border-radius: 5px;
+                background: #eeeeee;
+                text-align: center;
+                width: 84%;
+                margin: auto;
+            }
+            ion-label {           
+                font-weight: bold;
+                color: black;
+            }
+            .active {
+                background:  var(--ion-color-primary);
+                ion-label {
+                    color: white;
+                }
+            }
+        }
+    }
+    .stepTwo{
+			h3{margin: 0px;
+		   font-size: 18px;
+		}
+		.right-part{
+            .patient-count{
+                display: flex;
+                img{
+                    width: 30px;
+                }
+            }
+            ion-item {
+                --border-color:  transparent;
+            }
+            padding: 16px;
+            border: 1px solid #d4d6d7;
+            background: white;
+            margin: 16px 0px;
+            .split-para { margin:10px;font-weight: normal;}
+            .split-para span { float:right;margin-left:10px; font-weight: normal;}
+            .final-para { margin:10px;font-weight: bold;}
+            .final-para span { float:right;margin-left:10px; font-weight: bold;}
+        }
+        .coupones{
+            display: flex;
+            padding: 10px 10px;
+            border: 1px solid #d4d6d7;
+            background: white;
+            margin: 16px 0px;
+            .title{
+                padding: 0px 10px;
+                color: var(--ion-color-primary);
+                margin-top: 5px;
+                span{
+                    float: right;
+                }
+            }
+        }
+        img{
+            width: 35px;
+        }
+        p{
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+            padding-left: 0px;
+        }
+        .timeGrid{
+            div {
+                padding: 10px 0px;
+                font-size: 12px;
+                border-radius: 5px;
+                background: #eeeeee;
+                text-align: center;
+                width: 84%;
+                margin: auto;
+            }
+            ion-label {           
+                font-weight: bold;
+                color: black;
+            }
+            .active {
+                /*border: 1px solid var(--ion-color-primary);*/
+                background:  var(--ion-color-primary);
+                ion-label {
+                    color: white;
+                }
+            }
+        }
+    }
+}

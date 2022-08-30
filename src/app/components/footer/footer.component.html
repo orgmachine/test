@@ -1,0 +1,70 @@
+<div class="footercontainer">
+<div class="footertop">
+<div class="container">
+<div class="row1">
+<div class="col-md-4 colu">
+<div class="footcont">
+<div class="footheading">Way2lab.com</div>
+<div [innerHtml]="address">
+</div>
+<div><ion-icon name="mail" style="padding-top: 4px;float: left;"></ion-icon>&nbsp;<a href="mailto:{{settings?.contact_email}}">{{settings?.contact_email}}</a></div>
+<div><ion-icon name="call"></ion-icon>&nbsp; <a href="tel:+919311213388">{{settings?.contact_phone}}</a></div>
+
+</div>
+
+<div class="socialfoot" style="margin-top:7px;"> 
+ <a [href]="settings?.facebook"  target="_blank"><img src="assets/social_01.png"></a>
+ <a [href]="settings?.twitter"  target="_blank"><img src="assets/social_02.png"></a>
+ <a [href]="settings?.linkedin"  target="_blank"><img src="assets/social_03.png"></a>
+ <a [href]="settings?.youtube"  target="_blank"><img src="assets/social_04.png"></a>
+ <a [href]="settings?.instragram"  target="_blank"><img src="assets/social_05.png"></a>
+</div>
+
+
+</div>
+
+<div class="col-md-2 colu">
+<div class="footheading">Browse</div>
+<div class="footcont">
+<ul>
+<li><a href="/health-packages">Health Packages</a></li>
+<li><a href="/offers" >Exclusive Offers</a></li>
+<li><a href="/contact">Report an Issue</a></li>
+<li><a href="/contactus" >Help</a></li>
+<li><a href="/faq" >FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="col-md-3 colu">
+<div class="footheading">Quick Links</div>
+<div class="footcont">
+<ul>
+<li><a href="/about">About Us</a></li>
+<li><a href="/terms">Terms of Service</a></li>
+<li><a href="/privacy">Privacy Policy</a></li>
+
+ <li><a href="/refund" >Refund & Cancellation Policy</a></li> 
+</ul>
+</div>
+</div>
+
+<div class="col-md-3 colu">
+<div class="footheading">Recognitions</div>
+<div class="footcont">
+<ion-slides  [options]="slideOptsmob2">
+      <ion-slide><img src="assets/award1.jpg"></ion-slide>
+	  <ion-slide><img src="assets/award2.jpg"></ion-slide>
+	  <ion-slide><img src="assets/award3.jpg"></ion-slide>
+    </ion-slides></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footerbot">
+<div class="container">
+<div class="row">
+ <div class="col-md-12" >© 2022 All rights reserved.</div> 
+</div>
+</div></div>
+
+</div>

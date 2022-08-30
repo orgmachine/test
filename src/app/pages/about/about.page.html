@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<ion-content class="">
+
+<div class="container">
+
+<div class="row">
+	 <div class="col-md-12 col-lg-12 col-xl-12">
+		<h3 style="margin: 20px 0 0 0;display: inline-block;border-bottom: 2px solid #ea5b24;">About Us</h3>
+		</div>	
+	</div>
+
+<br>
+<div class="abttxt p-4 text-justify" >
+<p [innerHTML]="about?.about" ></p>
+</div>
+<div class="col-md-12 abtmistxt">
+<div class="row">
+<div class="col-md-12 col-lg-5 col-xl-5 align-center"><img class="imgmv" src="assets/mission.jpg" ></div>
+ <div class="col-md-12 col-lg-7 col-xl-7">
+		<h3 style="display: inline-block;border-bottom: 2px solid #ea5b24;">Mission</h3><br><br>
+			
+ <p [innerHTML]="about?.mission" ></p></div>
+</div></div>
+<div class="col-md-12 abtvistxt">
+<div class="row">
+<div class="col-md-12 col-lg-7 col-xl-7">
+<h3 style="display: inline-block;border-bottom: 2px solid #ea5b24;">Vision</h3><br><br>
+<p [innerHTML]="about?.vision" ></p></div>
+<div class="col-md-12 col-lg-5 col-xl-5 align-center"><img class="imgmv" src="assets/vis.jpg" ></div>
+</div></div>
+<div class="col-md-12 abtyteamtxt" style="text-align: center;">
+<h1 class="u-text-1"  style="display: inline-block;border-bottom: 2px solid #ea5b24;">Our Team</h1>
+<p class="u-text-2">Corporate relationship of hospitals in India</p>
+<div class="row">
+<div class="col-md-12 col-lg-4 col-xl-4 align-center" *ngFor="let item of members" (click)="viewInfo(item)"> 
+<div alt="" class="teambox">
+<div alt="" class="u-image u-image-circle u-image-1"><img  class="imgtm" [src]="item.image" ></div>
+<h3 class="u-text-3">{{item.name}}</h3>
+<div class="u-text-4">{{item.designation}}</div>
+<p class="u-text-5" [innerHTML]="item.description"></p>
+ <div class="socialfoot my-4">
+            <a [href]="item.facebook" target="_blank"
+              ><ion-icon name="logo-facebook" color="primary"></ion-icon
+            ></a>
+            <a [href]="item.twitter" target="_blank"
+              ><ion-icon name="logo-twitter" color="primary"></ion-icon
+            ></a>
+            <a [href]="item.linkedin" target="_blank"
+              ><ion-icon name="logo-linkedin" color="primary"></ion-icon
+            ></a>
+            <a [href]="item.instagram" target="_blank"
+              ><ion-icon name="logo-instagram" color="primary"></ion-icon
+            ></a>
+          </div>
+</div></div>
+</div>
+</div>
+
+
+
+</div>
+  <app-footer></app-footer>
+</ion-content>

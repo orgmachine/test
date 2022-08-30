@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'Notifications' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+   <div *ngIf="all_notifications.length == 0" class="noData">
+      <img src="assets/no_data_found.png" style="width: 50%;">
+      <p>No Notifications Yet</p>
+   </div>
+</ion-content>

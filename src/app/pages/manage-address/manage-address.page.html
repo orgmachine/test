@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<ion-content><div class="container"><div class="row" style="margin: 50px 0;">
+    <div *ngIf="address.length == 0" class="noData">
+       <img src="assets/no_data_found.png">
+    </div>
+        <div class="col-md-12 col-lg-6 col-xl-6 address-div" *ngFor="let item of address">
+            <div class="list">
+                <div class="title">{{item.label}}  <br>
+                    <span> {{item.phone}}</span><br>
+                    <span class="name">{{item.street}} {{item.locality}} {{item.landmark}} {{item.pincode}}
+                    {{item.city}} {{item.state}}</span>
+                </div>
+            </div>
+            <div class="bottom">
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-button (click)="editAddress(item)" mode="ios" class="green" fill="clear">
+                        Edit This Address
+                    </ion-button>
+                    <ion-button [disabled]="isDelete == false" (click)="deleteAddress(item.id)" mode="ios" class="red" fill="clear" slot="end">
+                        Remove Address
+                    </ion-button>
+                </ion-item>
+            </div>
+        </div></div>
+		<div class="row" style="margin: 50px 0;">
+    		<ion-button (click)="addNew()" class="btn_class" style="margin:0 auto;">
+              Add New Address
+            </ion-button>
+		</div>
+    </div>
+	<app-footer></app-footer>
+</ion-content>

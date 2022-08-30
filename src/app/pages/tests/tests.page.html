@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<ion-content>
+   <div class="ShopByProducts">
+<div class="container">
+   <div class="row">
+      <div class="col-sm-4">
+         <div style="margin:30px auto"><div class="ct-heading h-align-left item-st-default" style="text-align: left;"><div class="item--sub-title style-default">All Health Tests</div>
+            <img src="assets/org_line.png">
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-3 agesel">
+         <label>Age Group :</label>
+         <select [(ngModel)]="recommended_age" class="form-control">
+            <option value="">Please select Age Group</option>
+            <option *ngFor="let i of age_groups" value="{{i.id}}">{{i.name}}</option>
+         </select>
+      </div>
+      <div class="col-sm-3 agesel">
+         <label>Suitable For : </label>
+         <select [(ngModel)]="test_recommended_for" class="form-control">
+            <option value="">Please select gender</option>
+            <option *ngFor="let i of recommended_fors" value="{{i.id}}">{{i.name}}</option>
+        </select>
+     </div>
+     <div class="col-sm-1">
+         <label></label>
+         <button type="button" (click)="search()" class="btn btn-success">Search</button>
+      </div>
+      <div class="col-sm-1">
+         <label></label>
+         <button *ngIf="filter" type="button" (click)="clear()" class="btn btn-danger" >Clear</button>
+         
+      </div>
+   </div>
+   <ul class="filter">
+         <!-- <li (click)="activateLetter('')" [ngClass]="{'btn-secondary':activeLetter==''}"
+            class="btn btn-success1 btn-lg">ALL
+         </li> -->
+         <li *ngFor="let letter of alphabets;let i = index;"
+            (click)="activateLetter(letter)"
+            class="btn btn-success1 btn-lg"
+            [ngClass]="{'btn-secondary':letter==activeLetter}">{{letter}}
+         </li>
+      </ul>
+   <div class="row">
+      <div class="col-md-12 col-lg-3 col-xl-3" *ngFor="let item of all_tests | orderBy : activeLetter" (click)="goToDetail(item)">
+         <div class="grid-item-inner">
+            <p class="category_name">{{item.test_name}}</p> 
+         </div>         
+      </div>
+	</div></div>
+</div>
+   <app-footer></app-footer>
+</ion-content>

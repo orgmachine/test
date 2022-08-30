@@ -1,0 +1,7 @@
+{
+  "name": "Way2Lab",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

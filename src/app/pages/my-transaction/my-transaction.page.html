@@ -1,0 +1,67 @@
+<app-header></app-header>
+
+<ion-content>
+<div class="container">
+
+<div class="row">
+	 <div class="col-md-12 col-lg-12 col-xl-12">
+		<h3 >Transaction Listing</h3>
+		</div>	
+	</div>
+
+  <div style="margin:2% 0 2% 0%;">
+    <div class="starend">
+      <ion-label>Show transactions between :</ion-label>
+      <div class="strtdat">
+        <input type="date" [(ngModel)]="start_date"  [placeholder]="('Start Date' | translate )"> 
+      </div>
+        <ion-label>To :</ion-label>
+      <div class="enddat" >
+
+        <input type="date" [(ngModel)]="end_date" [placeholder]="('End Date' | translate )">
+
+      </div> 
+       
+      <ion-button (click)="submit()"  >
+        Submit
+      </ion-button>
+    </div>          
+  </div>
+
+  <div *ngIf="transactions.length == 0" class="noData">
+    <img src="assets/no_data_found.png">
+    <p>No Transaction Yet</p>
+  </div>
+  <div *ngIf="transactions.length !== 0">
+  <table class="table-responsive ">
+  <thead>
+    <tr >
+      <th scope="col">Transaction ID</th>
+      <th scope="col">Booking ID</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Status</th>
+	  <th scope="col">Date</th><th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of transactions;let i=index;" >
+      <td><p>{{item.transactionid}}</p></td>
+      <td><p>{{item.booking_id}}</p></td>
+      <td>{{item.amount | currency:'INR':true }}</td>
+      <td> 
+	      <div style="display: flex;">
+          <ion-icon name="checkmark-circle" color="primary" *ngIf="item.status === 'success'" style="padding-top: 8px;padding-right: 5px;"></ion-icon>
+<!--           <ion-icon name="close-circle" color="danger" *ngIf="item.status === 'failed'" style="padding-top: 8px;padding-right: 5px;"></ion-icon> -->
+          <p>
+            <b>{{item.status}} </b>
+          </p>
+        </div>
+      </td>
+	  <td><p class="date">{{item.createdAt}}</p></td>
+	  <td><ion-button (click)="transaction(item)" expand="">View Details</ion-button> </td>
+    </tr>
+  </tbody>
+</table>
+  </div></div>
+<app-footer></app-footer>
+</ion-content>

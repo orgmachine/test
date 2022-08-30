@@ -1,0 +1,120 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.razorpay.cordova": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-open-native-settings": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-apprate": {
+      "PLAY_CORE_VERSION": "1.+",
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-document-viewer": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-email-composer": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-file-opener2": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-firebase-authentication": {
+      "ANDROID_FIREBASE_AUTH_VERSION": "20.0.+",
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-firebase-config": {
+      "ANDROID_FIREBASE_CONFIG_VERSION": "21.0.+",
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova.plugins.diagnostic": {
+      "ANDROID_SUPPORT_VERSION": "28.+",
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "mx.ferreyra.callnumber": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "app.way2lab"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-support-android-plugin": {
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "cordova-plugin-firebase-analytics": {
+      "ANALYTICS_COLLECTION_ENABLED": "true",
+      "AUTOMATIC_SCREEN_REPORTING_ENABLED": "true",
+      "ANDROID_FIREBASE_ANALYTICS_VERSION": "19.0.+",
+      "PACKAGE_NAME": "app.way2lab"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "app.way2lab"
+    }
+  }
+}

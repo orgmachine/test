@@ -1,0 +1,197 @@
+.header {
+    ion-icon {
+        color: white;
+        font-size: 27px;
+    }
+    background: var(--ion-color-primary);
+    .lefthead {
+        display: flex;
+        position: absolute;
+        margin-top: 10px;
+        ion-menu-button {
+            color: white;
+            font-size: xx-large;
+        }
+        ion-label {
+            font-size: 18px;
+            color: white;
+            font-weight: 600;
+            margin: 0px 5px;  
+            position: relative;
+            left: 10px;      
+        }
+        span {
+            color: #dbbf5e;
+            margin-left: 30px;
+        }
+    }
+    .righthead {
+        padding: 16px 10px;
+        display: flex;
+        float:  right;
+    }
+    .sc-ion-searchbar-md {
+        padding-inline-end: 30px !important;
+        font-size: 12px !important;
+    }
+}
+
+.menu{
+    margin-top: 7px;
+    ion-icon {
+        font-size: x-large;
+        color: var(--ion-color-secondary);
+    }
+}
+.logo_img { }
+
+.social img{padding:0 4px;}
+.ct-header-main{margin: 12px 0;padding-bottom: 10px;
+box-shadow: 0 3px 6px -1px #e2e2e2;}
+.ct-main-menu > li span {
+    cursor: pointer;
+    padding: 5px;
+}
+.ct-topbar-city{
+    margin-right: 20% !important;
+    ion-select{
+        padding: 0px;
+        font-size: 13px;
+    }
+    ion-select::part(icon) {
+       margin-top: 1px;
+       width: 17px;opacity: 1 !important;
+    }
+}
+
+
+app-home.ion-page .ct-header-main {
+  margin: 10px 0;
+  padding-bottom: 10px;
+  box-shadow: none !important;
+}
+
+.uplopre{
+    .cart{
+        background: #fff;
+        ion-icon {
+            color: black;
+            font-size: xx-large;
+            margin-right: 5px;
+        }
+    }
+    .prescription{
+        position: relative;
+        top: -10px;
+    }
+}
+
+.navbar {
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;cursor:pointer;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 14px !important;  
+  border: none;
+  outline: none;
+  color: #000;
+  padding:5px 20px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color:#dddddd;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: #f0f0f0;
+  width: 100%;
+  
+  z-index:9999;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  min-height: 200px;
+}
+
+.column a {float: none;
+color: black;
+padding: 6px;
+text-decoration: none;
+display: inline-block;
+text-align: left;
+width: 33%;
+}
+
+.column2 a {float: none;
+color: black;
+padding: 6px;
+text-decoration: none;
+display: inline-block;
+text-align: left;
+width: 50%;
+}
+.column a:hover {
+  background: #dddddd ! important;
+}
+
+/* Clear floats after the columns */
+.rowww:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;height: 200px;
+overflow: scroll;
+  }
+  .navbar{
+  overflow: hidden;
+  padding: 0;
+}
+.navbar a {
+  float: none;
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;cursor:pointer;
+}
+
+.dropdown {
+  float: none;
+  overflow: hidden;
+}
+}
+
+.menumob {height: 25px;}
+
+ion-select::part(icon) { 
+	opacity: 1;
+}

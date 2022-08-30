@@ -1,0 +1,28 @@
+<app-header></app-header>
+<ion-content>
+<div class="container">
+
+<div class="row">
+	 <div class="col-md-12 col-lg-12 col-xl-12">
+		<h3  class="greeheading">Tickets Raised</h3>
+		</div>	
+	</div>
+<ion-progress-bar type="indeterminate" *ngIf="!spinner" mode="ios"></ion-progress-bar>
+
+  <div *ngIf="support.length == 0" class="noData">
+    <img src="assets/no_data_found.png" style="width: 50%;">
+    <p>No Support Tickets Raised</p>
+  </div>
+  <ion-item *ngFor="let item of support;let i=index;" [attr.style]="sanitizer.bypassSecurityTrustStyle('--animation-order: ' + i)" class="item">
+    <p class="date">{{item.createdAt |  date}}</p>
+    <ion-label text-wrap class="sidetxt">
+      <h2 class="name"> {{item.reason}}</h2>
+      <p><span><b>Ticket Id:</b></span> {{item.id}}</p>  
+      <p *ngIf="item.status==0"><span><b>Status:</b></span> Pending</p>
+      <p *ngIf="item.status==1"> <span><b>Status:</b></span> Resolved</p>
+      <p *ngIf="item.status==1"> <span><b>Response:</b></span> {{item.response}}</p>
+    </ion-label>
+  </ion-item>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

@@ -1,0 +1,107 @@
+ion-content {
+  p {
+    font-size: 13px;
+    color: var(--input-color);
+    margin-bottom: 23px;
+  }
+  .main-heading {
+  color: #fff;
+  font-size: 32px;
+  background-color: var(--ion-color-secondary);
+  padding: 20px;
+  margin: 10px 0 0 0;
+  display: inline-block;
+  display: block;
+}
+}
+
+
+.row-card {
+  max-height: 600px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  max-width: 420px;
+  float: right;
+  margin: 20px 50px;
+  padding: 20px 28px;
+  background-color: var(--ion-color-secondary-contrast);
+  border-radius: 20px;
+
+  &__image-container {
+  }
+
+  &--low-margin {
+    margin: 10px 40px;
+  }
+
+  &__image {
+    margin: 1.2rem;
+    filter: drop-shadow(0 6px 10px #000);
+    max-width: 290px;
+    width: 210px;
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  &--clickable {
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    &:hover {
+      transform: translateY(-8px);
+    }
+  }
+
+  @media only screen and (max-device-width: 480px) {
+    /* styles for mobile browsers smaller than 480px; (iPhone) */
+    margin: 20px 10px;
+  }
+  @media only screen and (device-width: 768px) {
+    /* default iPad screens */
+    margin: 20px 10px;
+  }
+}
+
+.team-member {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  @media only screen and (max-device-width: 480px) {
+    /* styles for mobile browsers smaller than 480px; (iPhone) */
+    margin: 20px 10px;
+    flex-direction: column;
+  }
+  @media only screen and (device-width: 768px) {
+    /* default iPad screens */
+    margin: 20px 10px;
+    flex-direction: column;
+  }
+
+  &__designation {
+    border-bottom: 2px solid var(--ion-color-primary);
+    padding-bottom: 12px;
+    font-size: 17px;
+    color: rgb(139, 136, 136);
+  }
+}
+
+.socialfoot {
+  ion-icon {font-size: 18px;
+margin: 0px 5px;
+  }
+}
+
+.content-container {
+  border-radius: 18px;
+
+  p {
+    line-height: 2rem;
+    font-size: 1.2rem;
+  }
+}
+.h3 {
+  text-align: center;
+}

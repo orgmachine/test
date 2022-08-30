@@ -1,0 +1,78 @@
+<app-header></app-header>
+<ion-content>
+<div class="container">
+<div class="row">
+    <div class="col-md-12 col-lg-7 col-xl-7">
+        <ion-item button [routerLink]="['/bookings']">
+            <ion-thumbnail slot="start">
+                <ion-icon name="list-outline" color="secondary"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>My Lab Test <br> <small>View all your recent lab test</small></ion-label>
+            <ion-thumbnail slot="end" class="last">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item button [routerLink]="['/members']">
+            <ion-thumbnail slot="start">
+                <ion-icon name="person-add-outline" color="secondary"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>My Patients <br> <small>View all your patients you have added</small></ion-label>
+            <ion-thumbnail slot="end" class="last">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item button [routerLink]="['/manage-address']">
+            <ion-thumbnail slot="start">
+                <ion-icon name="location-outline" color="secondary"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>Manage Address <br> <small>You can add, edit and delete your address</small></ion-label>
+            <ion-thumbnail slot="end" class="last">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item button [routerLink]="['/my-wallet']">
+            <ion-thumbnail slot="start">
+                <ion-icon name="wallet-outline" color="secondary"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>My Wallet<br> <small>You can check you wallet amount and transactions</small></ion-label>
+            <ion-thumbnail slot="end" class="last">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item button [routerLink]="['/my-transaction']">
+            <ion-thumbnail slot="start">
+                <ion-icon name="card-outline" color="secondary"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>My Transactions <br> <small>View all your recent transactions</small></ion-label>
+            <ion-thumbnail slot="end" class="last">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item button  (click)="logout()">
+            <ion-thumbnail slot="start">
+                <ion-icon name="log-out-outline" color="secondary"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>Logout </ion-label>
+            <ion-thumbnail slot="end" class="last">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-thumbnail>
+        </ion-item>
+    </div>
+    <div class="col-md-12 col-lg-5 col-xl-5">
+        <div class="profileItem">
+            <div style="display: block;width: 100%;margin: 0 auto;text-align: center;">
+               <img class="profile" src="{{profile?.imagePath}}" *ngIf = "profile?.imagePath != ''">
+               <img class="profile" src="assets/noProfile.jpg" *ngIf = "profile?.imagePath == ''">
+            </div>
+            <div>
+                <p class="name">{{profile?.name}}</p>
+                <p class="email">{{profile?.email}}</p> 
+                <p class="email">{{profile?.code}} {{profile?.phone}}</p>
+                <ion-icon name="create-outline" (click)="profilego()" slot="end" style="font-size: xx-large;"></ion-icon>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+	<app-footer></app-footer>
+</ion-content>

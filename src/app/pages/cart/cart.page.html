@@ -1,0 +1,313 @@
+<app-header></app-header>
+<ion-content *ngIf="cart_length != 0">
+  <div class="container"> 
+    <div class="row">
+      <div class="cartmain" style="" >
+      <div class="col-md-12 col-lg-6 col-xl-6">
+        <div *ngIf="stepOne" class="stepOne">
+          <ion-item class="active">
+            <ion-icon name="add-outline" slot="end" ></ion-icon>
+            <h3 class="heading">Patient Details</h3>
+          </ion-item>
+          <ion-item class="news">
+            <img src="assets/safe.png" slot="start">
+            <p>100% of our phlebotomists are vaccinated for COVID-19</p>
+          </ion-item>
+          <div><b>Step 1: Select Patient</b></div>
+          <div class="second-news">
+            <p>
+              1. Please select all the patients for whom you have to book the test.<br>
+              2. All selected patients should have the same address.
+            </p>
+          </div>
+          <ion-item class="news" *ngIf="members.length == 0">
+            <img src="assets/list.png" slot="start">
+            <p>No Saved Patients</p>
+          </ion-item>
+          <div *ngIf="members.length !== 0">
+            <!-- <ion-item class="memberList" *ngFor="let item of members;let i=index;">
+              <ion-label>{{item.name}}
+              <br>
+              {{item.age}}, {{item.gender}}</ion-label>
+              <ion-checkbox slot="start" (ionChange)="selectMember($event,item,i)"></ion-checkbox>
+            </ion-item> -->
+
+            <ion-radio-group [(ngModel)]="member_details" >
+            
+              <ion-item *ngFor="let item of members;let i=index;" (click)="selectMember(item)">
+                  <ion-label>{{item.name}}
+                   <br>
+                   {{item.age}}, {{item.gender}}</ion-label>
+                  <ion-radio  class="radioclass" slot="start" [value]="item" mode="ios"></ion-radio>
+              </ion-item>
+              
+          </ion-radio-group>
+          </div>
+          <div><span (click)="addMember()"> + ADD NEW PATIENT</span></div>
+          <div>
+            <ion-button class="btn_class" (click)="goToStepTwo()" type="submit" expand="block"  [disabled]="selectedMember.length == 0">
+              Proceed
+            </ion-button>
+          </div>
+      </div>
+      <div *ngIf="stepTwo" class="stepOne">
+        <ion-item class="active">
+          <ion-icon name="add-outline" slot="end" ></ion-icon>
+          <h3 class="heading">Sample Collection Mode, Address and Details</h3>
+        </ion-item>
+        <ion-item class="news">
+          <img src="assets/safe.png" slot="start">
+          <p>100% of our phlebotomists are vaccinated for COVID-19</p>
+        </ion-item>
+        <div *ngIf="isMode">
+         <div><b>Step 2: Select sample collection mode and address:</b></div>
+         <ion-list>
+          <ion-radio-group [(ngModel)]="collection_mode" (ionChange)="radioMode(collection_mode)">
+            <ion-row>
+              <ion-col size="6" *ngFor="let i of cart?.service_delivery">
+                <ion-item>
+                  <ion-label>{{i}}</ion-label>
+                  <ion-radio  class="radioclass" slot="start" [value]="i" mode="ios"></ion-radio>
+                </ion-item>
+              </ion-col>
+      <!--         <ion-col size="6">
+                <ion-item>
+                  <ion-label>Home Collection</ion-label>
+                  <ion-radio slot="start" value="Home Collection"></ion-radio>
+                </ion-item>
+              </ion-col> -->
+            </ion-row>
+          </ion-radio-group>
+        </ion-list>
+          <div class="second-news" *ngIf="collection_mode == 'Home Visit'">
+            <p>
+              A phlebotomist will visit you to collect samples
+            </p>
+          </div>
+		  <div class="second-news" *ngIf="collection_mode == 'Lab Service'">
+            <p>
+              Please visit lab at selected date and time to conduct test
+            </p>
+          </div>
+          <ion-item class="news" *ngIf="address.length == 0">
+            <img src="assets/list.png" slot="start">
+            <p>No Saved Address</p>
+          </ion-item>
+          <div *ngIf="address.length !== 0">
+            <ion-radio-group [(ngModel)]="selectedAddress" (ionChange)="selectAddress(selectedAddress)">
+              <ion-item class="memberList" *ngFor="let item of address;let i=index;">
+                <ion-label class="atitle">{{item.label}}
+                <br>
+                <small class="asubtitle">{{item.street}} {{item.locality}} {{item.landmark}} {{item.pincode}} {{item.city}} {{item.state}} <br> {{item.phone}}</small>
+                </ion-label>
+                <ion-radio  class="radioclass" [value]="item.id" slot="start" mode="ios"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </div>
+          <div><span (click)="addAddress()"> + ADD NEW ADDRESS</span></div>
+          <div>
+            <ion-row>
+<!--               <ion-col>
+                <ion-button class="pre_class" (click)="previousMode()" type="submit" expand="block">
+                  Previous
+                </ion-button>
+              </ion-col> -->
+              <ion-col>
+                <ion-button class="btn_class" (click)="nextMode()" type="submit" expand="block"
+                 [disabled]="selectedAddress == '' || collection_mode == ''">
+                  Proceed
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+        <div *ngIf="!isMode">
+          <div><b>Step 2: Select sample collection date and time:</b></div>
+          <div class="booking_date">
+            <p>Booking Date</p>
+            <div class="input-div">
+              <ion-input [(ngModel)]="booking_date" max="{{maxDate}}" min="{{minDate}}" type="date" placeholder="Please Enter Booking Date" (ionChange)="test_timing(booking_date)"></ion-input>
+             <!--  </input> -->
+            </div>
+            <p style="color:red;margin-top: 20px" *ngIf="timing.length==0">Test is not available on this date. Please choose another date.</p>
+          </div>
+          <div>
+            <p *ngIf="timing.length!=0">Booking Time Slot</p>
+            <ion-radio-group [(ngModel)]="booking_time">
+              <ion-item class="memberList" *ngFor="let item of timing">
+                <ion-label>{{item}}</ion-label>
+                <ion-radio  class="radioclass" value="{{item}}" slot="start" mode="ios"></ion-radio>
+              </ion-item>
+             <!--  <ion-item class="memberList">
+                <ion-label>12:00 PM - 03:00 PM</ion-label>
+                <ion-radio value="12:00 PM - 03:00 PM" slot="start" mode="md"></ion-radio>
+              </ion-item>
+              <ion-item class="memberList">
+                <ion-label>03:00 AM - 06:00 PM</ion-label>
+                <ion-radio value="03:00 AM - 06:00 PM" slot="start" mode="md"></ion-radio>
+              </ion-item> -->
+            </ion-radio-group>
+          </div>
+          <div>
+            <ion-row>
+<!--               <ion-col>
+                <ion-button class="pre_class" (click)="goBackTwo()" type="submit" expand="block">
+                  Previous
+                </ion-button>
+              </ion-col> -->
+              <ion-col>
+                <ion-button class="btn_class" (click)="goToStepThree()" type="submit" expand="block"
+                 [disabled]="booking_time == '' || booking_date == '' || timing.length==0">
+                  Checkout
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="stepThree" class="stepOne">
+        <ion-item class="active">
+          <ion-icon name="add-outline" slot="end" ></ion-icon>
+          <h3 class="heading">Payment Details</h3>
+        </ion-item>
+        <div class="summary">
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-icon name="calendar-outline"></ion-icon>
+                <p>{{booking_date}}</p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-icon name="time-outline"></ion-icon>
+                <p>{{booking_time}}</p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-icon name="medkit-outline"></ion-icon>
+                <p>{{collection_mode}}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="last-col">
+                <ion-icon name="location-outline"></ion-icon>
+                <p>{{address_text}}</p>
+            </ion-col>
+          </ion-row>
+ <!--          <ion-button class="pre_class" (click)="edit()" type="submit" expand="block">
+            Edit Details
+          </ion-button> -->
+        </div>
+        <ion-card class="payment-class">
+          <ion-item (click)="proceed()">
+            <ion-thumbnail slot="start">
+              <img src="assets/razorpay.png" />
+            </ion-thumbnail>
+            <ion-label>Pay by Online</ion-label>
+            <ion-icon mode="ios" name="arrow-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-card>
+        <ion-card class="payment-class">
+          <ion-item (click)="payWithCash()">
+            <ion-thumbnail slot="start">
+              <img src="assets/cod.png" />
+            </ion-thumbnail>
+            <ion-label>{{'Pay by Cash' | translate}}</ion-label>
+            <ion-icon mode="ios" name="arrow-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-card>
+        <ion-card class="payment-class">
+          <ion-item (click)="walletPay()">
+            <ion-thumbnail slot="start">
+              <img src="assets/logo.png" />
+            </ion-thumbnail>
+            <ion-label>{{'Pay with wallet' | translate}} ({{currency_}} {{balance | number : '1.2-2'}})</ion-label>
+            <ion-icon mode="ios" name="arrow-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6 col-xl-6">
+      <div class="stepTwo">
+        <ion-item class="active">
+          <ion-icon name="add-outline" slot="end" ></ion-icon>
+          <h3 class="heading">Package Details</h3>
+        </ion-item>
+        <div class="right-part">
+          <div class="labnamecolo"  (click)="lab()">{{cart?.name}}<!-- <span style="float: right; color: orange;"><ion-icon name="close"></ion-icon></span> --></div> 
+          <!-- <h3>{{cart?.name}}</h3> -->
+          <div class="tags" *ngIf="cart?.test_data.length !==0">
+            <p><small *ngFor="let i of cart?.test_data; let p = index">{{i.itid.test_name}}<ion-icon name="close-outline" (click)="remove(p)"></ion-icon></small> <span style="float: right;"><!-- ₹ {{cart?.selling_price}} --></span></p>
+          </div>
+          <div class="patient-count" *ngIf="selectedMember.length !==0"><img src="assets/patient.PNG"><span> {{selectedMember.length}} patients</span></div>
+        </div>
+        <div class="coupones" (click)='openCoupon()' *ngIf="stepThree">
+          <img src="assets/discount.png"/>
+          <ion-label class="title">{{'Apply coupon code' | translate}}
+            <span *ngIf="couponCode !==''"  style="color:green;"> ({{couponCode}})</span>
+           
+          </ion-label>
+           
+        </div>
+        <div class="coupones"  *ngIf="couponCode !=='' && coupon_type =='cashback'">
+         
+          <ion-label  style="color:green;font-size:13px;"> {{cashback_amount}}₹ cashback will be added once your booking is completed.
+           </ion-label>
+        </div>
+
+        <div class="right-part" style="padding: 12px;">
+          <div class="split-para">M.R.P. Total <span>₹{{mrp_price}}</span></div>
+          <div class="split-para">Price Discount <span>- ₹{{discount_on_mrp}}</span></div>
+          <div class="split-para">Total Price <span> ₹{{total}}</span></div>
+          <div class="split-para" >Home Collection Charges <span>+ ₹{{deliveryAmount}}</span></div>
+          <div class="split-para" >Coupon Discount <span>- ₹{{promotion}}</span></div>
+          <div class="final-para">TO BE PAID <span>₹{{total - promotion + deliveryAmount}}</span></div>
+        </div>
+        <div class="right-part" style="padding: 12px;">
+          <p>COVID-19 Declaration</p>
+          <ion-item class="news">
+            <img src="assets/coronavirus.png" slot="start">
+            <p>Is someone at the sample collection address COVID-19 Positive?</p>
+          </ion-item>
+          <ion-grid class="timeGrid">
+            <ion-row>
+              <ion-col size="4" (click)="selectDec('Yes')">
+                <div [class.active]="declaration === 'Yes'">
+                  <ion-label>
+                    Yes
+                  </ion-label>
+                </div>
+              </ion-col>
+              <ion-col size="4" (click)="selectDec('No')">
+                <div [class.active]="declaration === 'No'">
+                  <ion-label>
+                    No
+                  </ion-label>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <div *ngIf="declaration == 'Yes'" style="font-size:12px">Thank you for informing. We will take proper safety measure during collection of the sample.</div>
+          <div *ngIf="declaration == 'No'" style="font-size:12px">Thank you for informing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>
+</ion-content>
+<ion-content *ngIf="cart_length == 0" style=" --background:#fff;">
+  <div class="noData">
+    <img src="assets/no_cart.jpg">
+    <p>Lab Cart Is Empty</p>
+    <small>Looks like you have no lab tests in your cart yet.</small>
+    <ion-button (click)="add()" type="submit" expand="block">
+      Add Test
+    </ion-button>
+  </div>
+</ion-content>

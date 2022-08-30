@@ -1,0 +1,94 @@
+#top-list {
+	background: linear-gradient(to bottom, #439213, #89c32f);
+ .item {
+    --padding-left: 0px;
+    --inner-padding-end: 0px;
+    --background: transparent;
+    color:#767676;
+ }
+}
+.logo_img {
+    width: 30%;
+    height: 30%;
+    margin: auto 0% auto 5%;
+}
+h1 {
+    font-size: 18px;
+    margin: auto;
+    font-weight: bold;
+    color: #fff;
+}
+.text {
+    margin: auto;
+    color: white;
+    font-size: 16px;
+    margin-left: -24px;
+    font-weight: bold;
+}
+.side_data{
+    text-align: center;
+}
+ion-item {
+	--background: transparent;
+	/*--border-bottom: 1px solid #ecd4d4;*/
+	padding-left: 8px;
+    /*--inner-border-bottom: 1px solid #767676;*/
+}
+#mid-list {
+	  background: #fff;
+	  padding: 0px;
+}
+.last_div {
+    background: #fff;
+}
+.links_text {
+	font-weight: bold;
+    font-size: 12px;
+    padding: 10px 0px 10px 24px;
+    color: #000;
+    background:#e2d67a;
+    margin: 0px;
+}
+.title {
+	/*font-family: sans-serif;*/
+    font-weight: bold;
+    color: #333333;
+    font-size: 14px;
+    margin-top: 8px;
+}
+ion-icon {
+    margin-inline-end: 16px;
+}
+.grid {
+	padding: 0px;
+    background: #fff;
+}
+.user_name {
+    color: #000;
+    font-size: 22px;
+    text-align:center;
+	font-family: sans-serif;}
+
+.col-item {
+	padding-left: 0px;
+	--inner-padding-start: 0px;
+	--padding-inline-start: 0px;
+    --border-color: #fff;}
+ion-col{
+	padding: 0px;
+	border: 1px solid #f7f7f7;
+}
+.col_name {
+	margin: 0px 5px 10px 5px;
+    text-align: center;
+	font-size: 12px;
+    font-weight: bold;
+    color: #8d8d8d
+}
+.footer_icon {
+    margin: 20px auto;
+    font-size: xx-large;
+}
+.submenuitem p {
+  padding-left: 80px;
+}

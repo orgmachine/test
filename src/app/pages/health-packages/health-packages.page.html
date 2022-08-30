@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<ion-content>
+  <div class="ShopByProducts">
+   <div class="container" >
+      <div class="row">
+         <div class="col-md-4 col-sm-4 col-xs-4">
+            <div class="ct-heading h-align-left item-st-default"><div class="item--sub-title style-default" >All Health Packages</div>
+               <img src="assets/org_line.png" >
+            </div>
+         </div>
+         <div class="col-sm-3">
+         <label>Age Group :</label>
+         <select [(ngModel)]="recommended_age" class="form-control">
+            <option value="">Please select Age Group</option>
+            <option *ngFor="let i of age_groups" value="{{i.id}}">{{i.name}}</option>
+         </select>
+         </div>
+          <div class="col-sm-3">
+             <label>Suitable For : </label>
+             <select [(ngModel)]="test_recommended_for" class="form-control">
+                <option value="">Please select gender</option>
+                <option *ngFor="let i of recommended_fors" value="{{i.id}}">{{i.name}}</option>
+            </select>
+           </div>
+        <div class="col-sm-1">
+           <label></label>
+           <button type="button" (click)="search()" class="btn btn-success">Search</button>
+        </div>
+        <div class="col-sm-1">
+           <label></label>
+           <button *ngIf="filter" type="button" (click)="clear()" class="btn btn-danger" >Clear</button>
+        </div>
+      </div>
+   
+<div class="row" style="margin-top: 30px;">
+      <div class="col-md-12 col-lg-3 col-xl-3" *ngFor="let item of all_packages">
+         <div class="grid-item-inner">
+            <div class="uptopmp">
+               <img class="mpopimg" src="assets/mp1_11.png">
+               <p class="category_namemp">{{item.test_name}}</p> 
+              <div class="desmp">
+              <ul><li>Total no.of Tests - {{item.parameter.length}}</li>
+              <li>Quick Turn Around Time</li>
+              <li>Reporting as per NABL ISO guidelines</li></ul>
+              </div>
+            </div>
+            <div class="butkmore">
+               <button ion-button  class="know_more" (click)="goToDetail(item)">Know More</button>
+            </div>
+         </div>
+      </div>
+   </div></div>
+   </div>
+<app-footer></app-footer>
+</ion-content>

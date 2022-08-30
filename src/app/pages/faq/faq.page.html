@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<ion-content>
+<div class="container">
+
+<h3 style="margin: 20px 0 0 0;display: inline-block;border-bottom: 2px solid #ea5b24;">FAQ</h3>
+<div class="block">
+
+  <div *ngFor="let item of faqs;let i =index;" class="darken">
+          <ion-item  [ngClass]="{'active': (showContent(i)==true), 'not-active': (showContent(i)==false)}"  (click)="showMilestone(i)">
+            <img *ngIf = "(showContent(i)==false)" src="assets/iconarrow.png" slot="end" class="arrow-icon2">
+            <img *ngIf = "(showContent(i)==true)" src="assets/downarrow.png" slot="end" class="arrow-icon">
+            <label class="item-{{i+1}}">{{item.question}}</label>
+          </ion-item>
+          <ion-list *ngIf = "showContent(i)" style="padding: 0px;">
+            <div >
+              <ion-item  class="milestone-item">
+                <p class="milestone" [innerHtml]="item.answer"></p>
+                </ion-item>
+              </div>
+            </ion-list>
+          </div>
+</div>
+
+ <br><br>
+
+
+
+
+
+</div>
+   <app-footer></app-footer>
+</ion-content>

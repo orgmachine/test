@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "234710310694",
+    "firebase_url": "https://way2lab-c6a78-default-rtdb.firebaseio.com",
+    "project_id": "way2lab-c6a78",
+    "storage_bucket": "way2lab-c6a78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234710310694:android:0779a21bf52e694e616be7",
+        "android_client_info": {
+          "package_name": "app.way2lab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234710310694-5gj518v0bdg1kgain2hfag8fv21a66oi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8NpNURGRkIIHYxy3AHOoHpqaDLUtr2MU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234710310694-5gj518v0bdg1kgain2hfag8fv21a66oi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

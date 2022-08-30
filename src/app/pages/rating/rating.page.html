@@ -1,0 +1,172 @@
+<app-header></app-header>
+<ion-content  class="ion-padding">
+	<div class="container"> 
+    <div class="row"><div class="col-md-12 col-lg-12 col-xl-12" style="display: inline-flex;">
+      <div class="col-md-12 col-lg-6 col-xl-6">
+        <div class="stepOne">
+        	<form [formGroup]="rateForm">
+	        	<ion-item class="active">
+		          <h3 class="heading">Feedback Form</h3>
+		        </ion-item>
+		        <div class="rating-form">
+						  <div class="star">
+				        <div class="text"><b>Price</b></div>
+			        	<ionic5-star-rating #price
+						      activeIcon = "star"
+						      defaultIcon = "star-outline"
+						      activeColor = "#439213" 
+						      defaultColor = "black"
+						      formControlName = price
+						      readonly = "false"
+						      [rating] = price
+						      fontSize = "16px"
+						      (ratingChanged)="logPriceRating($event)">
+						    </ionic5-star-rating>
+						  </div>
+						  <div class="star">
+				        <div><b>Lab Slot Timing</b></div>
+			        	<ionic5-star-rating #lab
+						      activeIcon = "star"
+						      defaultIcon = "star-outline"
+						      activeColor = "#439213" 
+						      defaultColor = "black"
+						      formControlName = lab
+						      readonly = "false"
+						      [rating] = lab
+						      fontSize = "16px"
+						      (ratingChanged)="logLabRating($event)">
+						    </ionic5-star-rating>
+						  </div>
+						  <div class="star">
+				        <div><b>Sample Collection Process</b></div>
+			        	<ionic5-star-rating #sample
+						      activeIcon = "star"
+						      defaultIcon = "star-outline"
+						      activeColor = "#439213" 
+						      defaultColor = "black"
+						      formControlName = sample
+						      readonly = "false"
+						      [rating] = sample
+						      fontSize = "16px"
+						      (ratingChanged)="logSampleRating($event)">
+						    </ionic5-star-rating>
+						  </div>
+						  <div class="star">
+				        <div><b>Report Result Quality</b></div>
+			        	<ionic5-star-rating #report
+						      activeIcon = "star"
+						      defaultIcon = "star-outline"
+						      activeColor = "#439213" 
+						      defaultColor = "black"
+						      formControlName = report
+						      readonly = "false"
+						      [rating] = report
+						      fontSize = "16px"
+						      (ratingChanged)="logReportRating($event)">
+						    </ionic5-star-rating>
+						  </div>
+						  <div class="star">
+				        <div><b>Over all Booking Experience</b></div>
+			        	<ionic5-star-rating #booking
+						      activeIcon = "star"
+						      defaultIcon = "star-outline"
+						      activeColor = "#439213" 
+						      defaultColor = "black"
+						      readonly = "false"
+						      formControlName = booking
+						      [rating] = booking
+						      fontSize = "16px"
+						      (ratingChanged)="logBookingRating($event)">
+						    </ionic5-star-rating>
+						  </div>
+						  <div class="star">
+						  	<div><b>Comment (Optional)</b></div>
+						  	<ion-textarea class="textarea" rows="3" cols="20" placeholder="Eg: Lab test service is excellent.." auto-grow="true" [(ngModel)]="remark" formControlName="comment"></ion-textarea>
+						  </div>
+						  <ion-button (click)="submit()" expand="block" [disabled]="rateForm.get('price').invalid || rateForm.get('lab').invalid || rateForm.get('sample').invalid || rateForm.get('report').invalid || rateForm.get('booking').invalid">
+						      Submit
+						  </ion-button>
+						</div>
+					</form>
+				</div>
+    	</div>
+    	<div class="col-md-12 col-lg-6 col-xl-6">
+	      <div class="stepTwo">
+	        <ion-item class="active">
+	          <h3 class="heading">Booking Details</h3>
+	        </ion-item>
+	        <div class="right-part">
+	          <h3><b>Booking Id: {{detail?.booking_id}}</b></h3>
+	          <h1>{{lab_detail?.name}}</h1>
+	          <p><small *ngFor="let i of detail?.test_data">{{i.itid.test_name}}</small> <span style="float: right;">₹ {{detail?.mrp_price}}</span></p>
+	          <div class="patient-count" *ngIf="detail?.member_id.length !==0"><img src="assets/patient.PNG"><span> {{detail?.member_id.length}} patients</span></div>
+	        </div>
+	        <div class="right-part">
+	          <div class="split-para">M.R.P. Total <span>₹{{detail?.mrp_price}}</span></div>
+	          <div class="split-para">Price Discount <span>- ₹{{detail?.discount_on_mrp}}</span></div>
+	          <div class="split-para">Total Price <span>- ₹{{detail?.total}}</span></div>
+	          <div class="split-para" *ngIf="detail?.coupon_code != ''">Coupon Discount <span>- ₹{{detail?.coupon}}</span></div>
+	          <div class="final-para">AMOUNT PAID <span>₹{{detail?.grand_total}}</span></div>
+	        </div>
+	      </div>
+	    </div>
+  	</div>
+	</div>
+</div>
+	<!-- <div class="top">
+		<ion-item style="--padding-start: 0px;">
+	      <ion-avatar slot="start" class="product_img">
+	        <img [src]="item_image">
+	      </ion-avatar>
+	      <ion-label text-wrap style="padding: 0px 10px 0px 10px;">
+	        <h2 style="font-size: 12px;"><b>{{item_name}}</b></h2>   
+	      </ion-label>
+	    </ion-item>
+	</div>
+	<div class="star-rating">
+		<ionic5-star-rating #rating
+	        activeIcon = "star"
+	        defaultIcon = "star-outline"
+	        activeColor = "#439213" 
+	        defaultColor = "black"
+	        readonly = "false"
+	        [rating] = rating
+	        fontSize = "12px"
+	        (ratingChanged)="logRatingChange($event)">
+	    </ionic5-star-rating>
+	    <h1>{{heading}}</h1>
+	</div>
+	<div class="recommendation">
+    <p>Based on the taste & quality of the product, would you recommend it to other</p>
+	    <ion-grid>
+	    	<ion-row>
+	    		<ion-col class="col-chip">
+		    		<ion-chip  (click)="tap(0)" [ngClass]="{'colored': first}">
+					  <ion-label>Yes</ion-label>
+					</ion-chip>
+	    		</ion-col>
+	    		<ion-col>
+		    		<ion-chip  (click)="tap(1)" [ngClass]="{'colored': second}">
+					  <ion-label>No</ion-label>
+					</ion-chip>
+	    		</ion-col>
+	    	</ion-row>
+	    </ion-grid>
+	</div>
+	<div class="form">
+		<p>Title</p>
+	    <ion-item>
+		  	<ion-input placeholder="Eg: Awesome product.." [(ngModel)]="title"></ion-input>
+	    </ion-item>
+	    <p>Product Review</p>
+	    <ion-item>
+		  	<ion-textarea class="textarea" rows="3" cols="20" placeholder="Eg: I like this product because.." auto-grow="true" [(ngModel)]="remark"></ion-textarea>
+	    </ion-item>
+	</div> -->
+	<app-footer></app-footer>
+</ion-content>
+<!-- <ion-footer class="ion-no-border">
+  <ion-button (click)="submit()" expand="block" [disabled]="!isEnabled">
+      Submit
+  </ion-button>
+</ion-footer> -->
